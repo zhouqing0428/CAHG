@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgLetterDao" >
+
+	<select id="letterInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			user_id,
+			remark,
+			intro,
+			photo
+		from
+			sys_user
+		where
+			is_letter_leader = "1"
+		limit
+			0,8
+	</select>
+	
+	
+	<select id="letterList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			letter_id,
+			title,
+			(select name from sys_user u where u.user_id = c.to_user_id) as user_name,
+			(select date_format(c.create_date,'%Y-%m-%d %H:%i:%s')  from sys_user u where u.user_id = c.to_user_id) as create_date
+		from	
+			cahg_letter c	
+		where
+			is_reply = "1"
+		and
+			is_delete = "0"
+		ORDER BY 
+			 create_date DESC  
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_letter
+		where
+			is_reply = "1"
+	</select>
+	
+	<select id="selectLetterConter" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			content
+		from
+			cahg_letter
+		where
+			letter_id = #{letter_id}
+	</select>
+	
+	<select id="reply" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			content,
+			title,
+			date_format(create_date,'%Y-%m-%d') as create_date,
+			(select name from sys_user u where u.user_id = c.create_user_id) as user_name
+		from
+			cahg_reply_letter c
+		where
+			letter_id = #{letter_id}
+	</select>
+	
+	<insert id="addLetter" parameterType="java.util.HashMap">
+		insert into
+			cahg_letter(title,author,status,create_date,is_reply,to_user_id,dept_name,duty_name,content)
+			values(#{title},#{author},"0",#{create_date},"0",#{to_user_id},#{dept_name},#{duty_name},#{content})
+	</insert>
+	
+	<select id="selectUserNameRemark" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			remark
+		from
+			sys_user
+		where
+			user_id = #{user_id}
+	</select>
+	
+	<select id="selectAttentive" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from cahg_letter_attentive
+	</select>
+</mapper>

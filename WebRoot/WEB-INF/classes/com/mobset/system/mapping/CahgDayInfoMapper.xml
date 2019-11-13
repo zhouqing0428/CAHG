@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgDayInfoDao" >
+
+	<!-- 首页每日信息列表 -->
+	<select id="indexDayInfoList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			day_id, day_title, date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date,
+			date_format(create_date,'%m-%d')  create_date_show
+		from
+			cahg_day_info
+		where
+			day_status = '0'
+		ORDER BY day_stick DESC,day_rank='', day_rank ASC , create_date DESC
+			limit 0,7
+	</select>
+	
+	<!-- 每日信息内容展示 -->
+	<select id="dayInfoDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			day_title,day_content,author,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,day_name,day_file_name,
+			author,date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+		from
+			cahg_day_info c
+		where
+			day_id = #{day_id}
+	</select>
+	
+	<!-- 每日信息列表 -->
+	<select id="dayInfoList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			day_id, day_title,date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date , author
+		from
+			cahg_day_info
+		where
+			day_status = '0'
+		and
+			1 = 1
+		<if test="title !=null and title !=''">
+			and (day_title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+			ORDER BY day_stick DESC,day_rank='', day_rank ASC , create_date DESC
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_day_info
+		where
+			day_status = '0'
+		and
+			1 = 1
+		<if test="title !=null and title !=''">
+			and (day_title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+	</select>
+</mapper>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgAddressLookDao" >
+	<!-- 通讯录列表 -->
+	<select id="addressLookList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			address_look_id,name,mobile,job_number,duty,interior,external
+		from
+			cahg_address_book c
+		where
+			1 = 1
+		<if test="dept_id !=null and dept_id !=''">
+			and dept_id = #{dept_id}
+		</if>
+		ORDER BY  
+			create_date desc
+	</select>
+	
+	<select id="selectDepteAddress" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from sys_dept  where 1 = 1
+		<if test="dept_id !=null and dept_id !=''">
+			and dept_id = #{dept_id}
+		</if>
+	</select>
+</mapper>

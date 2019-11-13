@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.deptDao" >
+	
+	<!-- 科室分类查询 -->
+	<select id="deptSelectList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			dept_id,
+			name
+		from
+			sys_dept
+	</select>
+	
+	<select id="deptDetails" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			 name, duty,regime,work_standard,role,file_name,file_old_name
+		from
+			sys_dept
+		where
+			dept_id = #{dept_id}
+	</select>
+	
+	
+	<select id="officeWorkCategory" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			*
+		from
+			cahg_office_work_category
+	</select>
+	
+	<select id="officeWorkFile" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			office_work_id,title,remark,file_name,file_old_name,date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+		from
+			cahg_office_work
+		where
+			office_work_category_id=#{office_work_category_id}
+		ORDER BY create_date DESC
+		 limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_office_work
+		where
+			office_work_category_id=#{office_work_category_id}
+	</select>
+	
+	<select id="selectDeptRegime" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			regime_id,title,file_name,file_old_name,date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+		from
+			sys_dept_regime
+		where
+			dept_id = #{dept_id}
+	</select>
+	<select id="selectDeptRegimeCount" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			sys_dept_regime
+		where
+			dept_id=#{dept_id}
+	</select>
+	
+	<select id="selectWorkStandard" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			work_standard_id,title,file_name,file_old_name,date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+		from
+			sys_dept_work_standard
+		where
+			dept_id = #{dept_id}
+	</select>
+	<select id="selectWorkStandardCount" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			sys_dept_work_standard
+		where
+			dept_id=#{dept_id}
+	</select>
+</mapper>

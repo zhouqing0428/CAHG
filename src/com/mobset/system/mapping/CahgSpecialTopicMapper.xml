@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgSpecialTopicDao" >
+	<!-- 首页专题专栏类型列表 -->
+	<select id="indexSpecialTopicCategoryList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			special_topic_category_id,
+			name,
+			img_name
+		from
+			cahg_special_topic_category
+		where
+			status = 0
+		order by rank ASC 
+	</select>
+	
+	<!-- 详情展示 -->
+	<select id="specialTopicDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			title,
+			content,
+			author,
+			file_name,
+			file_old_name,
+			create_date,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,
+			special_topic_category_id,
+			(select name from cahg_special_topic_category s where s.special_topic_category_id = c.special_topic_category_id) category_name
+		from
+			cahg_special_topic c
+		where
+			special_topic_id = #{special_topic_id}
+	</select>
+	
+	<!-- 左导航类型 -->
+	<select id="specialLeftList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			special_topic_category_id,
+			name
+		from
+			cahg_special_topic_category
+		where
+			status = 0
+			ORDER BY rank='', rank ASC
+	</select>
+	
+	<!-- 类型下的列表 -->
+	<select id="specialTopicList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			special_topic_id,
+			title,
+			author,
+			 date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+		from
+			cahg_special_topic
+		where
+			status = 0
+		and
+			special_topic_category_id = #{special_topic_category_id}
+		ORDER BY 
+			 create_date DESC  
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_special_topic
+		where
+			status = '0'
+		and
+			special_topic_category_id = #{special_topic_category_id}
+	</select>
+</mapper>

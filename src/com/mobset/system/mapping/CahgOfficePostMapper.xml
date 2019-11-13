@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgOfficePostDao" >
+
+	<!-- 首页本办发文列表 -->
+	<select id="indexOfficePostList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			office_post_id, title, date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date,
+			date_format(create_date,'%m-%d')  create_date_show
+		from
+			cahg_office_post
+		where
+			status = '0'
+		ORDER BY  create_date DESC  
+			limit 0,8
+	</select>
+	
+	<!-- 本办发文内容展示 -->
+	<select id="officePostDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			title,content,author,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,
+			date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date , file_old_name,file_name
+		from
+			cahg_office_post c
+		where
+			office_post_id = #{office_post_id}
+	</select>
+	
+	<!-- 本办发文列表 -->
+	<select id="officePostList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			office_post_id, title,date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date , 
+			author,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name
+		from
+			cahg_office_post c
+		where
+			status = '0'
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+		ORDER BY 
+			 create_date DESC  
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_office_post
+		where
+			status = '0'
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+	</select>
+	
+	<!-- IP查询 -->
+	<select id="selectIP" resultType="java.util.HashMap">
+		select * from iplimit 
+	</select>
+</mapper>

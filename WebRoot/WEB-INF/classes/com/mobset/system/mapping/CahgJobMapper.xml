@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgJobDao" >
+	<!-- 首页工作督办列表 -->
+	<select id="indexJobList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			job_id,title,content, date_format(create_user_date,'%Y-%m-%d %H:%i:%s')  create_date,status,
+			date_format(end_time,'%Y-%m-%d %H:%i:%s')  end_time ,date_format(create_user_date,'%m-%d')  create_date_show
+		from
+			cahg_job
+		ORDER BY  create_date DESC  
+			limit 0,8
+	</select>
+	
+	<!-- 工作督办内容展示 -->
+	<select id="jobDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			title,content,
+			date_format(create_user_date,'%Y-%m-%d %H:%i:%s')  create_date,job_file_path,job_file_name,
+			date_format(end_time,'%Y-%m-%d %H:%i:%s')  end_time,
+			status
+		from
+			cahg_job c
+		where
+			job_id = #{job_id}
+	</select>
+	
+	<!--工作督办列表 -->
+	<select id="jobList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			job_id, title,date_format(create_user_date,'%Y-%m-%d') create_date , 
+			date_format(end_time,'%Y-%m-%d')  end_time
+		from
+			cahg_job
+		where
+			 1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+		<if test="status !=null and status !=''">
+			and status = #{status}
+		</if>
+		ORDER BY 
+		    create_date DESC  
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_job
+		where
+			 1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+		<if test="status !=null and status !=''">
+			and status = #{status}
+		</if>
+	</select>
+	
+	<select id="detailList" parameterType="Integer" resultType="java.util.HashMap">
+		select
+			d.*,u.username, j.`status`
+		from
+			cahg_job_detail d,
+			sys_user u ,
+			cahg_job j
+		where
+			 d.job_id = #{job_id}
+		and d.create_user_id = u.user_id
+		and j.job_id = d.job_id
+	</select>
+</mapper>

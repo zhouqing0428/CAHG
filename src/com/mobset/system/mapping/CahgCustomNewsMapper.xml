@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgCustomNewsDao" >
+
+	<!-- 首页海关新闻列表 -->
+	<select id="indexCustomNewsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			custom_news_id,title,content, date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date,
+			date_format(create_date,'%m-%d')  create_date_show
+		from
+			cahg_custom_news
+		where
+			status = '0'
+		ORDER BY stick DESC,rank='', rank ASC , create_date DESC
+			limit 0,8
+	</select>
+	
+	<!-- 海关新闻内容展示 -->
+	<select id="customNewsDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			title,content,author,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,custom_file_path,custom_file_name,
+			author,date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+		from
+			cahg_custom_news c
+		where
+			custom_news_id = #{custom_news_id}
+	</select>
+	
+	<!-- 领导讲话列表 -->
+	<select id="customNewsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			custom_news_id, title,date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date , author
+		from
+			cahg_custom_news
+		where
+			status = '0'
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+		    ORDER BY stick DESC,rank='', rank ASC , create_date DESC
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_custom_news
+		where
+			status = '0'
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+	</select>
+	
+
+</mapper>

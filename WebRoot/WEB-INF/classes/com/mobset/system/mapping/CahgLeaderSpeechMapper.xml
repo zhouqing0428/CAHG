@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgLeaderSpeechDao" >
+	
+	<!-- 首页领导讲话列表 -->
+	<select id="indexLeaderSpeechList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			leader_speech_id, title,date_format(create_date,'%m-%d')  create_date_show
+		from
+			cahg_leader_speech
+		where
+			status = '0'
+		and
+			type="总办领导"
+		ORDER BY  create_date DESC  
+			limit 0,6
+	</select>
+	
+	
+	<select id="indexLeaderBSpeechList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			leader_speech_id, title,date_format(create_date,'%m-%d')  create_date_show
+		from
+			cahg_leader_speech
+		where
+			status = '0'
+		and
+			type = "本办领导"
+		ORDER BY  create_date DESC  
+			limit 0,6
+	</select>
+	
+	
+	<!-- 领导讲话详情展示 -->
+	<select id="leaderSpeechDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			leader_speech_id,title,content,file_name,file_old_name,type,date_format(create_date,'%Y-%m-%d')  create_date
+		from
+			cahg_leader_speech
+		where
+			leader_speech_id = #{leader_speech_id}
+	</select>
+	
+	
+	<!-- 领导讲话列表 -->
+	<select id="leaderSpeechList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			leader_speech_id, title,date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date , type
+		from
+			cahg_leader_speech
+		where
+			status = '0'
+		and
+			1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+		<if test="type !=null and type !=''">
+			and type = #{type}
+		</if>
+		ORDER BY 
+		    create_date DESC  
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_leader_speech
+		where
+			status = '0'
+		and
+			1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+		<if test="type !=null and type !=''">
+			and type = #{type}
+		</if>
+	</select>
+</mapper>

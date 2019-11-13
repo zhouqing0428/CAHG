@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgSurveyDao" >
+	<select id="selectSurver" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			s.survey_question_id,s.question,s.answer_type
+		from
+			cahg_survey_question s
+		where
+			s.status = "0"
+		and
+			s.index_show = "0"
+	</select>
+	
+	<select id="selectSurverAnswer" parameterType="String" resultType="java.util.HashMap">
+		select
+			survey_answer_id,
+			choice_text
+		from
+			cahg_survey_answer 
+		where
+			survey_question_id = #{survey_question_id}
+	</select>
+	
+	<update id="survey">
+		update
+			cahg_survey_answer
+		set
+			poll = poll + 1
+		where
+			survey_answer_id in 
+		<foreach item="item" index="index" collection="list" open="(" separator="," close=")">  
+		 	 #{item}  
+		</foreach> 
+	</update>
+</mapper>

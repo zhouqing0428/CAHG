@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgDutyScheduleDao" >
+	<select id="selectDutyList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			duty_schedule_id,
+			name,
+			mobile,
+			interior,
+			external,
+			date_format(work_time,'%Y-%m-%d')  work_time
+		from
+			cahg_duty_schedule
+		where
+			1 = 1
+		and 
+			work_time &gt;= #{play_date}
+		and
+			work_time &lt;= #{end_date}
+		<if test="category != null and category !='' ">
+			and category = #{category}
+		</if>
+		<if test="name != null and name !='' ">
+			and name = #{name}
+		</if>
+		ORDER BY work_time ASC 
+			limit #{page},#{rows}
+	</select>
+	
+	<select id="count" resultType="Integer" parameterType="java.util.HashMap">
+		select
+			count(duty_schedule_id)
+		from
+			cahg_duty_schedule
+		where
+			1 = 1
+		and 
+			work_time &gt;= #{play_date}
+		and
+			work_time &lt;= #{end_date}
+		<if test="category != null and category !='' ">
+			and category = #{category}
+		</if>
+		<if test="name != null and name !='' ">
+			and name = #{name}
+		</if>
+	</select>
+	
+	<select id="selectDutyInfo" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			title,
+			content
+		from
+			cahg_duty_info
+	</select>
+</mapper>

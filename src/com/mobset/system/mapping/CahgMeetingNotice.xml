@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgMeetingNoticeDao" >
+	
+	<!-- 首页会议通知列表 -->
+	<select id="indexMeetingNoticeList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			meeting_notice_id, title ,date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date,
+			date_format(create_date,'%m-%d')  create_date_show
+		from
+			cahg_meeting_notice
+		where
+			status = '0'
+		ORDER BY rank='', rank ASC , create_date DESC
+			limit 0,7
+	</select>
+	
+	<!-- 会议通知内容展示 -->
+	<select id="meetingNoticeDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			title,content,author,
+		    (select name from sys_dept d where d.dept_id = c.dept_id) dept_name,meeting_file_path,meeting_file_name,
+			date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+		from
+			cahg_meeting_notice c
+		where
+			meeting_notice_id = #{meeting_notice_id}
+	</select>
+	
+	<!-- 会议通知列表 -->
+	<select id="meetingNoticeList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			meeting_notice_id,title,date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date,author
+		from
+			cahg_meeting_notice
+		where
+			status = '0'
+		and
+			1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+			ORDER BY rank='', rank ASC , create_date DESC 
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_meeting_notice
+		where
+			status = '0'
+		and
+			1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+	</select>
+	
+	
+	<select id="selectRoom" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			r.meeting_room_id,r.num,r.name,r.remark,r.status,date_format(r.end_time,'%Y-%m-%d %H:%i') as end_time,r.dept_id,
+			(select s.name from sys_dept s where r.dept_id = s.dept_id) as deptname
+		from
+			cahg_meeting_room r
+	</select>
+	
+	<select id="selectHis" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	    select 
+			date_format(r.start_time,'%Y-%m-%d %H:%i') as start_time,date_format(r.end_time,'%Y-%m-%d %H:%i') as end_time,
+			(select s.name from cahg_meeting_room s where r.meeting_room_id = s.meeting_room_id) as roomName,
+			(select s.name from sys_dept s where r.dept_id = s.dept_id) as deptname
+		from
+			cahg_meeting_his r
+		where 
+				DATE_FORMAT(r.end_time, '%Y-%m-%d %H:%i') >= DATE_FORMAT(NOW(), '%Y-%m-%d %H:%i')
+		ORDER BY r.start_time
+	</select>
+</mapper>

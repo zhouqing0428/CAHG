@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgWorkTableDao" >
+	<select id="selectTableCategory" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select
+			work_table_category_id,
+			name,img
+		from
+			cahg_work_table_category
+		ORDER BY   rank is null, rank ASC 
+	</select>
+	
+	<select id="selectWorkTable" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			work_table_id,
+			title,
+			work_table_category_id,
+			file_name,
+			date_format(create_time,'%m-%d')  create_date_show
+		from
+			cahg_work_table
+		where
+			status = "0"
+		ORDER BY create_time DESC
+	</select>
+	
+	<select id="workTableList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			work_table_id, title,date_format(create_time,'%Y-%m-%d') create_date , 
+			file_name,file_old_name
+		from
+			cahg_work_table 
+		where
+			status = '0'
+		and
+			work_table_category_id = ${work_table_category_id}
+		ORDER BY 
+			 create_time DESC  
+		limit
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_work_table
+		where
+			status = '0'
+		and
+			work_table_category_id = ${work_table_category_id}
+	</select>
+	
+	<select id="selectType" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select * from cahg_work_table_category 	ORDER BY   rank is null, rank ASC 
+	</select>
+</mapper>

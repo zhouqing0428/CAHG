@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.SysDictionaryDao" >
+	
+	<!-- 新闻类型列表查询 -->
+	<select id="newTypeList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			s.value,s.key,s.parameter
+		from
+			sys_dictionary s
+		where
+			s.code = "new_type"
+	</select>
+	
+	<!-- 科室列表查询 -->
+	<select id="deptList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			dept_id,name
+		from
+			sys_dept
+		ORDER BY sys_rank is null ,sys_rank='',sys_rank ASC 
+	</select>
+	<!-- 科室查询 -->
+	<select id="deptSelect" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			*
+		from
+			sys_dept
+		where
+			dept_id = #{dept_id}
+	</select>
+	
+	<!-- 常用表格下载 -->
+	<select id="selectFormList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			common_forms_id,
+			file_name,
+			file_old_name
+		from
+			cahg_common_forms
+		where
+			status = 0
+		and
+			type = #{type}
+		ORDER BY rank='', rank ASC , create_date DESC
+	</select>
+	
+	<select id="formCount" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_common_forms
+		where
+			status = '0'
+		and
+			type = #{type}
+	</select>
+	
+	<!-- 祝福语 -->
+	<select id="wishSelect" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			wish_center,wish_date
+		from
+			cahg_wish
+		where
+			status = "0"
+		AND
+			DATE_FORMAT(NOW(), '%Y-%m-%d') = wish_date
+	</select>
+	
+	
+	<!-- 飘窗图片查询 -->
+	<select id="selectpicture" resultType="java.util.HashMap">
+		select * from sys_picture
+	</select>
+</mapper>
