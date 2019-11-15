@@ -11,7 +11,7 @@
 			cahg_affiche
 		where
 			status = '0'
-		ORDER BY rank is null, rank ASC , create_date DESC
+		ORDER BY create_date DESC
 			limit 0,8
 	</select>
 	
@@ -39,7 +39,7 @@
 		<if test="title !=null and title !=''">
 			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
 		</if>
-			ORDER BY rank='', rank ASC , create_date DESC
+			ORDER BY create_date DESC
 		limit
 			#{page},#{rows}
 	</select>
