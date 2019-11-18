@@ -17,6 +17,8 @@
 			work_time &gt;= #{play_date}
 		and
 			work_time &lt;= #{end_date}
+		and
+			name is not null and name &lt;&gt; ''
 		<if test="category != null and category !='' ">
 			and category = #{category}
 		</if>

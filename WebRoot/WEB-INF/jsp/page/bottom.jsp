@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<img src="static/images/lianjie1.jpg" style="margin-left:-10px;width:886px;height:30px;">	
 
 	<p class="ft-midle" style="border:1px solid #FFAD85;"><span style="color:red;font-size:16px;"><!-- <b>友情链接</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-	<select style="width:180px;" id="link1" style="font-size:18px;">
+	<select id="link1" class="selectSty">
 		<option value="">部门网站</option>
 		<c:forEach items="${linkList }" var="ele">
 			<c:if test="${ele.type eq 1 }">
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</c:if>
 		</c:forEach></select>
 	
-	<select style="width:180px;" id="link2" style="padding-right:40px;">
+	<select id="link2" class="selectSty">
 	<option value="">分类网站</option>
 				<c:forEach items="${linkList }" var="ele">
 					<c:if test="${ele.type eq 2 }">
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:forEach>
 			</select>
 	
-	<select style="width:180px;" id="link3">
+	<select id="link3" class="selectSty">
 	<option value="">应用系统</option>
 				<c:forEach items="${linkList }" var="ele">
 					<c:if test="${ele.type eq 3 }">
@@ -54,7 +54,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:forEach>
 			</select>
 	
-	<select style="width:180px;" id="link4">
+	<select id="link4" class="selectSty">
 	<option value="">相关链接</option>
 				<c:forEach items="${linkList }" var="ele">
 					<c:if test="${ele.type eq 4 }">

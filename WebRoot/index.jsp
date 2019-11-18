@@ -151,7 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
     <!--TAB选项卡-->
     <div class="slideTxtBox fl ml8" style="border:1px solid #CCC">
-        <div class="hd h30">
+        <div class="hd">
         	<a href="cahgDayInfo/dayInfoListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
             <ul><li>每日信息</li></ul>
         </div>
@@ -202,8 +202,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <!--入园企业-->
      <!--会议通知-->
     	<div class="slideTxtBox zhengce fl mt10" style="height:280px;border:1px solid #CCC">
-        <div class="hd h30">
-     	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" class="fr fm1">更多>></a>
+        <div class="hd">
+     	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
             <ul><li>会议通知</li></ul>
             
         </div>
@@ -230,8 +230,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <!--本办发文-->
     <div class="slideTxtBox  fl ml8 mt10" style="width:410px;height:280px;border:1px solid #CCC">
-        <div class="hd h30">
-        	<a href="cahgOfficePost/officePostListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
+        <div class="hd">
+        	<a href="cahgOfficePost/officePostListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
             <ul><li>本关发文</li></ul>
         </div>
         <div class="bd">
@@ -250,8 +250,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <!--公示公告-->
     <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
-        <div class="hd h30">
-        	<a href="cahgAffiche/afficheListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
+        <div class="hd">
+        	<a href="cahgAffiche/afficheListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
             <ul><li>公示公告</li></ul>
         </div>
         <div class="bd">
@@ -277,7 +277,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <!--重点工作-->
         <div class="slideTxtBox ruyuan fl mt10" style="border:1px solid #CCC">
-            <div class="hd h30">
+            <div class="hd">
             	<a href="cahgImptWork/imptWorkListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
                 <ul><li>重点工作</li></ul>
             </div>
@@ -295,7 +295,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <!--工作督办-->
         <div class="slideTxtBox qy-news fl ml8 mt10" style="width:410px;border:1px solid #CCC">
-            <div class="hd h30">
+            <div class="hd">
             	<a href="cahgJob/jobListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
                 <ul><li>工作督办</li></ul>
             </div>
@@ -332,7 +332,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <!--网上办公-->
     <div class="slideTxtBox qywh fr mt10" style="border:1px solid #CCC">
-            <div class="hd h30">
+            <div class="hd">
                 <ul><li>网上办公</li></ul>
             </div>
 			<div class="bd" style="margin-left:0px;margin-top:-10px;">
@@ -382,7 +382,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
         </div>
     <div class="slideTxtBox zhengce fl mt10" style="height:280px;border:1px solid #CCC">
-        <div class="hd h30">
+        <div class="hd">
             <ul>
             	<li>专题专栏</li>
             </ul>
@@ -398,7 +398,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     </div>
      <div class="slideTxtBox qy-news fl ml8 mt10" style="width:410px;height:280px;border:1px solid #CCC">
-            <div class="hd h30">
+            <div class="hd">
             	<a href="cahgCustomNews/customNewsListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
                 <ul><li>海关新闻</li></ul>
             </div>
@@ -414,7 +414,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </div>
     </div>  
     <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
-        <div class="hd h30">
+        <div class="hd">
         	<!-- <a href="" class="fr fm1">更多>></a> -->
             <ul><li>网上调查</li></ul>
         </div>

@@ -20,7 +20,8 @@ body{
 
 	/* background-color: #226CB5; */
 	background:url(../images/20100820_nav_bg.jpg) repeat-x scroll  transparent;
-	height:35px;
+	background-size:100% 38px;
+	height:38px;
 	width:1000px; margin:auto
 }
 .worktable {
@@ -93,12 +94,12 @@ ul#jDropDown > li > a {
 	background-image: url(../images/downarrow.png);
 	background-repeat: no-repeat;
 	background-position: 2px 11px;
-	height: 35px; 
+	height: 38px; 
 	position: relative;
-	width:90px;
-	line-height:32px;
+	width:88px;
+	line-height:38px;
 	text-align:center;
-	margin-top:2px;
+	font-weight:normal;
 }
 
 /* first li have home class*/
@@ -125,15 +126,14 @@ ul#jDropDown > li.home a:hover, ul#jDropDown > li.home a {
 	LEVEL ONE
 */
 ul#jDropDown {
-	height: 35px; 
-	width: 780px;
+	height: 38px; 
+	width: 740px;
 	 float:left;
 	
 	
 }
 ul#jDropDown li {
 	float: left;
-/*	font-weight: bold;*/
 	zoom: 1;
 	position: relative;
 	

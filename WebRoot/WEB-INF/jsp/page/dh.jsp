@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <!-- <embed  menu="true" loop="true" width="1005px" height="255px;	" play="true" type="application/x-shockwave-flash"  src="static/images/cahg1.swf"></embed>
  -->    </div>
-    <div id="page-wrap" style="margin-left:-1px;margin-top:-4px;" class="blue">
+    <div id="page-wrap" class="blue">
                     <!-- jDropDown menu -->
                     <ul id="jDropDown" style="font-weight:bold;">
                    <!--        <li class="img"><a href="/rlzyj/index.shtml" target="_parent"><img src="static/picture/home.png" /></a></li> -->
@@ -72,18 +72,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   
                   
                   <div class="suos" >
-                  
-                  <table style="margin:-4px;" cellpadding="0" cellspacing="0">
-                  		<tr style="background-color: white;">
-                  			<td><select name="" id="titleType" style=""> 
-                  				 <c:forEach items="${newTypeList}" var="ele">
-                  				 	<option value="${ele.parameter }" style="float:left">${ele.value }</option> 
-                  				 </c:forEach>
-						      </select> </td>
-						      <td> <input style="height:25px;line-height:25px" id="newTitle" onfocus="this.value='标题、时间'"></td>
-                  			<td><a href="javascript:void(0)" onclick="checkSubmit()" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:61px;">搜索</a></td>
-                  		</tr>
-                  </table>
+                  	<select name="" id="titleType" class="searchType"> 
+						<c:forEach items="${newTypeList}" var="ele">
+ 				 			<option value="${ele.parameter }">${ele.value }</option> 
+ 				 		</c:forEach>
+					</select>
+					<input id="newTitle" placeholder='标题、时间'>
+					<a class="searchBtn" href="javascript:void(0)" onclick="checkSubmit()">搜索</a>
+
         </div>
     </div>
   
