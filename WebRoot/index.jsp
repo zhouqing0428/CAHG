@@ -43,79 +43,82 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
-		line-height:18px; margin-top:8px;
+	    float:left;
 	  }
 	   #leaderSpeechList{  
 		display: block;
 		width: 200px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:16px; margin-top:8px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	  } 
 	  #officePostList{
 	  display: block;
 		width: 480px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:15px; margin-top:8px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	  }
 	   #meeting{  
 		display: block;
 		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:18px; margin-top:10px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	  } 
 	  
 	  #afficheList{
 	 	 display: block;
 		width: 190px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:20px; margin-top:8px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	  }
 	  #imptWorkList{
 	  	display: block;
 		width: 390px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:20px; margin-top:9px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	  }
 	  
 	   #imptWorkList2{
 	  	display: block;
 		width: 360px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:20px; margin-top:9px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	  }
 	 #imgTitle{
 		width: 210px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		display:block;
-		white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+		white-space:nowrap; 
+		overflow:hidden; 
+		text-overflow:ellipsis;
+		float:left;
 	  }
 	#indexJobList{
 		display: block;
 		width: 380px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:16px; margin-top:4px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	}
 	
 	#indexJobList2{
 		display: block;
 		width: 380px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-    text-overflow: ellipsis; /*以省略号...显示*/
-    white-space: nowrap;  /*强制不换行*/
-		line-height:20px; margin-top:7px;
+	    text-overflow: ellipsis; /*以省略号...显示*/
+	    white-space: nowrap;  /*强制不换行*/
+	    float:left;
 	}
 	
 	.btnw:hover{
@@ -131,7 +134,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="focusBox fl">
 			  <ul class="pic">
 				<c:forEach items="${imgNewsList}" var="ele">
-			   			<li><a target="_blank" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }"><img width="282" height="237" src="http://10.56.65.100/file/upImg/imgNews/${ele.img_url }" /></a></li>
+			   			<li><a target="_blank" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }"><img src="http://10.56.65.100/file/upImg/imgNews/${ele.img_url }" /></a></li>
 			   	</c:forEach>
 			</ul>
 			<div class="txt-bg"></div>
@@ -150,15 +153,44 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul> 
 	</div>
     <!--TAB选项卡-->
+    <!--领导讲话-->
     <div class="slideTxtBox fl ml8" style="border:1px solid #CCC">
+		<div class="hd">
+			<a href="leaderSpeech/leaderSpeechListPage.do?type=2" target="_blank" class="fm1 fr">更多>></a>
+		    <ul><li style="cursor:pointer; ">总关领导讲话</li><li style="cursor:pointer; ">本关领导讲话</li></ul>
+		</div>
+		<div class="bd">
+			<ul class="newsList">
+			 <c:forEach items="${leaderSpeechList }" var="ele">
+				<li >
+					<a  href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank">
+						<span id="leaderSpeechList">${ele.title }</span>
+						<span style="color:#999;float:right;height:28px;line-height:28px;font-size:12px;">[${ele.create_date_show }]</span>
+					</a>
+				</li>
+			</c:forEach>
+			</ul>
+			<ul class="newsList">
+			    <c:forEach items="${indexLeaderBSpeechList }" var="ele">
+				<li>
+					<a href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank">
+						<span id="leaderSpeechList">${ele.title }</span>
+						<span style="color:#999;float:right;height:28px;line-height:28px;font-size:12px;">[${ele.create_date_show }]</span>
+					</a>
+				</li>
+			</c:forEach>
+			</ul>
+		</div>
+    </div>
+    <div class="yqg border fr slideTxtBox" style="border:1px solid #CCC">
         <div class="hd">
-        	<a href="cahgDayInfo/dayInfoListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
+        	<a href="cahgDayInfo/dayInfoListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>每日信息</li></ul>
         </div>
         <div class="bd">
-            <ul>
+            <ul class="newsList">
             	<c:forEach items="${dayInfoList}" var="ele"><!--每日信息  -->
-	              <li style="line-height:20px;">
+	              <li>
 	              <fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
 	                <fmt:parseDate var="create_date" value="${ele.create_date}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把数据对应的时间格式化 -->
 	                <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
@@ -174,41 +206,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</c:forEach>
             </ul>
         </div>
-		</div>
-        <!--领导讲话-->
-        <div class="yqg border fr slideTxtBox" >
-        <div class="hd">
-            <ul><li style="cursor:pointer; ">总关领导讲话</li><li style="cursor:pointer; ">本关领导讲话</li></ul>
-        </div>
-        <div class="bd">
-            <ul>
-             <c:forEach items="${leaderSpeechList }" var="ele">
-	               <li ><a  href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank"><span id="leaderSpeechList">${ele.title }</span>
-	              <%--  <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span> --%>
-	               </a></li>
-             </c:forEach>
-             		<a href="leaderSpeech/leaderSpeechListPage.do?type=1" target="_blank" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" class="fm1 fr">更多>></a>
-            </ul>
-            <ul>
-                <c:forEach items="${indexLeaderBSpeechList }" var="ele">
-	               <li><a href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank"><span id="leaderSpeechList">${ele.title }</span>
-<%-- 	               <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span> --%>
-	               </a></li>
-             </c:forEach>
-             	<a href="leaderSpeech/leaderSpeechListPage.do?type=2" target="_blank" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" class="fm1 fr">更多>></a>
-            </ul>
-        </div>
-        </div>
+	</div>
+        
         <!--入园企业-->
      <!--会议通知-->
     	<div class="slideTxtBox zhengce fl mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
-     	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
+     	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" target="_blank" class="fr fm1">更多>></a>
             <ul><li>会议通知</li></ul>
             
         </div>
         <div class="bd" style="height:218px;overflow:hidden;">
-            <ul>
+            <ul class="newsList">
             <c:forEach items="${meetingNoticeList }" var="ele">
           			<li style="line-height:20px;">
           			<fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
@@ -231,11 +240,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--本办发文-->
     <div class="slideTxtBox  fl ml8 mt10" style="width:410px;height:280px;border:1px solid #CCC">
         <div class="hd">
-        	<a href="cahgOfficePost/officePostListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
+        	<a href="cahgOfficePost/officePostListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>本关发文</li></ul>
         </div>
         <div class="bd">
-            <ul>
+            <ul class="newsList">
             	 <c:forEach items="${officePostList }" var="ele">
 	         		  <li>
 			              <a id="officePostList" href="cahgOfficePost/officePostDetailsPage.do?office_post_id=${ele.office_post_id }"  target="_blank" title='${ele.title }'><span id="indexJobList">${ele.title }</span>
@@ -251,11 +260,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--公示公告-->
     <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
-        	<a href="cahgAffiche/afficheListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1">更多>></a>
+        	<a href="cahgAffiche/afficheListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>公示公告</li></ul>
         </div>
         <div class="bd">
-            <ul>
+            <ul class="newsList">
             	<c:forEach items="${afficheList}" var="ele">
 	          		 <li>
 	          			    <fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
@@ -276,27 +285,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <!--重点工作-->
-        <div class="slideTxtBox ruyuan fl mt10" style="border:1px solid #CCC">
-            <div class="hd">
-            	<a href="cahgImptWork/imptWorkListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
-                <ul><li>重点工作</li></ul>
-            </div>
-            <div class="bd" >
-                <ul style="list-style:none;  ">
-                	<c:forEach items="${workTableType }" var="ele" >
-		         	 <%-- <li   style="background-image:url(static/images/worktable.jpg);background-size:cover;height:30px; width:220px; border:1px solid #CCC;margin:8px;" >
-				           <a    style="font-size:15px;height:100%;width:100%;;line-height:30px; "  href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }"  target="_blank">${ele.name }</a>
-				     </li> --%>
-				    <a href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }" style=""> <img src="static/images/${ele.img }" style="float: left;margin-left:25px;height:30px;width:30px;" alt=""/><li style=";margin-left:25px;;font-size:14px;width:220px;text-align:center;text-decoration:none;background:#f6d05a;line-height:30px;margin-bottom:6px;border-radius:6px;">${ele.name }</li></a>
-		         	</c:forEach>
-                </ul>
-            </div>
-    </div>
+	<div class="slideTxtBox ruyuan fl mt10" style="border:1px solid #CCC">
+		<div class="hd">
+			<a href="cahgImptWork/imptWorkListPage.do" target="_blank" class="fr fm1">更多>></a>
+		    <ul><li>重点工作</li></ul>
+		</div>
+		<div class="bd" >
+		    <ul style="list-style:none;">
+			<c:forEach items="${workTableType }" var="ele" >
+				<%-- <li   style="background-image:url(static/images/worktable.jpg);background-size:cover;height:30px; width:220px; border:1px solid #CCC;margin:8px;" >
+				      <a    style="font-size:15px;height:100%;width:100%;;line-height:30px; "  href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }"  target="_blank">${ele.name }</a>
+				</li> --%>
+				<li style="background:#f6d05a url(static/images/${ele.img }) 10px center no-repeat;background-size:auto 22px;height:30px;line-height:30px;width:266px;padding-left:40px;margin-bottom:8px;border-radius:20px;" >
+					<a style="color:#fff;" href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }">${ele.name }</a>
+				</li>
+			</c:forEach>
+	        </ul>
+	    </div>
+	</div>
     
     <!--工作督办-->
         <div class="slideTxtBox qy-news fl ml8 mt10" style="width:410px;border:1px solid #CCC">
             <div class="hd">
-            	<a href="cahgJob/jobListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
+            	<a href="cahgJob/jobListPage.do" target="_blank" class="fr fm1">更多>></a>
                 <ul><li>工作督办</li></ul>
             </div>
             <div class="bd">
@@ -335,8 +346,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="hd">
                 <ul><li>网上办公</li></ul>
             </div>
-			<div class="bd" style="margin-left:0px;margin-top:-10px;">
-                <ul style="text-align: center;" >
+			<div class="bd">
+                <ul style="padding:5px 15px;" >
 		         	<!-- <li align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #70B9E4;">
 				          <a href="dept/dept_left.do"  target="_blank" style="font-size:15px;">制度建设</a>
 				    </li>
@@ -360,6 +371,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    <li  align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #70B9E4">
 				           <a href="commomForm/commomFormsListPage.do?type=0" style="font-size:15px;" target="_blank">常用表格下载</a>
 				    </li> -->
+				    <li style="background:#f6d05a url(static/images/bg1.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
+						<a style="color:#fff;" href="dept/dept_left.do">制度建设</a>
+					</li>
+					<li style="background:#f6d05a url(static/images/bg3.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
+						<a style="color:#fff;" href="cahgDutySchedule/dutyDetailsShow.do?type=1">值班安排</a>
+					</li>
+					<li style="background:#f6d05a url(static/images/bg4.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
+						<a style="color:#fff;" href="http://10.56.65.252/baozhang/index.aspx">技术报障</a>
+					</li>
+					<li style="background:#f6d05a url(static/images/bg5.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
+						<a style="color:#fff;" href="http://10.56.65.71/assetmaintain/">物业报障</a>
+					</li>
+					<li style="background:#f6d05a url(static/images/bg6.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
+						<a style="color:#fff;" href="http://10.56.2.241/jsp/changan_index.jsp">后勤保障</a>
+					</li>
+					<li style="background:#f6d05a url(static/images/bg2.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
+						<a style="color:#fff;" href="commomForm/commomFormsListPage.do?type=0">常用表格下载</a>
+					</li>
+					<!--
 				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
 				           <a href="dept/dept_left.do" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:35px;" src="static/images/bg1.png"></img><span style="margin-left:-40px;">制度建设</span></a>
 				    </p>
@@ -377,7 +407,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				    </p>
 				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
 				           <a href="commomForm/commomFormsListPage.do?type=0" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:30px;" src="static/images/bg2.png"></img><span style="margin-left:-20px;">常用表格下载</span></a>
-				    </p>
+				    </p> -->
                 </ul>
             </div>
         </div>
@@ -387,11 +417,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<li>专题专栏</li>
             </ul>
         </div>
-        <div class="bd" style="text-align:center;width:100%;">
+        <div class="bd">
         	<c:forEach items="${tableCategoryList }" var="category">
-        		<ul>
+        		<ul class="newsList">
 	        		<c:forEach items="${cahgSpecialTopicList }" var="ele" varStatus="index">
-		        		<li  style=" text-align:center;margin:0 auto;"><a  class="zhuanti" style="border-radius:10px;background-color: #f6d05a;width:110px;margin-top:5px;height:30px;margin-left:10px;float: left;" id="indexJobList" href="cahgSpecialTopic/specialTopicListPage.do?url=${ele.special_topic_category_id }" title="${ele.name }" target="_blank"><span style="line-height:28px;font-size:14px;">${ele.name }</span></a></li>
+		        		<li><a id="indexJobList" href="cahgSpecialTopic/specialTopicListPage.do?url=${ele.special_topic_category_id }" title="${ele.name }" target="_blank">${ele.name }</a></li>
 		            </c:forEach>
             	</ul>
         	</c:forEach>
@@ -399,11 +429,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
      <div class="slideTxtBox qy-news fl ml8 mt10" style="width:410px;height:280px;border:1px solid #CCC">
             <div class="hd">
-            	<a href="cahgCustomNews/customNewsListPage.do" style="color: red;border-radius:6px;border:1px solid;line-height:22px;margin-top:7px;" target="_blank" class="fr fm1" target="_blank" class="fr fm1">更多>></a>
+            	<a href="cahgCustomNews/customNewsListPage.do" target="_blank" class="fr fm1">更多>></a>
                 <ul><li>海关新闻</li></ul>
             </div>
             <div class="bd">
-                <ul>
+                <ul class="newsList">
                 	<c:forEach items="${customNewsList }" var="ele">
 		         		  <li>
 				              <a href="cahgCustomNews/customNewsDetailsShow.do?custom_news_id=${ele.custom_news_id }"  target="_blank" title='${ele.title }'><span id="imptWorkList2">${ele.title }</span></a>

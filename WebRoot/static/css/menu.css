@@ -96,10 +96,11 @@ ul#jDropDown > li > a {
 	background-position: 2px 11px;
 	height: 38px; 
 	position: relative;
-	width:88px;
 	line-height:38px;
 	text-align:center;
 	font-weight:normal;
+	display:block;
+	padding:0 18px;
 }
 
 /* first li have home class*/

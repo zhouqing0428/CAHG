@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  -->    </div>
     <div id="page-wrap" class="blue">
                     <!-- jDropDown menu -->
-                    <ul id="jDropDown" style="font-weight:bold;">
+                    <ul id="jDropDown">
                    <!--        <li class="img"><a href="/rlzyj/index.shtml" target="_parent"><img src="static/picture/home.png" /></a></li> -->
                         <li class="hx" id="hx"></li>
                         <li><a href="index/page.do" target="_parent" class="_xxgk">首页</a>
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         
                         <li class="hx"></li>
                         
-                        <li style="width:109px;"><a style="width:109px;" href="javascript:void(0);"  target="_parent">${sysDate }</a>
+                        <li><a href="javascript:void(0);"  target="_parent">${sysDate }</a>
                        
                         </li>
                   </ul>

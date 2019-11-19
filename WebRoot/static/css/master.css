@@ -39,27 +39,27 @@
 
 .index-main	{ background:#FFF; padding:10px; width:980px; margin:0 auto;}
 /* 首页焦点图 */
-.index-main	.focusBox { position: relative; width: 360px; height: 240px; overflow: hidden; font: 12px/1.5 Verdana, Geneva, sans-serif; text-align: left; background: white; }
-.index-main .focusBox .pic img { width: 354px; height: 234px; display: block; padding:2px; border:1px solid #CCC; }
-.index-main .focusBox .txt-bg {  width:354px;position: absolute; left:3px; bottom: 3px; z-index: 1; height: 36px;  background: #333; filter: alpha(opacity=40); opacity: 0.4; overflow: hidden; }
-.index-main .focusBox .txt {  width:354px;position: absolute; left:3px; bottom: 3px; z-index: 2; height: 36px; overflow: hidden; }
+.index-main	.focusBox { position: relative; width: 298px; height: 240px; overflow: hidden; font: 12px/1.5 Verdana, Geneva, sans-serif; text-align: left; background: white; }
+.index-main .focusBox .pic img { width: 298px; height: 240px; display: block; }
+.index-main .focusBox .txt-bg {  width:298px;position: absolute; left:0px; bottom: 0px; z-index: 1; height: 36px;  background: #333; filter: alpha(opacity=40); opacity: 0.4; overflow: hidden; }
+.index-main .focusBox .txt {  width:298px;position: absolute; left:0px; bottom: 0px; z-index: 2; height: 36px; overflow: hidden; }
 .index-main .focusBox .txt li{ height:36px; line-height:36px; position:absolute; bottom:-36px;}
 .index-main .focusBox .txt li a{ display: block; color: white; padding: 0 0 0 10px; font-size: 12px; font-weight: bold; text-decoration: none; }
-.index-main .focusBox .num { position: absolute; z-index: 3; bottom: 11px; right: 11px; }
+.index-main .focusBox .num { position: absolute; z-index: 3; bottom: 6px; right: 11px; }
 .index-main .focusBox .num li{ float: left; position: relative; width: 18px; height: 15px; line-height: 15px; overflow: hidden; text-align: center; margin-right: 1px; cursor: pointer; }
 .index-main .focusBox .num li a,
 .index-main .focusBox .num li span { position: absolute; z-index: 2; display: block; color: white; width: 100%; height: 100%; top: 0; left: 0; text-decoration: none; }
 .index-main .focusBox .num li span { z-index: 1; background: black; filter: alpha(opacity=50); opacity: 0.5; }
 .index-main .focusBox .num li.on a,.index-main .focusBox .num a:hover{ background:#f60;  }
 /* 首页TAB选项卡 */
-.index-main .slideTxtBox{ width:350px; height:240px; overflow:hidden; }
+.index-main .slideTxtBox{ width:410px; height:240px; overflow:hidden; }
 .index-main .slideTxtBoxWidth{ width:410px; height:240px; overflow:hidden; }
 .index-main .slideTxtBox .hd{ height:36px; line-height:36px;background:url(../images/select2.jpg) repeat-x; background-size:auto 42px; padding:0 10px 0 0px; position:relative; }
 .index-main .slideTxtBox .hd ul{ float:left;  position:absolute; left:0px; top:6px; height:30px;   }
-.index-main .slideTxtBox .hd ul li{ float:left; height:30px; line-height:30px; width:105px; text-align:center; font-size:14px;}
-.index-main .slideTxtBox .hd ul li.on{ height:30px;  background:url(../images/backaa.jpg) repeat-x;}
-.index-main .slideTxtBox .bd ul{ padding:15px;  zoom:1;  }
-.index-main .slideTxtBox .bd li{ line-height:20px; font-size:14px; background:url(../images/li-ico.jpg) no-repeat left center; padding-left:10px;   }
+.index-main .slideTxtBox .hd ul li{color:#333333; float:left; height:30px; line-height:30px; width:105px; text-align:center; font-size:14px;}
+.index-main .slideTxtBox .hd ul li.on{color:#f60; height:30px;  background:url(../images/backaa.jpg) repeat-x;}
+.index-main .slideTxtBox .bd ul{ padding:15px;  zoom:1; overflow:hidden; }
+.index-main .slideTxtBox .bd ul.newsList li{ line-height:28px;height:28px;border-bottom:1px #ccc dotted; font-size:14px; background:url(../images/li-ico.jpg) no-repeat left center; padding-left:10px;   }
 .index-main .slideTxtBox .bd li .date{ float:right; color:#999;  }
 /* 首页园区公示 */
 .index-main .yqgs{ background:#f5f5f5; padding:5px; width:245px; height:228px; overflow:hidden}
@@ -68,7 +68,7 @@
 .index-main .yqgs ul li{ background:url(../images/li-hover.jpg) no-repeat left center; padding-left:20px;height:25px; line-height:25px; font-size:13px;}
 
 /* .index-main .yqg{ background:#f5f5f5; padding:5px; width:245px; overflow:hidden} */
-.index-main .yqg{ width:245px; overflow:hidden}
+.index-main .yqg{ width:253px; overflow:hidden}
 .index-main .yqg .title{ background:url(../images/yqgs.jpg) no-repeat; height:28px; line-height:25px; font-size:14px; padding-left:20px;}
 
 /* 首页入园企业 */
