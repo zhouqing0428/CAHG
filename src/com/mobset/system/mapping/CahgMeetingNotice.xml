@@ -20,7 +20,8 @@
 		select
 			title,content,author,
 		    (select name from sys_dept d where d.dept_id = c.dept_id) dept_name,meeting_file_path,meeting_file_name,
-			date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
+			date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date,
+			meeting_time,meeting_place,meeting_dep,meeting_person,meeting_require,meeting_contact
 		from
 			cahg_meeting_notice c
 		where

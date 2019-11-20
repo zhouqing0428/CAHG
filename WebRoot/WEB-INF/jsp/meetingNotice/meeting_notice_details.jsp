@@ -43,7 +43,43 @@ table{margin: 0 auto}
         </table>
       </div>
       <div id="content"  style="margin-top:10px;color:black;padding-right:50px;padding-left:50px;">
-         	${newMap.content }
+         	
+         	<table id="Table1" cellspacing="0" cellpadding="2" width="500" align="center">
+         		<tbody>
+         		<tr class="firstRow">
+         			<td colspan="2" align="middle"><span style="font-size:24px;font-family:宋体">会议通知</span></td>
+         		</tr>
+         		<tr>
+         			<td style="" width="81" align="right"><span style="font-family:宋体">会议名称</span></td>
+         			<td width="85%" align="left"><span id="_ctl1__ctl0__ctl0_MNameLb">${newMap.title }</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="" align="right" width="81"><span style="font-family:宋体">会议时间</span></td>
+         			<td><span id="_ctl1__ctl0__ctl0_MTimeLb">${newMap.meeting_time }</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="" align="right" width="81"><span style="font-family:宋体">会议地点</span> </td>
+         			<td><span id="_ctl1__ctl0__ctl0_MLocationLb">${newMap.meeting_place }</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="" align="right" width="81"><span style="font-family:宋体">参加部门</span> </td>
+         			<td><span id="_ctl1__ctl0__ctl0_MDepLb">${newMap.meeting_dep }</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td align="right" width="81" height="30"><span style="font-family:宋体">参加人员</span> </td>
+         			<td height="30"><span id="_ctl1__ctl0__ctl0_MPeopleLb">${newMap.meeting_person }</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td align="right"><span style="font-family:宋体">会议要求</span> </td>
+         			<td><span id="_ctl1__ctl0__ctl0_MContentLb">${newMap.meeting_require }</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="" align="right" width="81"><span style="font-family:宋体">联 系 人</span> </td>
+         			<td><span id="_ctl1__ctl0__ctl0_ContackLb">${newMap.meeting_contact }</span>&nbsp;</td>
+         		</tr>
+         	</tbody>
+         </table>
+         <p><br/></p>
       </div>
     </div>
   </div>
