@@ -25,13 +25,11 @@ public class CahgAddressServiceImpl implements CahgAddressLookService {
 	 */
 	@Override
 	public List<HashMap> addressLookList(HashMap map) {
-		// TODO Auto-generated method stub
 		return dao.addressLookList(map);
 	}
 
 	@Override
 	public HashMap selectDepteAddress(HashMap map) {
-		// TODO Auto-generated method stub
 		return dao.selectDepteAddress(map);
 	}
 }

@@ -2,6 +2,7 @@ package com.mobset.system.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -24,7 +25,6 @@ public class SysDictionaryServiceImpl implements SysDictionaryService {
 	 */
 	@Override
 	public List<HashMap> newTypeList(HashMap map) {
-		// TODO Auto-generated method stub
 		return dao.newTypeList(map);
 	}
 	
@@ -32,8 +32,7 @@ public class SysDictionaryServiceImpl implements SysDictionaryService {
 	 * @说明 科室列表
 	 */
 	@Override
-	public List<HashMap> deptList(HashMap map) {
-		// TODO Auto-generated method stub
+	public List<Map<String, Object>> deptList(Map<String, Object> map) {
 		return dao.deptList(map);
 	}
 	
@@ -42,31 +41,26 @@ public class SysDictionaryServiceImpl implements SysDictionaryService {
 	 */
 	@Override
 	public HashMap deptSelect(HashMap map) {
-		// TODO Auto-generated method stub
 		return dao.deptSelect(map);
 	}
 
 	@Override
 	public List<HashMap> selectFormList(HashMap map) {
-		// TODO Auto-generated method stub
 		return dao.selectFormList(map);
 	}
 
 	@Override
 	public Integer formCount(HashMap map) {
-		// TODO Auto-generated method stub
 		return dao.formCount(map);
 	}
 
 	@Override
 	public HashMap wishSelect(HashMap map) {
-		// TODO Auto-generated method stub
 		return dao.wishSelect(map);
 	}
 
 	@Override
 	public HashMap selectpicture() {
-		// TODO Auto-generated method stub
 		return dao.selectpicture();
 	}
 

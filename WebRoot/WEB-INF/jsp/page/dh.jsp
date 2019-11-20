@@ -53,7 +53,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                       
                         </li>
                         <li class="hx"></li>
-                        <li><a href="cahgAddressLook/addressLookShowPage.do"  target="_parent">通讯录</a>
+                        <li><a href="cahgAddressLook/addressLookShowPage.do?dept_id=38"  target="_parent">通讯录</a>
 						
                         </li>
                         <li class="hx"></li>

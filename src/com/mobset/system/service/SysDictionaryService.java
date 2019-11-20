@@ -2,6 +2,7 @@ package com.mobset.system.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @说明  字典表Service
@@ -17,7 +18,7 @@ public interface SysDictionaryService {
 	/**
 	 * @说明 科室列表
 	 */
-	public List<HashMap> deptList(HashMap map);
+	public List<Map<String, Object>> deptList(Map<String, Object> map);
 	
 	/**
 	 * @说明 科室查询

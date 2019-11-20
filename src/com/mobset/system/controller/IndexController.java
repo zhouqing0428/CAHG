@@ -1,24 +1,19 @@
 package com.mobset.system.controller;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -37,7 +32,6 @@ import com.mobset.system.service.CahgSurveyService;
 import com.mobset.system.service.CahgWorkTableService;
 import com.mobset.system.service.SysDictionaryService;
 import com.mobset.system.service.deptService;
-import com.mobset.system.util.MD5;
 
 /**
  * @说明  首页controller
@@ -188,7 +182,7 @@ public class IndexController {
 	@RequestMapping(value="/look_left")
 	public String look_left(HttpServletRequest request){
 		String dept_id = request.getParameter("dept_id");
-		List<HashMap> deptList = sysDictionaryService.deptList(null);//新闻类型列表
+		List<Map<String, Object>> deptList = sysDictionaryService.deptList(null);// 新闻类型列表
 		request.setAttribute("deptList", deptList); //科室列表
 		request.setAttribute("dept_id", dept_id);//左导航判断用
 		return "page/look_left";

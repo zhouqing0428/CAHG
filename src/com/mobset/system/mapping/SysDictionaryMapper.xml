@@ -13,11 +13,15 @@
 	</select>
 	
 	<!-- 科室列表查询 -->
-	<select id="deptList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+	<select id="deptList" parameterType="java.util.HashMap" resultType="java.util.Map">
 		select
-			dept_id,name
+			dept_id,name,parent_id 
 		from
 			sys_dept
+		where 1 = 1 
+		<if test = "condition!=null and condition !='' ">
+			and ${condition}
+		</if>
 		ORDER BY sys_rank is null ,sys_rank='',sys_rank ASC 
 	</select>
 	<!-- 科室查询 -->

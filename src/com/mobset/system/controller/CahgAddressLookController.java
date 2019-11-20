@@ -3,12 +3,12 @@ package com.mobset.system.controller;
 import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.http.HttpRequest;
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
 import org.apache.poi.hssf.usermodel.HSSFRow;
@@ -18,8 +18,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mobset.system.constant.CommonConstants;
 import com.mobset.system.service.CahgAddressLookService;
 import com.mobset.system.service.SysDictionaryService;
+
+import net.sf.json.JSONArray;
 
 /**
  * @说明  通讯录controller
@@ -33,6 +36,7 @@ public class CahgAddressLookController {
 	
 	@Resource(name="cahgAddressLookService")
 	private CahgAddressLookService cahgAddressLookService;
+	
 	@Resource(name="sysDictionaryService")
 	private SysDictionaryService sysDictionaryService;
 	
@@ -43,18 +47,24 @@ public class CahgAddressLookController {
 	@RequestMapping(value="/addressLookShowPage")
 	public String addressLookShowPage(HttpServletRequest request){
 		String dept_id = request.getParameter("dept_id");
-		HashMap map = new HashMap();//参数统一map
-		if(dept_id==null || "".equals(dept_id)){//ID为空,进入404页面
-			dept_id = "0";
-		}
-		map.put("dept_id", dept_id);
+		HashMap map = null;// 参数统一map
+		if (!(dept_id == null || "".equals(dept_id) || CommonConstants.DEPT_ID.equals(dept_id))) {// ID为空,进入404页面
+			map = new HashMap();
+			map.put("dept_id", dept_id);
+		}		
 		List<HashMap> addressLookList = cahgAddressLookService.addressLookList(map);
 		
-		HashMap deptAddress = cahgAddressLookService.selectDepteAddress(map);
-		HashMap dept = sysDictionaryService.deptSelect(map);
+		if(!CommonConstants.DEPT_ID.equals(dept_id)){
+			HashMap dept = sysDictionaryService.deptSelect(map);
+			request.setAttribute("dept", dept);//科室信息
+		}
+		
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("condition", " dept_id != '38' ");
+		List<Map<String, Object>> deptList = sysDictionaryService.deptList(paramMap);// 科室列表
+		
+		request.setAttribute("depts", JSONArray.fromObject(deptList)); //科室列表
 		request.setAttribute("addressLookList", addressLookList);//通讯录列表
-		request.setAttribute("dept", dept);//科室信息
-		request.setAttribute("deptAddress", deptAddress);
 		request.setAttribute("dept_id", dept_id);
 		return "addressLook/address_look_show";
 	}
