@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</c:forEach></select>
 	
 	<select id="link2" class="selectSty">
-	<option value="">分类网站</option>
+	<option value="">分关网站</option>
 				<c:forEach items="${linkList }" var="ele">
 					<c:if test="${ele.type eq 2 }">
 						<option value="${ele.url }">${ele.name }</option>
