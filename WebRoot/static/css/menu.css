@@ -77,15 +77,8 @@ ul.lightBlue > li  {
 	border-right: 1px solid #008c84;
 }
 
-ul#jDropDown a {
-/*	font-family:Arial, Helvetica, sans-serif;
-	line-height:18px;*/
-}
-ul#jDropDown ul li a:hover {color:#0079B8;}
-
 /* first li have home class*/
 ul#jDropDown > li > a {
-	
 	color: #fff;
 }	
 
@@ -102,6 +95,12 @@ ul#jDropDown > li > a {
 	display:block;
 	padding:0 18px;
 }
+ul#jDropDown > li > .slideList{
+	position:relative;
+	z-index:9999;
+	background:#cccccc;
+	overflow:hidden;
+}
 
 /* first li have home class*/
 ul#jDropDown li.home img{
@@ -110,9 +109,6 @@ ul#jDropDown li.home img{
 
 ul#jDropDown > li > .on, ul#jDropDown > li > a:hover{
 	color: yellow;
-	
-	height: 35px; 
-	
 	/* css3 */
 /*	-moz-border-radius: 2px 2px 0 0px;
 	border-radius: 2px 2px 0 0px;*/
@@ -130,8 +126,6 @@ ul#jDropDown {
 	height: 38px; 
 	width: 740px;
 	 float:left;
-	
-	
 }
 ul#jDropDown li {
 	float: left;

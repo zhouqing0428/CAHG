@@ -58,9 +58,9 @@ jQuery(".picCenter dl").slide({ mainCell:"ul", effect:"leftLoop"});
 
 /* 大事记 */
 $(function(){
-    $().timelinr({
-		autoPlay: 'false', //改为ture就是自动滚动
-		autoPlayDirection: 'forward',
-		startAt: 4
-	})
+	//$().timelinr({
+	//autoPlay: 'false', //改为ture就是自动滚动
+	//autoPlayDirection: 'forward',
+	//startAt: 4
+	//})
 });

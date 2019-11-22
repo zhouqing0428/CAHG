@@ -37,9 +37,62 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/index_1.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
+#main{
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+#img{
+  width: 100px;
+  height: 120px;
+  background: #faa;
+}
+.scrollPic{
+	overflow:hidden;
+	width:1000px;
+	height:60px;
+	margin:20px auto;
+}
+.scrollName{
+	float:left;
+	width:90px;
+	height:60px;
+	line-height:30px;
+	padding:0 5px;
+	text-align:center;
+	overflow:hidden;
+	font-size:30px;
+	font-weight:bold;
+	color:#ff6000;
+}
+#scrollBox{
+	position: relative;
+	width: 900px;
+	height: 60px;
+	overflow: hidden;
+	float:left;
+}
+#scrollBox ul{
+	position: absolute;
+	left: 0;
+}
+#scrollBox ul li{
+	list-style: none;
+	width: 130px;
+	height: 60px;
+	float: left;
+	margin-right:20px;
+}
+#scrollBox ul li img{
+	width: 100%;
+	height: 100%;
+}
+
+
 	  #new_title{  
 		display: block;
-		width: 295px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 350px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
@@ -89,14 +142,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  
 	   #imptWorkList2{
 	  	display: block;
-		width: 360px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 350px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
 	    float:left;
 	  }
 	 #imgTitle{
-		width: 210px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 150px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		display:block;
 		white-space:nowrap; 
 		overflow:hidden; 
@@ -105,7 +158,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  }
 	#indexJobList{
 		display: block;
-		width: 380px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 350px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
@@ -153,36 +206,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</ul> 
 	</div>
     <!--TAB选项卡-->
-    <!--领导讲话-->
+    
     <div class="slideTxtBox fl ml8" style="border:1px solid #CCC">
-		<div class="hd">
-			<a href="leaderSpeech/leaderSpeechListPage.do?type=2" target="_blank" class="fm1 fr">更多>></a>
-		    <ul><li style="cursor:pointer; ">总关领导讲话</li><li style="cursor:pointer; ">本关领导讲话</li></ul>
-		</div>
-		<div class="bd">
-			<ul class="newsList">
-			 <c:forEach items="${leaderSpeechList }" var="ele">
-				<li >
-					<a  href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank">
-						<span id="leaderSpeechList">${ele.title }</span>
-						<span style="color:#999;float:right;height:28px;line-height:28px;font-size:12px;">[${ele.create_date_show }]</span>
-					</a>
-				</li>
-			</c:forEach>
-			</ul>
-			<ul class="newsList">
-			    <c:forEach items="${indexLeaderBSpeechList }" var="ele">
-				<li>
-					<a href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank">
-						<span id="leaderSpeechList">${ele.title }</span>
-						<span style="color:#999;float:right;height:28px;line-height:28px;font-size:12px;">[${ele.create_date_show }]</span>
-					</a>
-				</li>
-			</c:forEach>
-			</ul>
-		</div>
-    </div>
-    <div class="yqg border fr slideTxtBox" style="border:1px solid #CCC">
         <div class="hd">
         	<a href="cahgDayInfo/dayInfoListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>每日信息</li></ul>
@@ -195,7 +220,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                <fmt:parseDate var="create_date" value="${ele.create_date}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把数据对应的时间格式化 -->
 	                <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
 					<c:set var="imgShow"><fmt:formatNumber value="${timeMis/1000/3600}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->               
-	                <a style="width:320px;" href="cahgDayInfo/dayInfoDetailsPage.do?day_id=${ele.day_id}" target="_blank" title='${ele.day_title}'><span id="new_title">${ele.day_title}</span>
+	                <a href="cahgDayInfo/dayInfoDetailsPage.do?day_id=${ele.day_id}" target="_blank" title='${ele.day_title}'><span id="new_title">${ele.day_title}</span>
 	               <%--  <span style="color:#999;float:right;margin-top:-18px; ">[${ele.create_date_show }]</span> --%>
 	                 <c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
 						<img style="margin-top:-16px; float:right;" src="static/images/new.gif">
@@ -207,14 +232,41 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             </ul>
         </div>
 	</div>
-        
+    <!--领导讲话-->
+    <div class="yqg border fr slideTxtBox" style="border:1px solid #CCC">
+		<div class="hd">
+			<a href="leaderSpeech/leaderSpeechListPage.do?type=2" target="_blank" class="fm1 fr">更多>></a>
+		    <ul><li style="cursor:pointer; ">总关领导讲话</li><li style="cursor:pointer; ">本关领导讲话</li></ul>
+		</div>
+		<div class="bd">
+			<ul class="newsList">
+			 <c:forEach items="${leaderSpeechList }" var="ele">
+				<li >
+					<a  href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank">
+						<span id="leaderSpeechList">${ele.title }</span>
+						<!--  <span style="color:#999;float:right;height:28px;line-height:28px;font-size:12px;">[${ele.create_date_show }]</span>-->
+					</a>
+				</li>
+			</c:forEach>
+			</ul>
+			<ul class="newsList">
+			    <c:forEach items="${indexLeaderBSpeechList }" var="ele">
+				<li>
+					<a href="leaderSpeech/leaderSpeechDetailsPage.do?leader_speech_id=${ele.leader_speech_id}" title='${ele.title }' target="_blank">
+						<span id="leaderSpeechList">${ele.title }</span>
+						<!--  <span style="color:#999;float:right;height:28px;line-height:28px;font-size:12px;">[${ele.create_date_show }]</span>-->
+					</a>
+				</li>
+			</c:forEach>
+			</ul>
+		</div>
+    </div>    
         <!--入园企业-->
      <!--会议通知-->
-    	<div class="slideTxtBox zhengce fl mt10" style="height:280px;border:1px solid #CCC">
+    	<div class="slideTxtBox zhengce fl mt10" style="border:1px solid #CCC">
         <div class="hd">
      	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" target="_blank" class="fr fm1">更多>></a>
             <ul><li>会议通知</li></ul>
-            
         </div>
         <div class="bd" style="height:218px;overflow:hidden;">
             <ul class="newsList">
@@ -224,12 +276,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                 <fmt:parseDate var="create_date" value="${ele.create_date}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把数据对应的时间格式化 -->
 		                 <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
 						 <c:set var="imgShow"><fmt:formatNumber value="${timeMis/1000/3600}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->
-	               	 <a href="cahgMeetingNotice/meetingNoticeDetailsPage.do?meeting_notice_id=${ele.meeting_notice_id }" target="_blank" title='${ele.title }'><span  id="meeting">${ele.title }</span>
+	               	 	<a href="cahgMeetingNotice/meetingNoticeDetailsPage.do?meeting_notice_id=${ele.meeting_notice_id }" target="_blank" title='${ele.title }'>
+		               	 	<span  id="meeting">
+		               	 		${ele.title }
+		               	 		<c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
+									<img style="margin-top:-12px;" src="static/images/new.gif">
+				               	</c:if>
+		               	 	</span>
 	               	 	<%-- <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span> --%>
-	               	 	<c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
-							<img style="margin-top:-12px;float:right;" src="static/images/new.gif">
-		               	 </c:if>
-	               	 </a>
+	               	 	
+	               	 	</a>
 	            	</li>
           		</c:forEach>
             </ul>
@@ -238,7 +294,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <!--本办发文-->
-    <div class="slideTxtBox  fl ml8 mt10" style="width:410px;height:280px;border:1px solid #CCC">
+    <div class="slideTxtBox  fl ml8 mt10" style="height:290px;border:1px solid #CCC">
         <div class="hd">
         	<a href="cahgOfficePost/officePostListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>本关发文</li></ul>
@@ -258,7 +314,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <!--公示公告-->
-    <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
+    <div class="slideTxtBox xgxz fr mt10" style="border:1px solid #CCC">
         <div class="hd">
         	<a href="cahgAffiche/afficheListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>公示公告</li></ul>
@@ -296,7 +352,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%-- <li   style="background-image:url(static/images/worktable.jpg);background-size:cover;height:30px; width:220px; border:1px solid #CCC;margin:8px;" >
 				      <a    style="font-size:15px;height:100%;width:100%;;line-height:30px; "  href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }"  target="_blank">${ele.name }</a>
 				</li> --%>
-				<li style="background:#f6d05a url(static/images/${ele.img }) 10px center no-repeat;background-size:auto 22px;height:30px;line-height:30px;width:266px;padding-left:40px;margin-bottom:8px;border-radius:20px;" >
+				<li style="background:#f6d05a url(static/images/${ele.img }) 10px center no-repeat;background-size:auto 22px;height:30px;line-height:30px;width:246px;padding-left:40px;margin-bottom:8px;border-radius:20px;" >
 					<a style="color:#fff;" href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }">${ele.name }</a>
 				</li>
 			</c:forEach>
@@ -305,13 +361,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
     
     <!--工作督办-->
-        <div class="slideTxtBox qy-news fl ml8 mt10" style="width:410px;border:1px solid #CCC">
+        <div class="slideTxtBox qy-news fl ml8 mt10" style="border:1px solid #CCC">
             <div class="hd">
             	<a href="cahgJob/jobListPage.do" target="_blank" class="fr fm1">更多>></a>
                 <ul><li>工作督办</li></ul>
             </div>
             <div class="bd">
-                <ul>
+                <ul class="newsList">
                 	 <c:forEach items="${indexJobList }" var="ele">
 		         		  <li>
 		         		   <fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
@@ -344,33 +400,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--网上办公-->
     <div class="slideTxtBox qywh fr mt10" style="border:1px solid #CCC">
             <div class="hd">
-                <ul><li>网上办公</li></ul>
+            	<a href="javascript:void(0)" target="_blank" class="fr fm1">更多>></a>
+                <ul><li>违纪曝光</li></ul>
             </div>
 			<div class="bd">
-                <ul style="padding:5px 15px;" >
-		         	<!-- <li align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #70B9E4;">
-				          <a href="dept/dept_left.do"  target="_blank" style="font-size:15px;">制度建设</a>
-				    </li>
-				    
-				    <li  align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #70B9E4">
-				          <a  href="cahgDutySchedule/dutyDetailsShow.do?type=1" style="font-size:15px;"  target="_blank">值班安排 </a>
-				    </li>
-				    
-				    <li  align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #70B9E4">
-				          <a   href="http://10.56.65.252/baozhang/index.aspx"  style="font-size:15px;" target="_blank">技术报障</a>
-				    </li>
-				    
-				     <li  align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:28px;background-color: #70B9E4">
-				          <a href="http://10.56.65.71/assetmaintain/" style="font-size:15px;" target="_blank">物业报障 </a>
-				    </li>
-				    
-				    <li  align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #70B9E4">
-				           <a href="http://10.56.2.241/jsp/changan_index.jsp" style="font-size:15px;"  target="_blank">后勤报障</a>
-				    </li>
-				    
-				    <li  align="center" style="background-image:url(static/images/list3.jpg);background-size:cover; margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #70B9E4">
-				           <a href="commomForm/commomFormsListPage.do?type=0" style="font-size:15px;" target="_blank">常用表格下载</a>
-				    </li> -->
+				<ul class="newsList">
+					<li><a href="javascript:void(0)">测试数据</a></li>
+					<li><a href="javascript:void(0)">测试数据</a></li>
+					<li><a href="javascript:void(0)">测试数据</a></li>
+					<li><a href="javascript:void(0)">测试数据</a></li>
+					<li><a href="javascript:void(0)">测试数据</a></li>
+					<li><a href="javascript:void(0)">测试数据</a></li>
+				</ul>
+               <!--  <ul style="padding:5px 15px;" >
 				    <li style="background:#f6d05a url(static/images/bg1.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
 						<a style="color:#fff;" href="dept/dept_left.do">制度建设</a>
 					</li>
@@ -389,32 +431,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<li style="background:#f6d05a url(static/images/bg2.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
 						<a style="color:#fff;" href="commomForm/commomFormsListPage.do?type=0">常用表格下载</a>
 					</li>
-					<!--
-				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
-				           <a href="dept/dept_left.do" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:35px;" src="static/images/bg1.png"></img><span style="margin-left:-40px;">制度建设</span></a>
-				    </p>
-				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
-				           <a href="cahgDutySchedule/dutyDetailsShow.do?type=1" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:35px;" src="static/images/bg3.png"></img><span style="margin-left:-45px;">值班安排</span></a>
-				    </p>
-				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
-				           <a href="http://10.56.65.252/baozhang/index.aspx" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:30px;" src="static/images/bg4.png"></img><span style="margin-left:-40px;">技术报障</span></a>
-				    </p>
-				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
-				           <a href="http://10.56.65.71/assetmaintain/" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:30px;" src="static/images/bg5.png"></img><span style="margin-left:-40px;">物业报障</span></a>
-				    </p>
-				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
-				           <a href="http://10.56.2.241/jsp/changan_index.jsp" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:30px;" src="static/images/bg6.png"></img><span style="margin-left:-40px;">后勤保障</span></a>
-				    </p>
-				    <p align="center" style=" margin-top:3px;line-height:33px;width:220px;height:30px;background-color: #f6d05a;border-radius:16px;">
-				           <a href="commomForm/commomFormsListPage.do?type=0" style="font-size:15px;" target="_blank"><img style="float: left;margin-left:30px;height:30px;width:30px;" src="static/images/bg2.png"></img><span style="margin-left:-20px;">常用表格下载</span></a>
-				    </p> -->
-                </ul>
+                </ul> -->
             </div>
         </div>
     <div class="slideTxtBox zhengce fl mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
+        	<a href="javascript:void(0)" target="_blank" class="fr fm1">更多>></a>
             <ul>
-            	<li>专题专栏</li>
+            	<li>活动通知</li>
             </ul>
         </div>
         <div class="bd">
@@ -427,7 +451,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         	</c:forEach>
         </div>
     </div>
-     <div class="slideTxtBox qy-news fl ml8 mt10" style="width:410px;height:280px;border:1px solid #CCC">
+     <div class="slideTxtBox qy-news fl ml8 mt10" style="height:280px;border:1px solid #CCC">
             <div class="hd">
             	<a href="cahgCustomNews/customNewsListPage.do" target="_blank" class="fr fm1">更多>></a>
                 <ul><li>海关新闻</li></ul>
@@ -445,64 +469,48 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>  
     <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
-        	<!-- <a href="" class="fr fm1">更多>></a> -->
+        	<a href="" class="fr fm1">更多>></a> 
             <ul><li>网上调查</li></ul>
         </div>
-        <div style="margin-top:10px; background-color: #fff;width:340px;height:150px;">
-            <table style="width:340px; height:100px;margin-left:10px;" id="survey">
-              		<tr>
-              			<td style="background-image:url(static/images/dc.png); background-repeat:no-repeat;text-indent:27px;color:#373737;line-height:28px;font-size: 12px;">${survey.question }<c:if test="${survey.answer_type eq 0 }">(单选)</c:if><c:if test="${survey.answer_type eq 1 }">(多选)</c:if></td>
-              		</tr>
-              		<c:if test="${survey.answer_type eq 0 }"><!-- 单选 -->
-              			<%-- <tr>
-              					<td id="answer">
-              					<c:forEach items="${answerList }" var="ele" varStatus="index">
-              						<c:if test="${index.index ne 0 && index.index%3 eq 0}">
-              							<br/>
-              						</c:if>
-              						<input name="surveyAnswer" type="radio" value="${ele.survey_answer_id}" />${ele.choice_text }
-              					</c:forEach>
-              					 </td>
-	              		</tr> --%>
-	              		<c:forEach items="${answerList }" var="ele" varStatus="index">
-	              			<tr>
-	              				<td style="line-height: 24px;">
-	              					<input name="surveyAnswer" type="radio" value="${ele.survey_answer_id}" />${ele.choice_text }
-	              				</td>
-	              			</tr>
-	              		</c:forEach>
-              		</c:if>
-              		
-              		<c:if test="${survey.answer_type eq 1 }"><!-- 多选 -->
-              			<%-- <tr>
-              					<td id="answer">
-              					<c:forEach items="${answerList }" var="ele" varStatus="index">
-              						<c:if test="${index.index ne 0 && index.index%3 eq 0}">
-              							<br/>
-              						</c:if>
-              						<input name="surveyAnswer" type="checkbox" value="${ele.survey_answer_id}" />${ele.choice_text }
-              					</c:forEach>
-              					 </td>
-	              		</tr> --%>
-	              		<c:forEach items="${answerList }" var="ele" varStatus="index">
-	              			<tr>
-	              				<td>
-	              					<input name="surveyAnswer" type="checkbox" value="${ele.survey_answer_id}" />${ele.choice_text }
-	              				</td>
-	              			</tr>
-	              		</c:forEach>
-              		</c:if>
-              		
-              		<tr>
-              			<td align="center"></div>
-              				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="survey()" data-options="iconCls:'icon-ok'">确定</a>
-              			</td>
-              			<!-- <td align="center"><a href="#" align="right">更多>></a></td> -->
-              		</tr>
-              	</table>
-            </div>
+        <div class="bd">
+                <ul class="newsList">
+					<li><a href="javascript:void(0)">测试数据</a></li>
+					<li><a href="javascript:void(0)">测试数据</a></li>
+					<li><a href="javascript:void(0)">测试数据</a></li>
+				</ul>
+        </div>
       </div>
     </div>
+    <div id="main">
+	  <div id="img"></div>
+	</div>
+	<div class="scrollPic">
+		<div class="scrollName">专题专栏</div>
+		<div id="scrollBox">
+			<ul>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+				<li><img src="img/2.jpg"></li>
+				<li><img src="img/3.jpg"></li>
+				<li><img src="img/4.jpg"></li>
+				<li><img src="img/5.jpg"></li>
+			</ul>
+		</div>
+	</div>
 <iframe class="bot" frameborder="0" scrolling="no" src="index/bottom.do" width="100%" height="100%"></iframe>
  <!--   <button onclick="hf()">换肤</button> -->
    <div id="float_icon"  style="position: absolute; z-index: 99999; top: 1px; left: 1px; visibility: visible;display:none;"> 
@@ -528,12 +536,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	        float_icon.style.visibility ="visible";
     	        a1a = setInterval("moveIcon()",50);
     	}
-       
-       
-      
     }
-    
-    
     
     function moveIcon() {
     	posX +=(2 *dirX);posY +=(2 *dirY);$("#float_icon").css("top",posY);
@@ -544,7 +547,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		if(posY < 1 ||posY + document.getElementById("float_icon").offsetHeight+5 >$(window).height()+200){
 		dirY =-dirY;
 		} 
-		  
 	}
     on.onmouseover=function(){ 
     	window.clearInterval(a1a);
@@ -624,6 +626,80 @@ function survey(){
 	    }
 	 });
 }
+
 </script>
+<script type="text/javascript">
+window.onload = function() {
+  var main = document.getElementById("main");
+  sy = 0;
+  speedy = 2;
+  sx = 0;
+  speedx = 2;
+  imgh = 120;
+  imgw = 100;
+  winh = document.documentElement.clientHeight;
+  winw = document.documentElement.clientWidth;
+  function start() {
+    sobj = setInterval(function() {
+      sy += speedy;
+      sx += speedx;
+      //y轴运动
+      if (sy <= 0) {
+        speedy = -speedy;
+      }
+      if (sy >= winh - imgh) {
+        speedy = -speedy;
+        sy = winh - imgh;
+      }
+      //x轴运动
+      if (sx <= 0) {
+        speedx = -speedx;
+      }
+      if (sx >= winw - imgw) {
+        speedx = -speedx;
+        sx = winw - imgw;
+      }
+      main.style.top = sy + 'px';
+      main.style.left = sx + 'px';
+    }, 10)
+  }
+  start();
+  main.onmouseover= function() {
+    clearInterval(sobj);
+  }
+  main.onmouseout= function() {
+    start();
+  }
+}
+</script>
+
+<script type="text/javascript">
+	window.onload = function(){
+		var oDiv = document.getElementById('scrollBox');
+		var oUl = oDiv.getElementsByTagName('ul')[0];
+		var aLi = oUl.getElementsByTagName('li');
+		var iSpeed = 1;//正左负右
+		var timer = null;
+		//计算ul的宽为所有li的宽的和;
+		oUl.innerHTML += oUl.innerHTML+oUl.innerHTML;
+		oUl.style.width = aLi[0].offsetWidth*aLi.length+'px';
+		function Slider(){
+			if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+				oUl.style.left = 0;
+			}else if(oUl.offsetLeft>0){
+				oUl.style.left =-oUl.offsetWidth/2+'px';
+			}
+			oUl.style.left = oUl.offsetLeft-iSpeed+'px';//正负为方向
+		}
+		timer =setInterval(Slider,30);
+		oDiv.onmouseover = function(){
+			clearInterval(timer);
+		}
+		oDiv.onmouseout = function(){
+			timer =setInterval(Slider,30);
+		}
+	};
+
+	</script>
 <script src="static/js/all.js" type="text/javascript"></script>
 </html>

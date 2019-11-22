@@ -35,37 +35,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="page-wrap" class="blue">
                     <!-- jDropDown menu -->
                     <ul id="jDropDown">
-                   <!--        <li class="img"><a href="/rlzyj/index.shtml" target="_parent"><img src="static/picture/home.png" /></a></li> -->
-                        <li class="hx" id="hx"></li>
-                        <li><a href="index/page.do" target="_parent" class="_xxgk">首页</a>
-                     	 </li>
-                     	  <li class="hx"></li>
-                        <li><a href="cahgIntro/toIntroPage.do"  target="_parent">简介</a>
+                        <li>
+                        	<a href="index/page.do" target="_parent" class="_xxgk">首页</a>
+                     	</li>
+                        <li>
+                        	<a href="cahgIntro/toIntroPage.do"  target="_parent">简介</a>
                         </li>
-                        <li class="hx"></li>
-                        <li><a href="cahgLetter/letterShow.do"  target="_parent">关长信箱</a>
-                        
-                        <li class="hx"></li>
-                        <li><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/"  target="_parent">HB2012</a>
-                        
-                        </li><li class="hx"></li>
-                        <li><a href="http://10.56.2.115/HBWebApp/HB2004Portal/default.aspx"  target="_parent">HB2004</a>
-                      
+                        <li>
+                        	<a href="cahgLetter/letterShow.do"  target="_parent">关长信箱</a>
                         </li>
-                        <li class="hx"></li>
-                        <li><a href="cahgAddressLook/addressLookShowPage.do?dept_id=38"  target="_parent">通讯录</a>
-						
+                        <li>
+                        	<a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent">值班安排</a>
                         </li>
-                        <li class="hx"></li>
+                        <li>
+                        	<a href="cahgAddressLook/addressLookShowPage.do?dept_id=38"  target="_parent">通讯录</a>
+                        </li>
+                        <li>
+                        	<a href="javascript:void(0)">常用链接</a>
+                        	<dl class="slideList">
+                        		<dd><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/"  target="_parent">HB2012</a></dd>
+                        		<dd><a href="http://10.56.2.115/HBWebApp/HB2004Portal/default.aspx"  target="_parent">HB2004</a></dd> 
+                        	</dl>
+                        </li>
                         <li>
                             <a href="http://10.56.65.100/CAHGAdmin"  target="_blank">登录</a>
-                           
                         </li>
-                        
-                        <li class="hx"></li>
-                        
-                        <li><a href="javascript:void(0);"  target="_parent">${sysDate }</a>
-                       
+                        <li>
+                        	<a href="javascript:void(0);"  target="_parent">${sysDate }</a>
                         </li>
                   </ul>
                   
