@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mobset.system.dao.CahgFloatNewsDao" >
+
+	<!-- 首页图片新闻列表 -->
+	<select id="indexFloatNewsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			float_new_id, float_new_title, float_url
+		from
+			cahg_float_news
+		where
+			float_new_status = '0'
+		ORDER BY  create_date DESC
+			limit 0,5
+	</select>
+	
+	<!-- 图片新闻内容展示 -->
+	<select id="floatNewDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			float_new_title,float_new_content,date_format(create_date,'%Y-%m-%d %H:%i:%s') as create_date,author,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name
+		from
+			cahg_float_news c
+		where
+			float_new_id = #{float_new_id}
+	</select>
+	
+	<!-- 图片新闻列表 -->
+	<select id="floatNewsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		select
+			float_new_id, float_new_title, float_url,date_format(create_date,'%Y-%m-%d %H:%i:%s') as create_date,author
+		from
+			cahg_float_news
+		where
+			float_new_status = '0'
+		and 1 = 1
+		<if test="title !=null and title !=''">
+			and (float_new_title like #{title} OR DATE_FORMAT(create_date,'%Y-%m-%d') like #{title})
+		</if>
+			ORDER BY create_date DESC
+		limit 
+			#{page},#{rows}
+	</select>
+	
+	<select id="count" parameterType="java.util.HashMap" resultType="Integer">
+		select
+			count(*)
+		from
+			cahg_float_news
+		where
+			float_new_status = '0'
+		and 1 = 1
+			<if test="title !=null and title !=''">
+			and (float_new_title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
+	</select>
+</mapper>

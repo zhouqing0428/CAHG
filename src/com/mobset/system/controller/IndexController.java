@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mobset.system.service.CahgAfficheService;
 import com.mobset.system.service.CahgCustomNewsService;
 import com.mobset.system.service.CahgDayInfoService;
+import com.mobset.system.service.CahgFloatNewsService;
 import com.mobset.system.service.CahgHyperlinkService;
 import com.mobset.system.service.CahgImgNewsService;
 import com.mobset.system.service.CahgImptWordService;
@@ -45,6 +46,11 @@ public class IndexController {
 	
 	@Resource(name="cahgImgNewsService")
 	private CahgImgNewsService cahgImgNewsService;
+	
+	@Resource(name="cahgFloatNewsService")
+	private CahgFloatNewsService cahgFloatNewsService;
+	
+	
 	@Resource(name="cahgDayInfoService")
 	private CahgDayInfoService cahgDayInfoService;
 	@Resource(name="sysDictionaryService")
@@ -100,6 +106,7 @@ public class IndexController {
 		
 		HashMap map = new HashMap();//参数统一map
 		List<HashMap> imgNewsList = cahgImgNewsService.indexImgNewsList(map);//图片新闻列表
+		List<HashMap> floatNewsList = cahgFloatNewsService.indexFloatNewsList(map);//弹窗新闻列表
 		List<HashMap> dayInfoList = cahgDayInfoService.indexDayInfoList(map);//每日信息列表
 		List<HashMap> leaderSpeechList = cahgLeaderSpeechService.indexLeaderSpeechList(map);//领导讲话列表
 		List<HashMap> indexLeaderBSpeechList = cahgLeaderSpeechService.indexLeaderBSpeechList(map);//领导讲话列表
@@ -146,6 +153,7 @@ public class IndexController {
 		
 		request.setAttribute("sysDate", formatter.format(date));//系统当前时间
 		request.setAttribute("imgNewsList", imgNewsList);//图片新闻
+		request.setAttribute("floatNewsList", floatNewsList);//弹窗新闻
 		request.setAttribute("dayInfoList", dayInfoList);//每日信息
 		request.setAttribute("leaderSpeechList", leaderSpeechList);//领导讲话
 		request.setAttribute("indexLeaderBSpeechList", indexLeaderBSpeechList);//领导讲话

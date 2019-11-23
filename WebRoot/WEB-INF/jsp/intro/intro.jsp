@@ -84,7 +84,6 @@ padding-left:10px;
       <div class="cen-div-1 mar-t">
         <div class="con-left fl" style="width:170px;min-height:120px;border:1px solid;">
         	<ul>
-        		
 	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
 		                	<a href="cahgIntro/toIntroPage.do" style="color: #fff;background: #2b67ac; color: #fff !important" href="cahgIntro/toIntroPage.do"  target="_parent" title='基本概况' ><span style="margin-left:20px;">基本概况</span></a>
 		             </li>
@@ -94,8 +93,6 @@ padding-left:10px;
 	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
 		                	<a style="color: #333;" href="cahgIntro/toIntroPage2.do"  target="_parent" title='工作亮点' ><span style="margin-left:20px;">工作亮点</span></a>
 		             </li>
-	            
-	             
         	</ul>
         </div>
         <div class="con-right fr mar-l-2">

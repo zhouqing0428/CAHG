@@ -25,8 +25,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div></div>
        
       </div>
-      
-      
+       <div class="cen-div-1 mar-t">
+        <div class="con-left fl" style="width:170px;min-height:120px;border:1px solid;">
+        	<ul>
+	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;" >
+		                	<a href="cahgIntro/toIntroPage.do" style="color: #333;" href="cahgIntro/toIntroPage.do"  target="_parent" title='基本概况' ><span style="margin-left:20px;">基本概况</span></a>
+		             </li>
+	   				<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
+	   					<a style="background: #2b67ac; color: #fff !important"  href="dept/dept_left.do"><span style="margin-left:20px;">制度建设</span></a>
+	   				</li>
+	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
+		                	<a style="color: #333;" href="cahgIntro/toIntroPage2.do"  target="_parent" title='工作亮点' ><span style="margin-left:20px;">工作亮点</span></a>
+		             </li>
+        	</ul>
+        </div>
+      <div class="con-right fr mar-l-2">
       <div class="line mar-t2 hov">
        <h2>一、本关主要工作</h2>
        	
@@ -104,9 +117,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        					</c:forEach>
        				</tr>
        	</table>
-       	
+       	</div>
       </div>
-   
+   </div>
       
     </div>
     

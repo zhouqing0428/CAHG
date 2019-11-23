@@ -37,16 +37,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/index_1.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
-#main{
-  position: absolute;
-  top: 0;
-  left: 0;
-  cursor: pointer;
-}
-#img{
-  width: 100px;
-  height: 120px;
-  background: #faa;
+#roll {
+  width:100px;
+  height:100px;
+  background-color:green;
+  color:#fff;
+  position:absolute;
+  font-size:12px;
+  text-align:center;
+  line-height:100px;
 }
 .scrollPic{
 	overflow:hidden;
@@ -481,9 +480,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     </div>
-    <div id="main">
-	  <div id="img"></div>
-	</div>
+    <div id="roll">蚂蚁部落欢迎您</div>
 	<div class="scrollPic">
 		<div class="scrollName">专题专栏</div>
 		<div id="scrollBox">
@@ -629,48 +626,34 @@ function survey(){
 
 </script>
 <script type="text/javascript">
-window.onload = function() {
-  var main = document.getElementById("main");
-  sy = 0;
-  speedy = 2;
-  sx = 0;
-  speedx = 2;
-  imgh = 120;
-  imgw = 100;
-  winh = document.documentElement.clientHeight;
-  winw = document.documentElement.clientWidth;
-  function start() {
-    sobj = setInterval(function() {
-      sy += speedy;
-      sx += speedx;
-      //y轴运动
-      if (sy <= 0) {
-        speedy = -speedy;
-      }
-      if (sy >= winh - imgh) {
-        speedy = -speedy;
-        sy = winh - imgh;
-      }
-      //x轴运动
-      if (sx <= 0) {
-        speedx = -speedx;
-      }
-      if (sx >= winw - imgw) {
-        speedx = -speedx;
-        sx = winw - imgw;
-      }
-      main.style.top = sy + 'px';
-      main.style.left = sx + 'px';
-    }, 10)
+var interval=null;
+var ggRoll=null;
+function floatAd(){
+  ggRoll={
+    roll:document.getElementById("roll"),
+    speed:20,
+    statusX:1,
+    statusY:1,
+    x:100,
+    y:300,
+    winW:document.documentElement.clientWidth-document.getElementById("roll").offsetWidth,
+    winH:document.documentElement.clientHeight-document.getElementById("roll").offsetHeight,
+    Go:function(){
+      this.roll.style.left = this.x + 'px';
+      this.roll.style.top = this.y + 'px';
+      this.x = this.x + (this.statusX ? -1 : 1)
+      if(this.x < 0) { this.statusX = 0 }
+      if(this.x > this.winW) { this.statusX = 1 }
+      this.y=this.y + (this.statusY ? -1 : 1)
+      if(this.y < 0) { this.statusY = 0 }
+      if (this.y > this.winH) { this.statusY = 1 }
+    }
   }
-  start();
-  main.onmouseover= function() {
-    clearInterval(sobj);
-  }
-  main.onmouseout= function() {
-    start();
-  }
+  interval=setInterval(function(){ggRoll.Go()},ggRoll.speed);
+  ggRoll.roll.onmouseover=function(){clearInterval(interval)};
+  ggRoll.roll.onmouseout=function(){interval=setInterval(function(){ggRoll.Go()},ggRoll.speed)};
 }
+floatAd()
 </script>
 
 <script type="text/javascript">
