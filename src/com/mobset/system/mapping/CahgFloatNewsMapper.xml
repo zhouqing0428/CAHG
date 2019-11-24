@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.mobset.system.dao.CahgFloatNewsDao" >
 
-	<!-- 首页图片新闻列表 -->
+	<!-- 首页弹窗新闻列表 -->
 	<select id="indexFloatNewsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select
 			float_new_id, float_new_title, float_url

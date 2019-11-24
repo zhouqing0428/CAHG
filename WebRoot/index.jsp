@@ -480,7 +480,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     </div>
-    <div id="roll">蚂蚁部落欢迎您</div>
+    <div id="roll"><img src="/file/upFloat/floatNews/${floatNews.float_url }" height="50" width="100"></div>
 	<div class="scrollPic">
 		<div class="scrollName">专题专栏</div>
 		<div id="scrollBox">

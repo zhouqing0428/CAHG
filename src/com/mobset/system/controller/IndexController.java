@@ -151,9 +151,15 @@ public class IndexController {
 			request.setAttribute("picture", "0");
 		}
 		
+		HashMap floatNews = new HashMap();
+		
+		if(floatNewsList.size() > 0){
+			floatNews = floatNewsList.get(0);
+		}
+		
 		request.setAttribute("sysDate", formatter.format(date));//系统当前时间
 		request.setAttribute("imgNewsList", imgNewsList);//图片新闻
-		request.setAttribute("floatNewsList", floatNewsList);//弹窗新闻
+		request.setAttribute("floatNews", floatNews);//弹窗新闻
 		request.setAttribute("dayInfoList", dayInfoList);//每日信息
 		request.setAttribute("leaderSpeechList", leaderSpeechList);//领导讲话
 		request.setAttribute("indexLeaderBSpeechList", indexLeaderBSpeechList);//领导讲话
