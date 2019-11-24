@@ -480,7 +480,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     </div>
-    <div id="roll"><img src="/file/upFloat/floatNews/${floatNews.float_url }" height="50" width="100"></div>
+    <div id="roll">
+    	<c:if test="${not empty floatNews}">
+    	<a target="_blank" href="cahgFloatNews/floatNewsDetailsPage.do?float_new_id=${floatNews.float_new_id }"  title="${ele.img_new_title }">
+    		<img src="/file/upFloat/floatNews/${floatNews.float_url }" height="50" width="100" />
+    	</a>
+    	</c:if>
+    </div>
 	<div class="scrollPic">
 		<div class="scrollName">专题专栏</div>
 		<div id="scrollBox">
