@@ -2,6 +2,7 @@ package com.mobset.system.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @说明  工作督办dao
@@ -36,4 +37,25 @@ public interface CahgJobDao {
 	 * @说明 跟进内容
 	 */
 	public List<HashMap> detailList(Integer job_id);
+	
+	/**
+	 * 保存工作督办完成情况记录
+	 * @param map
+	 * @return
+	 */
+	public int saveJobResult(Map<String,Object> map);
+	
+	/**
+	 * 获取工作督办完成情况
+	 * @param map
+	 * @return
+	 */
+	List<Map<String, Object>> queryJobResult(Map<String, Object> map);
+	
+	/**
+	 * 修改工作督办状态
+	 * @param map
+	 * @return
+	 */
+	int updateJobStatus(Map<String, Object> map);
 }

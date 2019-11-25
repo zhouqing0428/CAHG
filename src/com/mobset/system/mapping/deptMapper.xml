@@ -4,11 +4,10 @@
 	
 	<!-- 科室分类查询 -->
 	<select id="deptSelectList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
-		select
-			dept_id,
-			name
-		from
-			sys_dept
+		select dept_id, name from sys_dept where 1 = 1
+		<if test="condition!=null">
+			and ${condition}
+		</if>	
 	</select>
 	
 	<select id="deptDetails" parameterType="java.util.HashMap" resultType="java.util.HashMap">

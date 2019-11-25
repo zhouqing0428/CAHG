@@ -2,6 +2,7 @@ package com.mobset.system.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -55,8 +56,22 @@ public class CahgJobServiceImpl implements CahgJobService {
 
 	@Override
 	public List<HashMap> detailList(Integer job_id) {
-		// TODO Auto-generated method stub
 		return dao.detailList(job_id);
+	}
+
+	@Override
+	public int saveJobResult(Map<String, Object> map) {
+		return dao.saveJobResult(map);
+	}
+
+	@Override
+	public List<Map<String, Object>> queryJobResult(Map<String, Object> map) {
+		return dao.queryJobResult(map);
+	}
+
+	@Override
+	public int updateJobStatus(Map<String, Object> map) {
+		return dao.updateJobStatus(map);
 	}
 	
 }

@@ -32,11 +32,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="line mar-t2 hov">
         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style=" padding-left:10px; padding-right:10px;color:#666666;">
           <tr>
-            <td align="center" width="100%"><b>发起时间：${newMap.create_date }&nbsp;&nbsp;&nbsp;办理期限:${newMap.end_time } &nbsp;&nbsp;&nbsp;办理进度:<c:if test="${newMap.status eq 0}">待办</c:if><c:if test="${newMap.status eq 1}">在办</c:if><c:if test="${newMap.status eq 2}">已办</c:if> </b></td>
+            <td align="center" width="100%"><b>发起时间：${newMap.create_date }&nbsp;&nbsp;&nbsp;办理期限：${newMap.end_time } &nbsp;&nbsp;&nbsp;办理进度：<c:if test="${newMap.status eq 0}">待办</c:if><c:if test="${newMap.status eq 1}">在办</c:if><c:if test="${newMap.status eq 2}">已办</c:if><c:if test="${newMap.status eq 3}">超时完结</c:if> </b></td>
           </tr>
-           <tr style="height:50px;">
-		          	<td><hr/></td>
-		          </tr>
+          <tr style="height:50px;">
+	          <td><hr/></td>
+          </tr>
         </table>
       </div>
       <div id="content" style="margin-top:10px;background-color:white;color:black;padding-right:50px;padding-left:50px;">
@@ -44,14 +44,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       
       <c:forEach items="${detailList }" var="ele" varStatus="i">
-     <div id="content" style="margin-top:10px;background-color:white;color:black;padding-right:50px;padding-left:50px;" align="center">
-         		<h3  style="margin-top:30px;" align="center">进度${i.index+1}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 办理人员：${ele.username}</h3>
-         		<p style="margin-top:20px;">${ele.content }</p>
+      <div id="detailList" style="margin-top:10px;background-color:white;color:black;padding-right:50px;padding-left:50px;" align="center">
+      	<p>办理进度${i.index+1}&nbsp;&nbsp;&nbsp;经办科室：${ele.deptName}&nbsp;&nbsp;&nbsp; 经办人：${ele.user_name}&nbsp;&nbsp;&nbsp;办理时间：${ele.create_time}</p>
+      	<p>办理情况：</h3>
+    	<p>${ele.content }</p>
       </div>
-     	</c:forEach> 
+      </c:forEach>
+      <c:if test="${newMap.status lt 2}">
+	      <div id="dealJob">
+	      	<input type="button" value="办结" onclick="doJob('${jobId}');"/>
+	      </div>
+      </c:if>
     </div>
 </div>
 <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
 </div>
+<script type="text/javascript">
+	function doJob(jobId){
+		window.location.href="../cahgJob/toResult.do?jobId="+jobId;
+	}
+</script>
 </body>
 </html>
