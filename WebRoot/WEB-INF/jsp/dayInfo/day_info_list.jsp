@@ -11,19 +11,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title></title>
+<title>每日信息列表</title>
 <link href="static/css/index.css" rel="stylesheet"/>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <style type="text/css">
 #new_title{  
-		display: block;
-		width: 600px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
-		overflow: hidden;
-		white-space: nowrap;
-		-o-text-overflow: ellipsis;
-		text-overflow: ellipsis;
-	  }  
+	display: block;
+	width: 600px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+	overflow: hidden;
+	white-space: nowrap;
+	-o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+  }  
 </style>
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
@@ -63,21 +63,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
-		        <div class=" font24 padd-b">
-		          <div class="list_left_title">
-		            每日信息
-		          </div>
-		        </div>
-		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
+        <div class=" font24 padd-b">
+          <div class="list_left_title">
+            	每日信息
+          </div>
+        </div>
+        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
 		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;每日信息列表
 		</div>   
       </div>
       
-      
       <div class="cen-div-1 mar-t">
-        
         <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url}" widht="100%"></iframe>
-        
         <div class="con-right fr mar-l-2">
  			<div id="list">
  			
@@ -87,17 +84,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     </div>
-    
-         <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
-    
+    <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
   </div> 
-   
 <script>
 
-
-function delimiterConvert(val){ //格式话数据  
-	  return val.replace('-','/').replace('-','/')  
-}
+	function delimiterConvert(val){ //格式话数据  
+		  return val.replace('-','/').replace('-','/')  
+	}
 
 	var pageCount = '${pageCount}';
 	var count = '${count}';
@@ -125,12 +118,16 @@ function delimiterConvert(val){ //格式话数据
 		     		
 		     		if(timestamp - timestamp2 < 1) // > one day
 		     		{
-		     			img = "<img style='float:left;margin-top:12px;' src='static/images/new.gif'>";
+		     			img = "<img style='float:left;margin-top:14px;' src='static/images/new.gif'>";
 		     		} 
 		     		
 		    		html += "<div class='list_div mar-top2 '>" +
 		    				"<a href='cahgDayInfo/dayInfoDetailsPage.do?day_id="+data.list[i].day_id+"' target='_blank'  >"+
-		    				"  <div class='list-right_title fon_1'><b style='float:left' id='new_title'>"+data.list[i].day_title+"</b>"+img+"</div>" +
+		    				"  <div class='list-right_title fon_1'><b style='float:left' id='new_title'>";
+		    		if(data.list[i].day_stick == 1){
+    					html += "<img src='static/images/fire.png' width='18px' height='18px' style='margin-bottom: -1px;margin-right: 1px;'/>";
+    				}
+    				html += data.list[i].day_title+"</b>"+img+"</div>" +
 		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
 		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +
 		    				"<td width='50%' align='right' ><span class='column-name'><b>作者："+data.list[i].author+"</b></span></td>"+

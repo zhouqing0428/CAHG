@@ -5,12 +5,12 @@
 	<!-- 首页图片新闻列表 -->
 	<select id="indexImgNewsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select
-			img_new_id, img_new_title, img_url
+			img_new_id, img_new_title, img_url, img_news_stick
 		from
 			cahg_img_news
 		where
 			img_new_status = '0'
-		ORDER BY  create_date DESC
+		ORDER BY img_news_stick DESC,create_date DESC
 			limit 0,5
 	</select>
 	
@@ -19,7 +19,7 @@
 		select
 			img_new_title, img_new_content, date_format(create_date,'%Y-%m-%d %H:%i:%s') as create_date, author,
 			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,
-			img_url 
+			img_url, img_news_stick 
 		from
 			cahg_img_news c
 		where
@@ -29,7 +29,7 @@
 	<!-- 图片新闻列表 -->
 	<select id="imgNewsList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select
-			img_new_id, img_new_title, img_url,date_format(create_date,'%Y-%m-%d %H:%i:%s') as create_date,author
+			img_new_id, img_new_title, img_url,date_format(create_date,'%Y-%m-%d %H:%i:%s') as create_date,author,img_news_stick 
 		from
 			cahg_img_news
 		where
@@ -38,7 +38,7 @@
 		<if test="title !=null and title !=''">
 			and (img_new_title like #{title} OR DATE_FORMAT(create_date,'%Y-%m-%d') like #{title})
 		</if>
-			ORDER BY create_date DESC
+			ORDER BY img_news_stick DESC,create_date DESC
 		limit 
 			#{page},#{rows}
 	</select>

@@ -17,37 +17,39 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <div id="main">
-<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-<div style="background-color: #fff">
+	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
+	<div style="background-color: #fff">
 		<div class="cen-div color mar-t">
 			 <div class="con_title_left_c fl_left"> 
-			      	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-						<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgDayInfo/dayInfoListPage.do'  target="_parent">每日信息列表</a>&nbsp;>&nbsp;<a href=''  target="_parent">每日信息</a>
-						</div></div>
+		      	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
+					<a href='index/page.do' target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgDayInfo/dayInfoListPage.do' target="_parent">每日信息列表</a>&nbsp;>&nbsp;<a href='' target="_parent">每日信息</a>
+				</div>
 			</div>
-
-			
-		      <div class="con_title mar-t2 text">
-		        <h4 style="margin:20px;" align="center">${newMap.day_title }</h4>
-		      </div>
-		      <div class="line mar-t2 hov">
-		        <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style=" padding-left:10px; padding-right:10px;color:#666666;">
-		          <tr>
-		            <td align="center" width="100%"><b>科室：${newMap.dept_name}&nbsp;&nbsp;&nbsp;作者：${newMap.author}&nbsp;&nbsp;&nbsp;发表时间：${newMap.create_date }</b></td>
-		          </tr>
-		          <tr style="height:50px;">
-		          	<td><hr/></td>
-		          </tr>
-		        </table>
-		      </div>
-			      <div id="content" style="margin-top:10px;background-color:white;color:black;padding-right:50px;padding-left:50px;">
-			         	${newMap.day_content }
-			      </div>
+		</div>
+	    <div class="con_title mar-t2 text">
+	       <h4 style="margin:20px;" align="center">
+	       <c:if test="${newMap.day_stick eq 1 }">
+	 			<img src="static/images/fire.png" width="30px" height="30px" style="margin-bottom:-4px;margin-right:-5px;"/>
+		   </c:if>
+	       ${newMap.day_title }</h4>
+	    </div>
+	    <div class="line mar-t2 hov">
+	       <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style=" padding-left:10px; padding-right:10px;color:#666666;">
+	         <tr>
+	           <td align="center" width="100%"><b>科室：${newMap.dept_name}&nbsp;&nbsp;&nbsp;作者：${newMap.author}&nbsp;&nbsp;&nbsp;发表时间：${newMap.create_date }</b></td>
+	         </tr>
+	         <tr style="height:50px;">
+	         	<td><hr/></td>
+	         </tr>
+	       </table>
+	    </div>
+	    <div id="content" style="margin-top:10px;background-color:white;color:black;padding-right:50px;padding-left:50px;">
+         	${newMap.day_content }
+	    </div>
+ 	</div>
+</div>
+ <div>
+ 	<iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
  </div>
-</div>
-	  	  <div>
-		        <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
-		  </div>
-</div>
 </body>
 </html>

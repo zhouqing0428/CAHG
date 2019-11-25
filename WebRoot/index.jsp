@@ -193,7 +193,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<div class="txt">
 				<ul>
 					<c:forEach items="${imgNewsList}" var="ele">
-			   			<li><a target="_blank" id="imgTitle" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }">${ele.img_new_title }</a></li>
+			   			<li><a target="_blank" id="imgTitle" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }">
+			   			<c:if test="${ele.img_news_stick eq 1 }">
+			   			<img src="static/images/fire.png" width="20px" height="20px" style="margin-top:-5px;margin-right:-5px;"/>
+			   			</c:if>
+			   			${ele.img_new_title }
+			   			</a></li>
 			   		</c:forEach>
 				</ul>
 			</div>
@@ -215,17 +220,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <ul class="newsList">
             	<c:forEach items="${dayInfoList}" var="ele"><!--每日信息  -->
 	              <li>
-	              <fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
+	                <fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
 	                <fmt:parseDate var="create_date" value="${ele.create_date}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把数据对应的时间格式化 -->
 	                <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
 					<c:set var="imgShow"><fmt:formatNumber value="${timeMis/1000/3600}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->               
-	                <a href="cahgDayInfo/dayInfoDetailsPage.do?day_id=${ele.day_id}" target="_blank" title='${ele.day_title}'><span id="new_title">${ele.day_title}</span>
-	               <%--  <span style="color:#999;float:right;margin-top:-18px; ">[${ele.create_date_show }]</span> --%>
-	                 <c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
-						<img style="margin-top:-16px; float:right;" src="static/images/new.gif">
+	                <a href="cahgDayInfo/dayInfoDetailsPage.do?day_id=${ele.day_id}" target="_blank" title='${ele.day_title}'>
+	                <span id="new_title">
+	                <c:if test="${ele.day_stick eq 1 }">
+			   			<img src="static/images/fire.png" width="20px" height="20px" style="margin-top:-7px;margin-right:-5px;"/>
+		   			</c:if>
+	                ${ele.day_title}
+	                </span>
+	                <c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
+						<img style="margin-top:-19px; float:right;" src="static/images/new.gif">
 	              	</c:if>
 	                </a>
-	                
 	              </li>
 				</c:forEach>
             </ul>
