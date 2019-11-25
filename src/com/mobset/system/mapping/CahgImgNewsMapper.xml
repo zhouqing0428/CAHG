@@ -17,8 +17,9 @@
 	<!-- 图片新闻内容展示 -->
 	<select id="imgNewDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select
-			img_new_title,img_new_content,date_format(create_date,'%Y-%m-%d %H:%i:%s') as create_date,author,
-			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name
+			img_new_title, img_new_content, date_format(create_date,'%Y-%m-%d %H:%i:%s') as create_date, author,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,
+			img_url 
 		from
 			cahg_img_news c
 		where

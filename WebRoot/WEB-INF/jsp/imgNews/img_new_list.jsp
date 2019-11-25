@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title></title>
+<title>图片新闻列表</title>
 <link href="static/css/index.css" rel="stylesheet"/>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
@@ -61,16 +61,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
-		        <div class=" font24 padd-b">
-		          <div class="list_left_title">
-		            图片新闻
-		          </div>
-		        </div>
-		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;图片新闻列表
+        <div class=" font24 padd-b">
+          <div class="list_left_title">
+            	图片新闻
+          </div>
+        </div>
+        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
+			<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;图片新闻列表
 		</div>   
       </div>
-      
       
       <div class="cen-div-1 mar-t">
          <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url }" widht="100%"></iframe>
@@ -84,7 +83,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </div>
         <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
-    
   </div> 
    
 <script>

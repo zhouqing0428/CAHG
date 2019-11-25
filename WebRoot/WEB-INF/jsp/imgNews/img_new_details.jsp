@@ -21,13 +21,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div id="main">
 <iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
  <div style="background-color: #fff">
-    
     <div class="cen-div color mar-t">
       <div class="con_title_left_c fl_left"> 
-      	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgImgNews/imgNewsListPage.do'  target="_parent">图片新闻列表</a>&nbsp;>&nbsp;<a href=''  target="_parent">图片新闻</a>
-</div></div>
-       
+      	<div class="fl">
+	      	<div class="font2 dgrey">
+		      	<img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
+				<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgImgNews/imgNewsListPage.do' target="_parent">图片新闻列表</a>&nbsp;>&nbsp;<a href='' target="_parent">图片新闻</a>
+			</div>
+		</div>
       </div>
       <div class="con_title mar-t2 text">
         <h4 style="margin:20px;" align="center">${newMap.img_new_title }</h4>
@@ -38,15 +39,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <td align="center" width="100%"><b>科室：${newMap.dept_name}&nbsp;&nbsp;&nbsp;作者：${newMap.author}&nbsp;&nbsp;&nbsp;发表时间：${newMap.create_date }</b></td>
           </tr>
           <tr style="height:50px;">
-		          	<td><hr/></td>
-		   </tr>
+          	<td><hr/></td>
+		  </tr>
         </table>
       </div>
+      <div align="center">
+        <img src="http://10.56.65.100/file/upImg/imgNews/${newMap.img_url }"/>
+      </div>
       <div id="content" style="margin-top:10px;background-color:white;color:black;padding-right:50px;padding-left:50px;">
-      <!-- <div class="con_cen line mar-t2"  id="zoom"  style="margin-top:10px;background-color:white;"> -->
       		${newMap.img_new_content }
       </div>
-      
     </div>
   </div>
 <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
