@@ -12,7 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title></title>
-<link href="static/css/index.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <style type="text/css">
@@ -55,16 +56,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
 		          <div class="list_left_title">
-		           办事处工作
+		           	制度建设
 		          </div>
 		        </div>
 		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
@@ -72,7 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
-        <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/office_work_left.do?url=${url}" widht="100%"></iframe>
+        <!-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/office_work_left.do?url=${url}" height="auto" width="100%"></iframe> -->
+        <dl class="con-left fl"></dl>
         <div class="con-right fr mar-l-2">
  			<div id="list">
  			</div>
@@ -85,8 +85,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div> 
    
 <script>
-
-
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
+getDataList();
+function getDataList(){
 	var office_work_category_id = '${office_work_category_id}';
 	var pageCount = '${pageCount}';
 	var count = '${count}';
@@ -102,12 +116,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
 		    		html += "<div class='list_div mar-top2 '>" +
-		    				"<a href='http://10.56.65.100/file/upImg/officeWork/"+data.list[i].file_name+"' target='_blank'  >"+
-		    				"  <div class='list-right_title fon_1'><b id='new_title'>"+data.list[i].title+"</b></div>" +
-		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
-		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +
-		    				"<td width='50%' align='right' ><span class='column-name'><b>点击下载</b></span></td>"+
-		    				"</tr></table></a></div>";
+		    				"<a href='http://10.56.65.100/file/upImg/officeWork/"+data.list[i].file_name+"' target='_blank' class='list-right_title fon_1'>"+data.list[i].title+"</a>" +
+		    				"<b>发布时间："+data.list[i].create_date+"</b>" +
+		    				"<a href='http://10.56.65.100/file/upImg/officeWork/"+data.list[i].file_name+"' target='_blank' class='column-name'>点击下载</a>" +
+		    				"</div>";
 		    	}
 		     	$("#list").html(html);
 		    }
@@ -118,6 +130,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		pageCount:pageCount,//总页码,默认10
 		showNear:3//显示当前页码前多少页和后多少页，默认2
 	});
+}
+getSlideMenu()
+function getSlideMenu(){
+	var url = "${url}"
+	$.ajax({
+	    url:"index/office_work_left.do?url="+url,
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".con-left").html(data);
+	    }
+	 });
+}	
 </script>
   
 </body>

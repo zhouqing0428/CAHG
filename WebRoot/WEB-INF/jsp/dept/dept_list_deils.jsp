@@ -11,121 +11,132 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title>${newMap.title}</title>
+<link href="static/css/common.css" rel="stylesheet" />
+<script type="text/javascript" src="static/js/jquery.js"></script>
+<script type="text/javascript" src="js/dropdown.class.demo_3.js"></script>
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-<script type="text/javascript" src="js/dropdown.class.demo_3.js"></script>
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <div id="main">
-<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    <div class="cen-div color mar-t">
-      <div class="con_title_left_c fl_left"> 
-      	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;制度建设
-</div></div>
-       
-      </div>
-       <div class="cen-div-1 mar-t">
-        <div class="con-left fl" style="width:170px;min-height:120px;border:1px solid;">
-        	<ul>
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;" >
-		                	<a href="cahgIntro/toIntroPage.do" style="color: #333;" href="cahgIntro/toIntroPage.do"  target="_parent" title='基本概况' ><span style="margin-left:20px;">基本概况</span></a>
-		             </li>
-	   				<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-	   					<a style="background: #2b67ac; color: #fff !important"  href="dept/dept_left.do"><span style="margin-left:20px;">制度建设</span></a>
-	   				</li>
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-		                	<a style="color: #333;" href="cahgIntro/toIntroPage2.do"  target="_parent" title='工作亮点' ><span style="margin-left:20px;">工作亮点</span></a>
-		             </li>
-        	</ul>
+	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
+	<div class="cen-div color mar-t">
+      <div class="con_title_left fl_left">
+        <div class=" font24 padd-b">
+          <div class="list_left_title">
+         	   制度建设
+          </div>
         </div>
-      <div class="con-right fr mar-l-2">
-      <div class="line mar-t2 hov">
-       <h2>一、本关主要工作</h2>
-       	
-       	<table style="width:100%;margin:0px;padding:0px; border-collapse:collapse;">
-       				<tr>
-       					<c:forEach items="${officeList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 6 }">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>
-       				
-       				<tr>
-       					<c:forEach items="${officeList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 12 and  i.index >=6}">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>	
-       				
-       				<tr>
-       					<c:forEach items="${officeList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 18 and  i.index >=12}">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>
-       				
-       				<tr>
-       					<c:forEach items="${officeList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 24 and  i.index >=18}">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>
-       	</table>
-       	
+        <div class="font2 dgrey">
+        	<img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
+        	<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;制度建设
+		</div>   
       </div>
-      
-      
-
-      <div class="line mar-t2 hov" style="margin-top:40px;">
-       <h2>二、科室管理规范</h2>
-       	
-       	<table style="width:100%;margin:0px;padding:0px; border-collapse:collapse;">
-       				<tr>
-       					<c:forEach items="${deptList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 6 }">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>
-       				
-       				<tr>
-       					<c:forEach items="${deptList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 12 and  i.index >=6}">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>	
-       				
-       				<tr>
-       					<c:forEach items="${deptList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 18 and  i.index >=12}">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>
-       				
-       				<tr>
-       					<c:forEach items="${deptList }" var="ele" varStatus="i">
-       						<c:if test="${ i.index < 24 and  i.index >=18}">
-       							<td style="border:1px solid;width:120px;line-height: 30px;font-size:18px;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-       						</c:if>
-       					</c:forEach>
-       				</tr>
-       	</table>
-       	</div>
-      </div>
-   </div>
-      
+      <div class="cen-div-1 mar-t">
+        <dl class="con-left fl">
+       		<dt>简介</dt>
+			<dd>
+				<a href="cahgIntro/toIntroPage.do" target="_parent" title='基本概况' >基本概况</a>
+			</dd>
+			<dd class="curr">
+				<a href="dept/dept_left.do" target="_parent" title='制度建设'>制度建设</a>
+			</dd>
+			<dd>
+				<a href="cahgIntro/toIntroPage2.do" target="_parent" title='工作亮点' >工作亮点</a>
+			</dd>
+       	</dl>
+        <div class="con-right fr mar-l-2">
+	        <div class="page"  style="width:100%; margin-top:50px;">
+				<h2 style="font-weight:normal;height:60px;line-height:60px;">一、本关主要工作</h2>
+		       	<table style="width:100%;margin:0px auto 30px;padding:0px; border-collapse:collapse;">
+					<tr>
+						<c:forEach items="${officeList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 4 }">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>
+					
+					<tr>
+						<c:forEach items="${officeList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 8 and  i.index >=4}">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>	
+					
+					<tr>
+						<c:forEach items="${officeList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 12 and  i.index >=8}">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>
+					
+					<tr>
+						<c:forEach items="${officeList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 18 and  i.index >=12}">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>
+		       	</table>
+		       	<h2 style="font-weight:normal;height:60px;line-height:60px;">二、科室管理规范</h2>
+		       	<table  style="width:100%;margin:0px auto 30px;padding:0px; border-collapse:collapse;">
+					<tr>
+						<c:forEach items="${deptList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 3 }">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>
+					
+					<tr>
+						<c:forEach items="${deptList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 6 and  i.index >=3}">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>	
+					
+					<tr>
+						<c:forEach items="${deptList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 9 and  i.index >=6}">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>
+					
+					<tr>
+						<c:forEach items="${deptList }" var="ele" varStatus="i">
+							<c:if test="${ i.index < 12 and  i.index >=9}">
+								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
+							</c:if>
+						</c:forEach>
+					</tr>
+		       	</table>
+	 		</div>
+        </div>
+      </div>	
     </div>
-    
-            <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
-    
+    <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
   </div>
-
 </body>
 </html>
+<script>
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
+</script>

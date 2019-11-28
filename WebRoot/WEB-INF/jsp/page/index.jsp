@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		line-height:18px; margin-top:10px;
 	}
 </style>
-<iframe class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe>
+<!-- <iframe class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
   <div class="index-main clearfix" style="margin-top:-10px;width:1000px;">
 	<!--图片新闻-->
     <div class="focusBox fl">
@@ -284,7 +284,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--网上办公-->
     <div class="slideTxtBox qywh fr mt10">
             <div class="hd">
-                <ul><li>网上办公</li></ul>
+                <ul><li>长安风采</li></ul>
             </div>
 			<div class="bd" style="margin-left:10px;margin-top:-10px;">
                 <ul style="text-align: center;" >
@@ -355,7 +355,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="slideTxtBox xgxz fr mt10" style="height:280px">
         <div class="hd h30">
         	<!-- <a href="" class="fr fm1">更多<<</a> -->
-            <ul><li>网上调查</li></ul>
+            <ul><li>长安风采</li></ul>
         </div>
         <div style="margin-top:10px; background-color: #fff;width:340px;height:150px;">
             <table style="width:340px; height:100px;margin-left:10px;" id="survey">

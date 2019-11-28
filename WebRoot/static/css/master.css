@@ -37,7 +37,7 @@
 .head .navBar .iframe input.search{ background:url(../images/search.jpg) no-repeat; width:65px; height:18px; text-indent:-999px; top:8px; left:110px;}
 
 
-.index-main	{ background:#FFF; padding:10px; width:980px; margin:0 auto;}
+.index-main	{ background:#FFF; padding:10px; width:1000px; margin:0 auto;overflow:hidden;}
 /* 首页焦点图 */
 .index-main	.focusBox { position: relative; width: 278px; height: 240px; overflow: hidden; font: 12px/1.5 Verdana, Geneva, sans-serif; text-align: left; background: white; }
 .index-main .focusBox .pic img { width: 278px; height: 240px; display: block; }

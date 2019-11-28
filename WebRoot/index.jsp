@@ -34,7 +34,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="static/js/dropdown.class.demo.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link rel="stylesheet" type="text/css" href="static/css/boot.css">
-<link href="static/css/index_1.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
 #roll {
@@ -180,8 +179,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 /* 	.zhuanti{background-color: red} */
 </style>
 			
-<iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe>
-  <div class="index-main clearfix" style="margin-top:-12px;width:1000px;">
+<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  <div class="top"></div>
+  <div class="index-main clearfix">
 	<!--图片新闻-->
     <div class="focusBox fl">
 			  <ul class="pic">
@@ -478,7 +478,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
         	<a href="" class="fr fm1">更多>></a> 
-            <ul><li>网上调查</li></ul>
+            <ul><li>长安风采</li></ul>
         </div>
         <div class="bd">
                 <ul class="newsList">
@@ -524,55 +524,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 <iframe class="bot" frameborder="0" scrolling="no" src="index/bottom.do" width="100%" height="100%"></iframe>
- <!--   <button onclick="hf()">换肤</button> -->
-   <div id="float_icon"  style="position: absolute; z-index: 99999; top: 1px; left: 1px; visibility: visible;display:none;"> 
-	   <input type="button" id="close">
-	   <a href="zc.html" target="_blank"><img id="pictureImg" src="" style="width:300px;height:110px"></a>
-   </div>
-    <script type="text/javascript">
-    var dirX =1,dirY =1;var posX =0,posY =0;
-    var a1a;
-    var on = document.getElementById("float_icon");
-    
-    var oneButton = document.getElementById("close"); 
-    oneButton.setAttribute("value","关闭"); 
-    oneButton.style.cssFloat="right";
-    window.onload=function(){ 
-    	var picture = '${pictureState}';
-    	var pictureImg = '${pictureImg}';
-    	if(picture==1){
-    		$("#float_icon").css("display","");
-    		  $("#pictureImg").attr("src","http://10.56.65.100/CAHGAdmin/upImg/file/"+pictureImg);   
-    	 	  /* $("#pictureImg").attr("src","http://192.168.1.175:8181/CAHGAdmin/upImg/file/"+pictureImg);  */  
-    		 on.style.top =0;document.getElementById("float_icon").style.left =0;
-    	        float_icon.style.visibility ="visible";
-    	        a1a = setInterval("moveIcon()",50);
-    	}
-    }
-    
-    function moveIcon() {
-    	posX +=(2 *dirX);posY +=(2 *dirY);$("#float_icon").css("top",posY);
-    	$("#float_icon").css("left",posX);
-    	if(posX < 1 ||posX + document.getElementById("float_icon").offsetWidth >$(window).width()){
-    		dirX =-dirX;
-		}
-		if(posY < 1 ||posY + document.getElementById("float_icon").offsetHeight+5 >$(window).height()+200){
-		dirY =-dirY;
-		} 
-	}
-    on.onmouseover=function(){ 
-    	window.clearInterval(a1a);
-	}; 
-	
-	on.onmouseout=function(){ 
-          a1a =setInterval("moveIcon()",50); 
-    };
-	
-    oneButton.onclick=function(){ 
-        document.body.removeChild(on); 
-    }; 
-	
-</script>
 </body>
 
 <script type="text/javascript">
@@ -638,7 +589,20 @@ function survey(){
 	    }
 	 });
 }
-
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
 </script>
 <script type="text/javascript">
 var interval=null;
@@ -668,36 +632,33 @@ function floatAd(){
   ggRoll.roll.onmouseover=function(){clearInterval(interval)};
   ggRoll.roll.onmouseout=function(){interval=setInterval(function(){ggRoll.Go()},ggRoll.speed)};
 }
-floatAd()
-</script>
-
-<script type="text/javascript">
-	window.onload = function(){
-		var oDiv = document.getElementById('scrollBox');
-		var oUl = oDiv.getElementsByTagName('ul')[0];
-		var aLi = oUl.getElementsByTagName('li');
-		var iSpeed = 1;//正左负右
-		var timer = null;
-		//计算ul的宽为所有li的宽的和;
-		oUl.innerHTML += oUl.innerHTML+oUl.innerHTML;
-		oUl.style.width = aLi[0].offsetWidth*aLi.length+'px';
-		function Slider(){
-			if (oUl.offsetLeft<-oUl.offsetWidth/2) {
-				oUl.style.left = 0;
-			}else if(oUl.offsetLeft>0){
-				oUl.style.left =-oUl.offsetWidth/2+'px';
-			}
-			oUl.style.left = oUl.offsetLeft-iSpeed+'px';//正负为方向
+floatAd();
+function startScroll(){
+	var oDiv = document.getElementById('scrollBox');
+	var oUl = oDiv.getElementsByTagName('ul')[0];
+	var aLi = oUl.getElementsByTagName('li');
+	var iSpeed = 1;//正左负右
+	var timer = null;
+	//计算ul的宽为所有li的宽的和;
+	oUl.innerHTML += oUl.innerHTML+oUl.innerHTML;
+	oUl.style.width = aLi[0].offsetWidth*aLi.length+'px';
+	function Slider(){
+		if (oUl.offsetLeft<-oUl.offsetWidth/2) {
+			oUl.style.left = 0;
+		}else if(oUl.offsetLeft>0){
+			oUl.style.left =-oUl.offsetWidth/2+'px';
 		}
+		oUl.style.left = oUl.offsetLeft-iSpeed+'px';//正负为方向
+	}
+	timer =setInterval(Slider,30);
+	oDiv.onmouseover = function(){
+		clearInterval(timer);
+	}
+	oDiv.onmouseout = function(){
 		timer =setInterval(Slider,30);
-		oDiv.onmouseover = function(){
-			clearInterval(timer);
-		}
-		oDiv.onmouseout = function(){
-			timer =setInterval(Slider,30);
-		}
-	};
-
-	</script>
+	}
+};
+startScroll();
+</script>
 <script src="static/js/all.js" type="text/javascript"></script>
 </html>

@@ -12,7 +12,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title>制度建设</title>
-<link href="static/css/index.css" rel="stylesheet"/>
+<link href="static/css/index_6.css" rel="stylesheet"/>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <style type="text/css">
@@ -54,12 +54,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body>
-
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
@@ -72,22 +69,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
-      <div class="con-left fl ">
-        <ul>
-          	<li style="background-color: #006FCB;color: #fff;text-align:center;margin-top:15px;">
-	             <a onclick="hi(1)" style="color: #fff;" href="javascript:void(0);"   title='科室职责及任务' >科室职责及任务</a>
-	         </li>	
-	         <li style="background-color: #006FCB;color: #fff;text-align:center;margin-top:15px;">
-	             <a onclick="hi(2)" style="color: #fff;"  href="javascript:void(0);"   title='岗位设置及主要职责' >岗位设置及主要职责</a>
-	         </li>
-	         <li style="background-color: #006FCB;color: #fff;text-align:center;margin-top:15px;">
-	             <a onclick="hi(3)" style="color: #fff;"  href="javascript:void(0);"  title='科室管理制度' >科室管理制度</a>
-	         </li>
-	         <li style="background-color: #006FCB;color: #fff;text-align:center;margin-top:15px;">
-	             <a onclick="hi(4)" style="color: #fff;"  href="javascript:void(0);"   title='操作规程' >操作规程</a>
-	         </li>
-        </ul>
-	    </div>
+      	<dl class="con-left fl">
+       		<dt>简介</dt>
+			<dd>
+				<a href="cahgIntro/toIntroPage.do" target="_parent" title='基本概况' >基本概况</a>
+			</dd>
+			<dd class="curr">
+				<a href="dept/dept_left.do" target="_parent" title='制度建设'>制度建设</a>
+			</dd>
+			<dd>
+				<a href="cahgIntro/toIntroPage2.do" target="_parent" title='工作亮点' >工作亮点</a>
+			</dd>
+       	</dl>
         <div class="con-right fr mar-l-2">
  			<%-- <div id="list">
  					<a align="center" href="http://10.56.65.100/file/upImg/deptFile/${newMap.file_name }">点击下载附件:${newMap.file_old_name }</a>
@@ -126,7 +119,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div> 
    
 <script>
-
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
 function hi(n){
 	if(n==1){
 		document.getElementById('page1').style.display="";

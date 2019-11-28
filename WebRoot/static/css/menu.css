@@ -81,7 +81,14 @@ ul.lightBlue > li  {
 ul#jDropDown > li > a {
 	color: #fff;
 }	
-
+/*top*/
+.top{width: 1000px;margin: 0 auto;height: auto;}
+.bot{width: 1000px;margin: 0 auto;}
+.center,.bottom{width: 1000px;margin:10px auto 0;}
+.bottom{height: 220px;}
+.top-wrap{width: 1000px; margin:auto;}
+.log{position:relative;overflow:hidden;}
+.log img{float:left;width:1000px;}
 /* just that pattern */
 ul#jDropDown > li > a {
 	background-image: url(../images/downarrow.png);
@@ -98,10 +105,26 @@ ul#jDropDown > li > a {
 ul#jDropDown > li > .slideList{
 	position:relative;
 	z-index:9999;
-	background:#cccccc;
+	background:#ff6000;
 	overflow:hidden;
+	display:none;
 }
-
+ul#jDropDown > li:hover .slideList{
+	display:block;
+}
+ul#jDropDown > li > .slideList dd{
+	height:34px;
+	line-height:34px;
+	border-bottom:1px solid #ffffff;
+}
+ul#jDropDown > li > .slideList dd a{
+	display:block;
+	color:#ffffff;
+	text-align:center;
+}
+ul#jDropDown > li > .slideList dd a:hover{
+	color:#a10000;
+}
 /* first li have home class*/
 ul#jDropDown li.home img{
 	border: 0px;
@@ -183,6 +206,51 @@ ul#jDropDown ul li a {
 	width: 100%;
 	color: #484848;
 }
+.suos{width:166px;height:38px ;float: left;padding-left:93px;position:relative;box-sizing:content-box;}
+.searchType{
+	position:absolute;
+	left:0;
+	top:0;
+	bottom:0;
+	width:88px;
+	margin:auto 0;
+	height:28px;
+	display: block;
+    outline:none;
+	border:0;
+}
+.searchType option{
+	width:88px;
+	border:0;
+}
+.searchBtn{
+	position:absolute;
+	right:0px;
+	top:0;
+	bottom:0;
+	width:50px;
+	margin:auto 0;
+	height:28px;
+	line-height:28px;
+	display: block;
+    outline:none;
+    color:#fff;
+    text-align:center;
+}
+.suos input{
+	position:absolute;
+	left:87px;
+	top:0;
+	bottom:0;
+	width:125px;
+	margin:auto 0;
+	height:28px;
+	line-height:28px;
+	display: block;
+	border:0;
+    outline:none;
+}
+.suos img{float:right;}
 /* Column */
 .column_1, .column_2, .column_3, .column_4, .column_5 {
 	left: 0;

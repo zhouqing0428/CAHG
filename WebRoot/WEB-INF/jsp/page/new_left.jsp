@@ -28,9 +28,9 @@ padding-left:10px;
 </style>
 </head>
 <body>
-	<div class="con-left fl" style="width:170px;min-height:500px;border:1px solid;">
+	<div class="con-left fl" style="width:170px;min-height:120px;border:1px solid #eeeeee;border-top:0;padding-bottom:15px;">
           <ul>
-         <li style="background-color: #006FCB;color: #fff;text-align:center"><b>分类</b></li>
+         <li style="background-color: #006FCB;color: #fff;text-align:center"><b>制度建设</b></li>
           	<c:forEach items="${newTypeList }" var="ele">
           		<c:if test="${url eq ele.key }">
           			<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
