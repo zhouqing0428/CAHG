@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <td align="center" width="100%"><b>作者：${info.userName}&nbsp;&nbsp;&nbsp;创建时间：${info.create_date }&nbsp;&nbsp;&nbsp;</b></td>
           </tr>
           <c:if test="${info.file_name ne null and info.file_name ne ''}">          <tr>
-          	<td align="center" width="100%"><b><a style="color:blue;" href="http://10.56.65.100/file/upImg/specialtopic/${info.file_name }">【${info.file_old_name}】下载</a></b></td>
+          	<td align="center" width="100%"><b><a style="color:blue;" href="http://10.56.65.100/file/upImg/cahgActivityNotice/${info.file_name }">【${info.file_old_name}】下载</a></b></td>
           </tr>
          </c:if>
 		<tr style="height:50px;">
