@@ -499,7 +499,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div id="scrollBox">
 			<ul>
 				<c:forEach items="${cahgSpecialTopicList }" var="ele" varStatus="index">
-        		<li><a href="cahgSpecialTopic/specialTopicListPage.do?url=${ele.special_topic_category_id }" title="${ele.name }" target="_blank"><img src="file/upImg/topiCategory/${ele.img_name }"></a></li>
+        		<li><a href="cahgSpecialTopic/specialTopicListPage.do?url=${ele.special_topic_category_id }" title="${ele.name }" target="_blank"><img src="http://10.56.65.100/file/upImg/topiCategory/${ele.img_name }"></a></li>
 	            </c:forEach>
 			</ul>
 		</div>
