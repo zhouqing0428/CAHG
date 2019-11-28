@@ -12,19 +12,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="static/css/index.css" rel="stylesheet"/>
 <title></title>
-<style type="text/css">
-li a{
-corlor:#333;
-line-height:33px;
-border-bottom:1px solid #b5b5b5;
-border-top:1px solid #b5b5b5;
-border-right:1px solid #b5b5b5;
-border-left:1px solid #b5b5b5;
-background: url('static/images/tubiao1.png') 10px 8px no-repeat;
-padding-right:10px;
-padding-left:10px;
-}
-</style>
 </head>
 <body>
 	<div class="con-left fl" style="width:170px;min-height:500px;border:1px solid;">

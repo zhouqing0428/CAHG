@@ -11,10 +11,9 @@
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title>通讯录</title>
-<link href="static/css/index.css" rel="stylesheet"/>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" type="text/css" href="static/ztree/css/zTreeStyle/zTreeStyle.css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
@@ -30,12 +29,15 @@
 	});
 </script>
 <style type="text/css">
+.ztree li span.button.ico_docu,.ztree li span.button.ico_open{
+	margin-top:0;
+}
 </style>
 </head>
 <body>
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
         <div class=" font24 padd-b">
@@ -52,7 +54,8 @@
      <div> 
       <div class="cen-div-1 mar-t" >
         
-        <iframe style="width:280px;height:700px;" class="con-left fl" frameborder="0" scrolling="no" src="index/look_left.do?dept_id=${dept_id}"></iframe>
+        <!-- <iframe style="width:280px;height:700px;" class="con-left fl" frameborder="0" scrolling="no" src="index/look_left.do?dept_id=${dept_id}"></iframe> -->
+        <dl class="con-left fl"></dl>
    		<c:if test="${!empty deptAddress.data_path}">
    				<p align="right"><a href="http://10.56.65.100/file/upImg/fileload/${deptAddress.data_path}"><span style="color:red;">点击下载：${deptAddress.file_names }</span></a></p>
    		</c:if>
@@ -74,71 +77,59 @@
 		     
 		      <div>
  				<c:if test="${empty dept_id or dept_id =='38'}">
- 					<div class="col-xs-2" style="padding-left: 0px !important;">
- 						<ul id="treeDemo" class="ztree" style="width: 100%; height: 387px; overflow-x: auto; overflow-y: auto;"></ul>
+ 					<div style="margin-bottom:20px;">
+ 						<ul id="treeDemo" class="ztree"></ul>
  					</div>
- 					<div class="col-xs-10"  style="padding: 0px !important;">
- 						<div class="sys-tables">
-							<table id="myTable" class="table table-bordered table-hover" style="text-align:center;">
-								<thead>
-									<tr class="bg">
-										<th nowrap="nowrap" width="40">序号</th>
-										<th nowrap="nowrap" width="100">姓名</th>
-										<th nowrap="nowrap" width="100">工号</th>
-										<th nowrap="nowrap" width="200">科室</th>
-										<th nowrap="nowrap" width="100">职务</th>
-										<th nowrap="nowrap" width="100">办工内线</th>
-										<th nowrap="nowrap" width="100">办工外线</th>
-									</tr>
-								</thead>
-								<tbody id="mytbody">
-								<c:forEach items="${addressLookList}" var="item" varStatus="idx">
-									<tr>
-										<td>${idx.index+1}</td>
-										<td>${item.name}</td>
-										<td>${item.job_number}</td>
-										<td>${dept.name}</td>
-										<td>${item.duty}</td>
-										<td>${item.interior}</td>
-										<td>${item.external}</td>
-									</tr>
-								</c:forEach>
-								</tbody>
-							</table>
-						</div>
+ 					<div>
+ 						<table id="myTable" co style="width:100%;margin:0px auto 30px;padding:0px; border-collapse:collapse;">
+								<tr>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">序号</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">姓名</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">工号</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">科室</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">职务</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">办工内线</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">办工外线</td>
+								</tr>
+							<c:forEach items="${addressLookList}" var="item" varStatus="idx">
+								<tr>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${idx.index+1}</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.name}</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.job_number}</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${dept.name}</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.duty}</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.interior}</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.external}</td>
+								</tr>
+							</c:forEach>
+						</table>
  					</div>
  				</c:if>
  				<c:if test="${!empty dept_id and dept_id!='38'}">
  					<div id="content">
 						<c:if test="${!empty addressLookList}">
-	 						<div class="sys-tables">
-								<table id="myTable" class="table table-bordered table-hover" style="text-align:center;">
-									<thead>
-										<tr class="bg">
-											<th nowrap="nowrap" width="40">序号</th>
-											<th nowrap="nowrap" width="100">姓名</th>
-											<th nowrap="nowrap" width="100">工号</th>
-											<th nowrap="nowrap" width="200">科室</th>
-											<th nowrap="nowrap" width="100">职务</th>
-											<th nowrap="nowrap" width="100">办工内线</th>
-											<th nowrap="nowrap" width="100">办工外线</th>
-										</tr>
-									</thead>
-									<tbody id="mytbody">
-									<c:forEach items="${addressLookList}" var="item" varStatus="idx">
-										<tr>
-											<td>${idx.index+1}</td>
-											<td>${item.name}</td>
-											<td>${item.job_number}</td>
-											<td>${dept.name}</td>
-											<td>${item.duty}</td>
-											<td>${item.interior}</td>
-											<td>${item.external}</td>
-										</tr>
-									</c:forEach>
-									</tbody>
-								</table>
-							</div>
+	 						<table id="myTable" co style="width:100%;margin:0px auto 30px;padding:0px; border-collapse:collapse;">
+								<tr>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">序号</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">姓名</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">工号</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">科室</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">职务</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">办工内线</td>
+									<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">办工外线</td>
+								</tr>
+								<c:forEach items="${addressLookList}" var="item" varStatus="idx">
+									<tr>
+										<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${idx.index+1}</td>
+										<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.name}</td>
+										<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.job_number}</td>
+										<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${dept.name}</td>
+										<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.duty}</td>
+										<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.interior}</td>
+										<td style="border:1px solid;line-height:50px;font-size:18px;text-align:center;">${item.external}</td>
+									</tr>
+								</c:forEach>
+							</table>
 						</c:if>
  					</div>
  				</c:if>
@@ -154,6 +145,36 @@
   <script>
   	var deptList = '${depts}';
   	deptList = JSON.parse(deptList);
+  	getSlideMenu()
+  	function getSlideMenu(){
+  		var url = "${dept_id}"
+  		$.ajax({
+  		    url:"index/look_left.do?dept_id="+url,
+  		    dataType : "html", 
+  		    method:"post",
+  		    async: true,  
+  		    data: {},
+  		    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+  		    success:function(data){
+  		    	$(".con-left").html(data);
+  		    }
+  		 });
+  	}	
+
+  	function getHeader(){
+  		$.ajax({
+  		    url:"index/head.do",
+  		    dataType : "html", 
+  		    method:"post",
+  		    async: true,  
+  		    data: {},
+  		    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+  		    success:function(data){
+  		    	$(".top").html(data);
+  		    }
+  		 });
+  	}
+  	getHeader();
   </script>
   <script src="static/js/biz/address_book_show.js?_${date.systemTime}"></script>
 </body>

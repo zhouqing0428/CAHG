@@ -21,59 +21,56 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 </head>
 <body>
-<div align="center">
-<hr align="center" style="width:1000px;"/>
-	<div>
-	<img src="static/images/lianjie.jpg" style="float: left;">
-	<img src="static/images/lianjie1.jpg" style="margin-left:-10px;width:886px;height:30px;">	
+	<div style="border-top:1px solid #FFAD85;overflow:hidden;">
+		<img src="static/images/lianjie.jpg" style="float: left;border-left:1px solid #FFAD85;">
+		<img src="static/images/lianjie1.jpg" style="margin-left:-10px;width:884px;height:30px;border-right:1px solid #FFAD85;">	
 
-	<p class="ft-midle" style="border:1px solid #FFAD85;"><span style="color:red;font-size:16px;"><!-- <b>友情链接</b></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-	<select id="link1" class="selectSty">
-		<option value="">部门网站</option>
-		<c:forEach items="${linkList }" var="ele">
-			<c:if test="${ele.type eq 1 }">
-				<option value="${ele.url }">${ele.name }</option>
-			</c:if>
-		</c:forEach></select>
-	
-	<select id="link2" class="selectSty">
-	<option value="">分关网站</option>
+		<div class="ft-midle" style="border:1px solid #FFAD85;">
+			<select id="link1" class="selectSty">
+				<option value="">部门网站</option>
+				<c:forEach items="${linkList }" var="ele">
+					<c:if test="${ele.type eq 1 }">
+						<option value="${ele.url }">${ele.name }</option>
+					</c:if>
+				</c:forEach>
+			</select>
+			
+			<select id="link2" class="selectSty">
+				<option value="">分关网站</option>
 				<c:forEach items="${linkList }" var="ele">
 					<c:if test="${ele.type eq 2 }">
 						<option value="${ele.url }">${ele.name }</option>
 					</c:if>
 				</c:forEach>
 			</select>
-	
-	<select id="link3" class="selectSty">
-	<option value="">应用系统</option>
+			
+			<select id="link3" class="selectSty">
+				<option value="">应用系统</option>
 				<c:forEach items="${linkList }" var="ele">
 					<c:if test="${ele.type eq 3 }">
 						<option value="${ele.url }">${ele.name }</option>
 					</c:if>
 				</c:forEach>
 			</select>
-	
-	<select id="link4" class="selectSty">
-	<option value="">相关链接</option>
+			
+			<select id="link4" class="selectSty">
+				<option value="">相关链接</option>
 				<c:forEach items="${linkList }" var="ele">
 					<c:if test="${ele.type eq 4 }">
 						<option value="${ele.url }">${ele.name }</option>
 					</c:if>
 				</c:forEach>
 			</select>
-
-	</p>
+		</div>
 
 		<div class="foot-wrap" >
 			<div class="ft-center">
-				<p class="ft-top blue" style="font-size:16px;margin-top:-23px;"><span style="line-height:35px;  overflow:hidden; color:#fff">中华人民共和国东莞长安海关版权所有&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
+				<p class="ft-top blue" style="font-size:16px;"><span style="line-height:35px;overflow:hidden;color:#fff">中华人民共和国东莞长安海关版权所有&nbsp;&nbsp;&nbsp;&nbsp;</span></p>
 				<!-- <p class="ft-midle">友情链接：</p>
 				<p class="ft-bottom"></p> -->
 			</div>
 		</div>
 	</div>
-</div>
 
 <script type="text/javascript">
 $("#link1").bind("change",function(){

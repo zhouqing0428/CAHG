@@ -12,7 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title></title>
-<link href="static/css/index.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="static/js/easyui/themes/default/easyui.css">
@@ -129,10 +130,9 @@ function letter(){
 
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
+<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
@@ -145,33 +145,29 @@ function letter(){
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
-        <div style="width:200px;" class="con-left fl">
-         	<table>
+        <dl class="con-left fl">
+       		<dt>关长信箱</dt>
+			<dd class="curr">
+				<a href="cahgLetter/letterShow.do" target="_parent" title='基本概况' >关长信箱</a>
+			</dd>
+       	</dl>
+        <div class="con-right fr mar-l-2">
+        	<table>
          		<tr>
-         			<td style="font-size:18px;color:blue;">“关长信箱”写信通知</td>
+         			<td style="font-size:18px;color:blue;text-align:center;height:40px;line-height:40px;">“关长信箱”写信通知</td>
          		</tr>
          		<tr>
-         			<td style="color:red;">1:给关领导写信鼓励署实名，对署实名的来信，关领导将亲自或委托有关部门回复
-         			(如需保密，有关部门将直接回复写信人)，并严格为来信人保密，防止和禁止打击报复的事情发生，
-         			对匿名信件，将视情况回复，若得不到回复，请来信人谅解。</td>
+         			<td style="color:red;line-height:24px;">
+         				${attentive.content }
+         			</td>
          		</tr>
          		<tr></tr><tr></tr><tr></tr>
-         		<tr>
-         			<td style="color:red;">2:写信时以应持互相尊重、严肃认真的态度，注重文明礼貌。</td>
-         		</tr>
-         		<tr></tr><tr></tr><tr></tr>
-         		<tr>
-         			<td style="color:red;">3:希望大家积极参与，多提宝贵建议，共同把关把信箱维护好，使用好.</td>
-         		</tr>
+         		
          		<tr>
          			<td align="right">东莞长安海关</td>
          		</tr>
          	</table>
-        </div>
-        
-        
-        <div class="con-right fr mar-l-2" align="center">
-        	  <h4 style="margin:20px;" align="center">转至"${remark.remark}"的信件</h4>
+        	<h4 style="margin:20px;" align="center">转至"${remark.remark}"的信件</h4>
  			<div id="list" style="align:center;">
  				<form id="letterForm" action="" method="post">
  				<table>
@@ -235,6 +231,21 @@ KindEditor.ready(function(K) {
         allowFileManager : true 
       });
  });
+
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
 </script>
 </body>
 </html>

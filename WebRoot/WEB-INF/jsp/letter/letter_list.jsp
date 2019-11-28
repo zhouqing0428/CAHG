@@ -12,7 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title></title>
-<link href="static/css/index.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <style type="text/css">
@@ -51,29 +52,34 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
 		          <div class="list_left_title">
-		             东莞长安海关
+		             关长信箱
 		          </div>
 		        </div>
 		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;东莞长安海关-关长信箱
+		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;关长信箱
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
-        <div style="width:200px;" class="con-left fl">
-         	<table>
+        <dl class="con-left fl">
+       		<dt>关长信箱</dt>
+			<dd class="curr">
+				<a href="cahgLetter/letterShow.do" target="_parent" title='基本概况' >关长信箱</a>
+			</dd>
+       	</dl>
+        <div class="con-right fr mar-l-2">
+        	<table>
          		<tr>
-         			<td style="font-size:18px;color:blue;">“关长信箱”写信通知</td>
+         			<td style="font-size:18px;color:blue;text-align:center;height:40px;line-height:40px;">“关长信箱”写信通知</td>
          		</tr>
          		<tr>
-         			<td style="color:red;">
+         			<td style="color:red;line-height:24px;">
          				${attentive.content }
          			</td>
          		</tr>
@@ -83,14 +89,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          			<td align="right">东莞长安海关</td>
          		</tr>
          	</table>
-        </div>
-        
-        <div align="center" width="95%">
-        <table width="55%" style="table-layout: fixed;" >        	
+        <table width="100%" style="table-layout: fixed;margin-top:50px;" >        	
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index < 4 }">
-        					<td align="center" style="width:22%;background-color: #1c649f; color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
+        					<td align="center" style="width:25%;background-color: #1c649f;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
         					<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -98,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index < 4 }">
-        				<td style="width:22%;" ><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }"><img style="width:100%" height="180px;" src="http://10.56.65.100/file/upImg/userPhoto/${ele.photo}" /></a></td>
+        				<td style="width:25%;" ><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }"><img style="width:100%" height="180px;" src="http://10.56.65.100/file/upImg/userPhoto/${ele.photo}" /></a></td>
         				<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -106,7 +109,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index < 4 }">
-        				<td style="width:22%;" align="center"><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.intro}</a></td>
+        				<td style="width:25%;" align="center"><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.intro}</a></td>
         				<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -120,7 +123,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index >= 4 and i.index<8}">
-        					<td align="center" style="width:22%;background-color: #1c649f; color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
+        					<td align="center" style="width:25%;background-color: #1c649f;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
         					<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -128,7 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index >= 4 and i.index<8}">
-        				<td style="width:22%;" ><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }"><img style="width:100%" height="180px;" src="http://10.56.65.100/file/upImg/userPhoto/${ele.photo}" /></a></td>
+        				<td style="width:25%;" ><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }"><img style="width:100%" height="180px;" src="http://10.56.65.100/file/upImg/userPhoto/${ele.photo}" /></a></td>
         				<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -136,7 +139,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index >= 4 and i.index<8}">
-        				<td style="width:22%;" align="center"><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.intro}</a></td>
+        				<td style="width:25%;" align="center"><a href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.intro}</a></td>
         				<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -185,6 +188,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		pageCount:pageCount,//总页码,默认10
 		showNear:3//显示当前页码前多少页和后多少页，默认2
 	}); 
+	function getHeader(){
+		$.ajax({
+		    url:"index/head.do",
+		    dataType : "html", 
+		    method:"post",
+		    async: true,  
+		    data: {},
+		    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+		    success:function(data){
+		    	$(".top").html(data);
+		    }
+		 });
+	}
+	getHeader();
 </script>
 </body>
 </html>

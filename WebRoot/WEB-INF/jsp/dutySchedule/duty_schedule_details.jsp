@@ -12,7 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title>值班表</title>
-<link href="static/css/index.css" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
@@ -23,20 +24,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="static/js/easyui/locale/easyui-lang-zh_CN.js"></script>
 <link rel="stylesheet" type="text/css" href="static/js/easyui/themes/icon.css">
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
-<style type="text/css">
-li a{
-corlor:#333;
-line-height:33px;
-border-bottom:1px solid #b5b5b5;
-border-top:1px solid #b5b5b5;
-border-right:1px solid #b5b5b5;
-border-left:1px solid #b5b5b5;
-background: url('static/images/tubiao1.png') 10px 8px no-repeat;
-padding-right:10px;
-padding-left:10px;
-}
-
-</style>
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$(".con-left a").each(function(){
@@ -65,11 +52,9 @@ padding-left:10px;
 </head>
 <body>
 
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
@@ -82,41 +67,29 @@ padding-left:10px;
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
-        <div class="con-left fl" style="width:170px;min-height:120px;border:1px solid;">
-        	<ul>
-        		<c:if test="${type eq 1 }">
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-		                	<a style="color: #fff;background: #2b67ac; color: #fff !important" href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='值班规章制度' ><span style="margin-left:20px;">值班规章制度</span></a>
-		             </li>
-	             </c:if>
-	             <c:if test="${type eq 2 }">
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-		                	<a style="color: #333;" href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='值班规章制度' ><span style="margin-left:20px;">值班规章制度</span></a>
-		             </li>
-	             </c:if>
-	             
-	             
-	             <c:if test="${type eq 1 }">
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-		                	<a style="color:#333" href="cahgDutySchedule/dutyDetailsShow.do?type=2"  target="_parent" title='值班表' ><span style="margin-left:20px;">值班表</span></a>
-		             </li>
-	             </c:if>
-	             <c:if test="${type eq 2 }">
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-		                	<a style="color: #fff;background: #2b67ac; color: #fff !important" href="cahgDutySchedule/dutyDetailsShow.do?type=2"  target="_parent" title='值班表' ><span style="margin-left:20px;">值班表</span></a>
-		             </li>
-	             </c:if>
-        		<!-- 	<li style=" margin-top:15px;padding-right:10px;padding-left:10px;background: #0066a6; color: #fff !important;">
-	                	<a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='值班规章制度' >值班规章制度</a>
-	             	</li>   
-        	
-          		
-	          	<li style="margin-top:15px;padding-right:10px;padding-left:10px;background: #0066a6; color: #fff !important;">
-	               	<a  href="cahgDutySchedule/dutyDetailsShow.do?type=2"  target="_parent" title='值班表' >值班表</a>
-	             </li>
-	           -->
-        	</ul>
-        </div>
+      	<dl class="con-left fl">
+       		<dt>值班安排</dt>
+			<c:if test="${type eq 1 }">
+        		<dd class="curr">
+	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='值班规章制度' >值班规章制度</a>
+	             </dd>
+             </c:if>
+             <c:if test="${type eq 2 }">
+        		<dd>
+	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='值班规章制度' >值班规章制度</a>
+	            </dd>
+             </c:if>
+             <c:if test="${type eq 1 }">
+        		<dd>
+	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=2"  target="_parent" title='值班表' >值班表</a>
+	            </dd>
+             </c:if>
+             <c:if test="${type eq 2 }">
+        		<dd class="curr">
+	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=2"  target="_parent" title='值班表' >值班表</a>
+	            </dd>
+             </c:if>
+       	</dl>
         <div class="con-right fr mar-l-2">
  			<div id="list">
  			</div>
@@ -353,6 +326,20 @@ $(function () {
         span = p.find('span.calendar-text'); //显示月份层的触发控件
 }); 
 
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
 
 </script>
   

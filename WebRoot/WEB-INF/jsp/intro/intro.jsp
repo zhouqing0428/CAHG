@@ -12,7 +12,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title>办事处简介</title>
-<link href="static/css/index.css" rel="stylesheet"/>
+
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
@@ -22,21 +23,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="static/js/easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="static/js/easyui/locale/easyui-lang-zh_CN.js"></script>
 <link rel="stylesheet" type="text/css" href="static/js/easyui/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
-<style type="text/css">
-li a{
-corlor:#333;
-line-height:33px;
-border-bottom:1px solid #b5b5b5;
-border-top:1px solid #b5b5b5;
-border-right:1px solid #b5b5b5;
-border-left:1px solid #b5b5b5;
-background: url('static/images/tubiao1.png') 10px 8px no-repeat;
-padding-right:10px;
-padding-left:10px;
-}
 
-</style>
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$(".con-left a").each(function(){
@@ -64,51 +53,61 @@ padding-left:10px;
 </script>
 </head>
 <body>
-
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
-		        <div class=" font24 padd-b">
-		          <div class="list_left_title">
-		         	   基本概况
-		          </div>
-		        </div>
-		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;基本概况
+        <div class=" font24 padd-b">
+          <div class="list_left_title">
+         	   基本概况
+          </div>
+        </div>
+        <div class="font2 dgrey">
+        	<img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
+        	<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;基本概况
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
-        <div class="con-left fl" style="width:170px;min-height:120px;border:1px solid;">
-        	<ul>
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-		                	<a href="cahgIntro/toIntroPage.do" style="color: #fff;background: #2b67ac; color: #fff !important" href="cahgIntro/toIntroPage.do"  target="_parent" title='基本概况' ><span style="margin-left:20px;">基本概况</span></a>
-		             </li>
-	   				<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-	   					<a style="color: #333;"  href="dept/dept_left.do"><span style="margin-left:20px;">制度建设</span></a>
-	   				</li>
-	        		<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-		                	<a style="color: #333;" href="cahgIntro/toIntroPage2.do"  target="_parent" title='工作亮点' ><span style="margin-left:20px;">工作亮点</span></a>
-		             </li>
-        	</ul>
-        </div>
+       	<dl class="con-left fl">
+       		<dt>简介</dt>
+			<dd class="curr">
+				<a href="cahgIntro/toIntroPage.do" target="_parent" title='基本概况' >基本概况</a>
+			</dd>
+			<dd>
+				<a href="dept/dept_left.do" target="_parent" title='制度建设'>制度建设</a>
+			</dd>
+			<dd>
+				<a href="cahgIntro/toIntroPage2.do" target="_parent" title='工作亮点' >工作亮点</a>
+			</dd>
+       	</dl>
         <div class="con-right fr mar-l-2">
-        <div class="page"  style="width:100%; margin-top:50px;">
- 				<h2 align="center">基本概况</h2>
- 				<div align="center">${introMap.content}</div>
+        <div class="page" style="width:100%; margin-top:50px;">
+			<h2 align="center">基本概况</h2>
+			<div style="overflow:hidden;">${introMap.content}</div>
  		</div>
         </div>
       </div>	
     </div>
-            <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
+    <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
     
   </div> 
    
 <script>
-
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
 
 </script>
   
