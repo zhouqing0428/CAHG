@@ -38,29 +38,29 @@ public class CahgOfficePostController {
 		
 		HashMap ipMap = new HashMap();
 		ipMap = cahgOfficePostService.selectIP();
-		if(ipMap!=null){
+		if (ipMap != null) {
 			String status = ipMap.get("status").toString();
 			String ip_start = "";
 			String ip_end = "";
-			String ipSection="0-0";
-			if("1".equals(status)){//开启状态
-				String ip=getIpAddr(request);//获取访问IP
-				if(ipMap.get("ip_start")!=null){
-					 ip_start = ipMap.get("ip_start").toString();
+			String ipSection = "0-0";
+			if ("1".equals(status)) {// 开启状态
+				String ip = getIpAddr(request);// 获取访问IP
+				if (ipMap.get("ip_start") != null) {
+					ip_start = ipMap.get("ip_start").toString();
 				}
-				if(ipMap.get("ip_end")!=null){
-					 ip_end = ipMap.get("ip_end").toString();
+				if (ipMap.get("ip_end") != null) {
+					ip_end = ipMap.get("ip_end").toString();
 				}
-				if(ipMap.get("ip_start")!=null && ipMap.get("ip_end")!=null){
-					 ipSection=ip_start+"-"+ip_end;
-					 boolean exists=ipExistsInRange(ip,ipSection);//判断访问IP是否在设置号段内
-						if(exists==false){
-							request.setAttribute("ip", "0");
-						}else{
-							request.setAttribute("ip", "1");
-						}
+				if (ipMap.get("ip_start") != null && ipMap.get("ip_end") != null) {
+					ipSection = ip_start + "-" + ip_end;
+					boolean exists = ipExistsInRange(ip, ipSection);// 判断访问IP是否在设置号段内
+					if (exists == false) {
+						request.setAttribute("ip", "0");
+					} else {
+						request.setAttribute("ip", "1");
+					}
 				}
-				
+
 			}
 		}
 		String office_post_id = request.getParameter("office_post_id");
@@ -133,30 +133,32 @@ public class CahgOfficePostController {
 	/**
 	 * IP限制
 	 */
-	public static boolean ipExistsInRange(String ip,String ipSection) {
+	public static boolean ipExistsInRange(String ip, String ipSection) {
+		//特殊处理本地0:0:0:0:0:1报错问题
+		if (ip.indexOf(":") > 0) {
+			return false;
+		}
 
 		ipSection = ipSection.trim();
-
 		ip = ip.trim();
-
 		int idx = ipSection.indexOf('-');
-
 		String beginIP = ipSection.substring(0, idx);
-
 		String endIP = ipSection.substring(idx + 1);
-
-		return getIp2long(beginIP)<=getIp2long(ip) &&getIp2long(ip)<=getIp2long(endIP);
+		
+		return getIp2long(beginIP) <= getIp2long(ip) && getIp2long(ip) <= getIp2long(endIP);
 
 	}
+	
 	public static long getIp2long(String ip) {
 		ip = ip.trim();
 		String[] ips = ip.split("\\.");
 		long ip2long = 0L;
 		for (int i = 0; i < 4; ++i) {
-		ip2long = ip2long << 8 | Integer.parseInt(ips[i]);
+			ip2long = ip2long << 8 | Integer.parseInt(ips[i]);
 		}
 		return ip2long;
 	}
+	
 	/*public static long getIp2long2(String ip) {
 		ip = ip.trim();
 		String[] ips = ip.split("\\.");
