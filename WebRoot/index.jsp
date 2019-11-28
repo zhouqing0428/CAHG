@@ -444,19 +444,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
     <div class="slideTxtBox zhengce fl mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
-        	<a href="javascript:void(0)" target="_blank" class="fr fm1">更多>></a>
+        	<a href="cahgActivityNotice/activityNoticeListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul>
             	<li>活动通知</li>
             </ul>
         </div>
         <div class="bd">
-        	<c:forEach items="${tableCategoryList }" var="category">
-        		<ul class="newsList">
-	        		<c:forEach items="${cahgSpecialTopicList }" var="ele" varStatus="index">
-		        		<li><a id="indexJobList" href="cahgSpecialTopic/specialTopicListPage.do?url=${ele.special_topic_category_id }" title="${ele.name }" target="_blank">${ele.name }</a></li>
-		            </c:forEach>
-            	</ul>
-        	</c:forEach>
+       		<ul class="newsList">
+        		<c:forEach items="${noticeList }" var="ele" varStatus="index">
+	        		<li><a id="indexNoticeList" href="cahgActivityNotice/activityNoticeInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
+	            </c:forEach>
+           	</ul>
         </div>
     </div>
      <div class="slideTxtBox qy-news fl ml8 mt10" style="height:280px;border:1px solid #CCC">
@@ -500,26 +498,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="scrollName">专题专栏</div>
 		<div id="scrollBox">
 			<ul>
-				<li><img src="img/2.jpg"></li>
-				<li><img src="img/3.jpg"></li>
-				<li><img src="img/4.jpg"></li>
-				<li><img src="img/5.jpg"></li>
-				<li><img src="img/2.jpg"></li>
-				<li><img src="img/3.jpg"></li>
-				<li><img src="img/4.jpg"></li>
-				<li><img src="img/5.jpg"></li>
-				<li><img src="img/2.jpg"></li>
-				<li><img src="img/3.jpg"></li>
-				<li><img src="img/4.jpg"></li>
-				<li><img src="img/5.jpg"></li>
-				<li><img src="img/2.jpg"></li>
-				<li><img src="img/3.jpg"></li>
-				<li><img src="img/4.jpg"></li>
-				<li><img src="img/5.jpg"></li>
-				<li><img src="img/2.jpg"></li>
-				<li><img src="img/3.jpg"></li>
-				<li><img src="img/4.jpg"></li>
-				<li><img src="img/5.jpg"></li>
+				<c:forEach items="${cahgSpecialTopicList }" var="ele" varStatus="index">
+        		<li><a href="cahgSpecialTopic/specialTopicListPage.do?url=${ele.special_topic_category_id }" title="${ele.name }" target="_blank"><img src="file/upImg/topiCategory/${ele.img_name }"></a></li>
+	            </c:forEach>
 			</ul>
 		</div>
 	</div>
@@ -529,7 +510,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript">
 
 function hf(){
-	/* var doc = document.frames['topif'].document.getElementById('img1').src; */
 	var src = document.getElementById('topif').contentWindow.document.getElementById('img1').src;
 	var src1 =src.replace('cahg1', 'cahg2');
 	document.getElementById('topif').contentWindow.document.getElementById('img1').src = src1;
