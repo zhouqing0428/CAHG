@@ -19,7 +19,7 @@
 	<select id="customNewsDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select
 			title,content,author,
-			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,custom_file_path,custom_file_name,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,
 			author,date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
 		from
 			cahg_custom_news c

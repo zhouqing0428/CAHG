@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mobset.system.service.CahgActivityNoticeService;
 import com.mobset.system.service.CahgAfficheService;
 import com.mobset.system.service.CahgCustomNewsService;
 import com.mobset.system.service.CahgDayInfoService;
@@ -79,6 +80,8 @@ public class IndexController {
 	private CahgWorkTableService cahgWorkTableService;
 	@Resource(name="deptService")
 	private deptService deptservice;
+	@Resource(name="activityNoticeService")
+	private CahgActivityNoticeService activityNoticeService;
 
 	
 	/*	@ResponseBody*/
@@ -117,10 +120,10 @@ public class IndexController {
 		List<HashMap> officePostList = cahgOfficePostService.indexOfficePostList(map);//本办发文
 		List<HashMap> imptWorkList = cahgImptWorkService.indexImptWorkList(map);//重点工作
 		List<HashMap> cahgSpecialTopicList = cahgSpecialTopicService.indexSpecialTopicCategoryList(map);//专题专栏类别
-		List<HashMap> tableCategoryList = cahgWorkTableService.selectTableCategory(map);//类别
+//		List<HashMap> tableCategoryList = cahgWorkTableService.selectTableCategory(map);//类别
 		List<HashMap> workTableList = cahgWorkTableService.selectWorkTable(map);
 		List<HashMap> workTableType = cahgWorkTableService.selectType(map);
-		
+		List<Map<String, Object>> noticeList = activityNoticeService.queryIndexList(null); //活动通知
 	
 		HashMap wish = sysDictionaryService.wishSelect(map);//祝福语
 		request.setAttribute("wish", wish);
@@ -170,10 +173,10 @@ public class IndexController {
 		request.setAttribute("officePostList", officePostList);//本办发文
 		request.setAttribute("imptWorkList", imptWorkList);//重点工作
 		request.setAttribute("cahgSpecialTopicList", cahgSpecialTopicList);//专题专栏
-		request.setAttribute("tableCategoryList", tableCategoryList);
+//		request.setAttribute("tableCategoryList", tableCategoryList);
 		request.setAttribute("workTableList", workTableList);
 		request.setAttribute("workTableType", workTableType);
-		
+		request.setAttribute("noticeList", noticeList);
 		
 		return "../../index";
 	}

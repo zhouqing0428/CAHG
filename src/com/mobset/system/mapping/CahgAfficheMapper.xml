@@ -19,7 +19,7 @@
 	<select id="afficheDetailsShow" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select
 			title,content,author,
-			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name, affiche_file_path,affiche_file_name,
+			(select name from sys_dept d where d.dept_id = c.dept_id) dept_name,
 			date_format(create_date,'%Y-%m-%d %H:%i:%s')  create_date
 		from
 			cahg_affiche c
