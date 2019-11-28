@@ -184,30 +184,29 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="index-main clearfix">
 	<!--图片新闻-->
     <div class="focusBox fl">
-			  <ul class="pic">
+		<ul class="pic">
+			<c:forEach items="${imgNewsList}" var="ele">
+		   			<li><a target="_blank" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }"><img src="http://10.56.65.100/file/upImg/imgNews/${ele.img_url }" /></a></li>
+		   	</c:forEach>
+		</ul>
+		<div class="txt-bg">
+			<ul class="txt">
 				<c:forEach items="${imgNewsList}" var="ele">
-			   			<li><a target="_blank" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }"><img src="http://10.56.65.100/file/upImg/imgNews/${ele.img_url }" /></a></li>
-			   	</c:forEach>
+		   			<li><a target="_blank" id="imgTitle" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }">
+		   			<c:if test="${ele.img_news_stick eq 1 }">
+		   			<img src="static/images/fire.png" width="20px" height="20px" style="margin-top:-5px;margin-right:-5px;"/>
+		   			</c:if>
+		   			${ele.img_new_title }
+		   			</a></li>
+		   		</c:forEach>
 			</ul>
-			<div class="txt-bg"></div>
-			<div class="txt">
-				<ul>
-					<c:forEach items="${imgNewsList}" var="ele">
-			   			<li><a target="_blank" id="imgTitle" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }">
-			   			<c:if test="${ele.img_news_stick eq 1 }">
-			   			<img src="static/images/fire.png" width="20px" height="20px" style="margin-top:-5px;margin-right:-5px;"/>
-			   			</c:if>
-			   			${ele.img_new_title }
-			   			</a></li>
-			   		</c:forEach>
-				</ul>
-			</div>
 			<ul class="num">
-					<c:forEach items="${imgNewsList}" var="ele" varStatus="index">
-			   			<li><a target="_blank" onclick="return false;" href="javascript:void(0);">${index.index+1 }</a></li>
-			   		</c:forEach>
-			   		<a style="color:#fff;" target="_blank"  href="cahgImgNews/imgNewsListPage.do">..</a>
+				<c:forEach items="${imgNewsList}" var="ele" varStatus="index">
+		   			<li><a target="_blank" onclick="return false;" href="javascript:void(0);">${index.index+1 }</a></li>
+		   		</c:forEach>
+		   		<li><a style="color:#fff;" target="_blank"  href="cahgImgNews/imgNewsListPage.do">..</a></li>
 			</ul> 
+		</div>
 	</div>
     <!--TAB选项卡-->
     
@@ -271,7 +270,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>    
         <!--入园企业-->
      <!--会议通知-->
-    	<div class="slideTxtBox zhengce fl mt10" style="border:1px solid #CCC">
+    <div class="slideTxtBox zhengce fl mt10" style="border:1px solid #CCC">
         <div class="hd">
      	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" target="_blank" class="fr fm1">更多>></a>
             <ul><li>会议通知</li></ul>
@@ -316,7 +315,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			              </a>
 			          </li>
 	         	</c:forEach>
-                
             </ul>
         </div>
     </div>
@@ -369,79 +367,59 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
     
     <!--工作督办-->
-        <div class="slideTxtBox qy-news fl ml8 mt10" style="border:1px solid #CCC">
-            <div class="hd">
-            	<a href="cahgJob/jobListPage.do" target="_blank" class="fr fm1">更多>></a>
-                <ul><li>工作督办</li></ul>
-            </div>
-            <div class="bd">
-                <ul class="newsList">
-                	 <c:forEach items="${indexJobList }" var="ele">
-		         		  <li>
-		         		   <fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
-			                <fmt:parseDate var="end_time" value="${ele.end_time}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把数据对应的时间格式化 -->
-			                <c:set var="mis" value="${systemDate.time - end_time.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
-							<c:set var="titleShow"><fmt:formatNumber value="${mis/1000/3600/24}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->
-							<c:if test="${titleShow > 1.0 and (ele.status ne 2 and ele.status ne 3)}"><!-- 判断是否显示 -->
-								 <a style="color: red;" href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span>
-								<%--  <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span> --%>
-								 </a>
-			              	</c:if>
-			              <%-- 	<c:if test="${titleShow > 1.0 and ele.status eq 2}"><!-- 判断是否显示 -->
-								 <a  href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span>
-								 <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span>
-								 </a>
-			              	</c:if> --%>
-			              	<c:if test="${titleShow >= 0.0 and  titleShow<= 1.0 and ele.status ne 2 and ele.status ne 3}"><!-- 判断是否显示 -->
-								 <a style="color:#3424B2;" href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span><span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span></a>
-			              	</c:if>
-		         		  	<c:if test="${titleShow < 0.0 }"><!-- 判断是否显示 -->
-								 <a href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span>
-								 <%-- <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span> --%>
-								 </a>
-			              	</c:if>
-				          </li>
-		         	</c:forEach>
-                </ul>
-            </div>
+    <div class="slideTxtBox qy-news fl ml8 mt10" style="border:1px solid #CCC">
+        <div class="hd">
+        	<a href="cahgJob/jobListPage.do" target="_blank" class="fr fm1">更多>></a>
+            <ul><li>工作督办</li></ul>
+        </div>
+        <div class="bd">
+            <ul class="newsList">
+            	<c:forEach items="${indexJobList }" var="ele">
+	       		  <li>
+	       		   <fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
+	               <fmt:parseDate var="end_time" value="${ele.end_time}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把数据对应的时间格式化 -->
+	               <c:set var="mis" value="${systemDate.time - end_time.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
+					<c:set var="titleShow"><fmt:formatNumber value="${mis/1000/3600/24}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->
+					<c:if test="${titleShow > 1.0 and (ele.status ne 2 and ele.status ne 3)}"><!-- 判断是否显示 -->
+						 <a style="color: red;" href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span>
+						<%--  <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span> --%>
+						 </a>
+		             	</c:if>
+		             <%-- 	<c:if test="${titleShow > 1.0 and ele.status eq 2}"><!-- 判断是否显示 -->
+						 <a  href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span>
+						 <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span>
+						 </a>
+		             	</c:if> --%>
+		             	<c:if test="${titleShow >= 0.0 and  titleShow<= 1.0 and ele.status ne 2 and ele.status ne 3}"><!-- 判断是否显示 -->
+						 <a style="color:#3424B2;" href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span><span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span></a>
+		             	</c:if>
+		       		  	<c:if test="${titleShow < 0.0 }"><!-- 判断是否显示 -->
+						 <a href="cahgJob/jobDetailsShow.do?job_id=${ele.job_id }" target="_blank" title='${ele.title }'><span id="indexJobList2">${ele.title }</span>
+						 <%-- <span style="color:#999;float:right;margin-top:-18px;">[${ele.create_date_show }]</span> --%>
+						 </a>
+		             	</c:if>
+		          </li>
+		       	</c:forEach>
+            </ul>
+        </div>
     </div>
     <!--网上办公-->
     <div class="slideTxtBox qywh fr mt10" style="border:1px solid #CCC">
-            <div class="hd">
-            	<a href="javascript:void(0)" target="_blank" class="fr fm1">更多>></a>
-                <ul><li>违纪曝光</li></ul>
-            </div>
-			<div class="bd">
-				<ul class="newsList">
-					<li><a href="javascript:void(0)">测试数据</a></li>
-					<li><a href="javascript:void(0)">测试数据</a></li>
-					<li><a href="javascript:void(0)">测试数据</a></li>
-					<li><a href="javascript:void(0)">测试数据</a></li>
-					<li><a href="javascript:void(0)">测试数据</a></li>
-					<li><a href="javascript:void(0)">测试数据</a></li>
-				</ul>
-               <!--  <ul style="padding:5px 15px;" >
-				    <li style="background:#f6d05a url(static/images/bg1.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
-						<a style="color:#fff;" href="dept/dept_left.do">制度建设</a>
-					</li>
-					<li style="background:#f6d05a url(static/images/bg3.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
-						<a style="color:#fff;" href="cahgDutySchedule/dutyDetailsShow.do?type=1">值班安排</a>
-					</li>
-					<li style="background:#f6d05a url(static/images/bg4.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
-						<a style="color:#fff;" href="http://10.56.65.252/baozhang/index.aspx">技术报障</a>
-					</li>
-					<li style="background:#f6d05a url(static/images/bg5.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
-						<a style="color:#fff;" href="http://10.56.65.71/assetmaintain/">物业报障</a>
-					</li>
-					<li style="background:#f6d05a url(static/images/bg6.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
-						<a style="color:#fff;" href="http://10.56.2.241/jsp/changan_index.jsp">后勤保障</a>
-					</li>
-					<li style="background:#f6d05a url(static/images/bg2.png) 10px center no-repeat;background-size:auto 22px;height:28px;line-height:28px;width:220px;padding-left:40px;margin-bottom:5px;border-radius:20px;" >
-						<a style="color:#fff;" href="commomForm/commomFormsListPage.do?type=0">常用表格下载</a>
-					</li>
-                </ul> -->
-            </div>
+		<div class="hd">
+			<a href="javascript:void(0)" target="_blank" class="fr fm1">更多>></a>
+		    <ul><li>违纪曝光</li></ul>
+		</div>
+		<div class="bd">
+			<ul class="newsList">
+				<li><a href="javascript:void(0)">测试数据</a></li>
+				<li><a href="javascript:void(0)">测试数据</a></li>
+				<li><a href="javascript:void(0)">测试数据</a></li>
+				<li><a href="javascript:void(0)">测试数据</a></li>
+				<li><a href="javascript:void(0)">测试数据</a></li>
+				<li><a href="javascript:void(0)">测试数据</a></li>
+			</ul>
         </div>
+    </div>
     <div class="slideTxtBox zhengce fl mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
         	<a href="cahgActivityNotice/activityNoticeListPage.do" target="_blank" class="fr fm1">更多>></a>
@@ -457,21 +435,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            	</ul>
         </div>
     </div>
-     <div class="slideTxtBox qy-news fl ml8 mt10" style="height:280px;border:1px solid #CCC">
-            <div class="hd">
-            	<a href="cahgCustomNews/customNewsListPage.do" target="_blank" class="fr fm1">更多>></a>
-                <ul><li>海关新闻</li></ul>
-            </div>
-            <div class="bd">
-                <ul class="newsList">
-                	<c:forEach items="${customNewsList }" var="ele">
-		         		  <li>
-				              <a href="cahgCustomNews/customNewsDetailsShow.do?custom_news_id=${ele.custom_news_id }"  target="_blank" title='${ele.title }'><span id="imptWorkList2">${ele.title }</span></a>
-				              <%-- <span style="color:#999;float:right;margin-top:-20px">[${ele.create_date_show }]</span></a> --%>
-				          </li>
-		         	</c:forEach>
-                </ul>
-            </div>
+    <div class="slideTxtBox qy-news fl ml8 mt10" style="height:280px;border:1px solid #CCC">
+        <div class="hd">
+        	<a href="cahgCustomNews/customNewsListPage.do" target="_blank" class="fr fm1">更多>></a>
+            <ul><li>海关新闻</li></ul>
+        </div>
+        <div class="bd">
+			<ul class="newsList">
+				<c:forEach items="${customNewsList }" var="ele">
+				<li>
+				   <a href="cahgCustomNews/customNewsDetailsShow.do?custom_news_id=${ele.custom_news_id }"  target="_blank" title='${ele.title }'><span id="imptWorkList2">${ele.title }</span></a>
+				<%-- <span style="color:#999;float:right;margin-top:-20px">[${ele.create_date_show }]</span></a> --%>
+				</li>
+				</c:forEach>
+			</ul>
+        </div>
     </div>  
     <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
@@ -479,11 +457,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <ul><li>长安风采</li></ul>
         </div>
         <div class="bd">
-                <ul class="newsList">
-					<li><a href="javascript:void(0)">测试数据</a></li>
-					<li><a href="javascript:void(0)">测试数据</a></li>
-					<li><a href="javascript:void(0)">测试数据</a></li>
-				</ul>
+            <ol id="picList" class="picList">
+            	<li class="curr"><img src="static/images/pic1.jpg" /></li>
+            	<li><img src="static/images/pic2.jpg" /></li>
+            	<li><img src="static/images/pic3.jpg" /></li>
+            	<li><img src="static/images/pic4.jpg" /></li>
+            </ol>
         </div>
       </div>
     </div>
@@ -508,7 +487,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </body>
 
 <script type="text/javascript">
-
 function hf(){
 	var src = document.getElementById('topif').contentWindow.document.getElementById('img1').src;
 	var src1 =src.replace('cahg1', 'cahg2');
@@ -583,6 +561,25 @@ function getHeader(){
 	 });
 }
 getHeader();
+var timer = null;
+function clearSetInterval(){
+	
+}
+function startSetInterval(){
+	var index = $("#picList li.curr").index();
+	var picList = $("#picList li");
+	timer = setInterval(function(){
+		if(index >= picList.length - 1){
+			index = 0;
+		}else{
+			index++;
+		}
+		console.log(index)
+		$("#picList li").removeClass("curr");
+		$("#picList li:eq("+ index +")").addClass("curr");
+	},5000)
+}
+startSetInterval()
 </script>
 <script type="text/javascript">
 var interval=null;

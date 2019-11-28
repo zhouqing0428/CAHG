@@ -11,7 +11,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title>图片新闻列表</title>
-<link href="static/css/index.css" rel="stylesheet"/>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <style type="text/css">
@@ -24,6 +23,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		text-overflow: ellipsis;
 	  }  
 </style>
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
 <script type="text/javascript">	
@@ -54,11 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
         <div class=" font24 padd-b">
@@ -72,7 +71,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       
       <div class="cen-div-1 mar-t">
-         <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url }" widht="100%"></iframe>
+      	<dl class="con-left fl"></dl>
+        <!-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url }" widht="100%"></iframe>  -->
         <div class="con-right fr mar-l-2">
  			<div id="list">
  			
@@ -101,7 +101,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
 		    		html += '<div class="list_div mar-top2" style="display:block;">'+
-		    				'<a onClick="jump('+data.list[i].img_new_id+')" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id='+data.list[i].img_new_id+'" target="_blank">'+
+		    				'<a href="/cahgImgNews/imgNewsDetailsPage.do?img_new_id='+data.list[i].img_new_id+'" target="_blank">'+
 		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">'+
 		    				'<tr><td rowspan="2" style="width:150px;"><img style="width:150px;" height="120px;" src="http://10.56.65.100/file/upImg/imgNews/'+data.list[i].img_url+'"></td>'+
 		    				'<td colspan="2"> <div class="list-right_title fon_1"><b id="new_title">';
@@ -124,13 +124,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		pageCount:pageCount,//总页码,默认10
 		showNear:3//显示当前页码前多少页和后多少页，默认2
 	}); 
-	
-	
-	function jump(tarUrl){	    
-	    var path = getContextPath();
-		var url = path+"/cahgImgNews/imgNewsDetailsPage.do?img_new_id="+tarUrl;
-		window.open(encodeURI(url));
+	getSlideMenu()
+  	function getSlideMenu(){
+  		var url = "${url }"
+  			
+  		$.ajax({
+  		    url:"index/new_left.do?url="+url,
+  		    dataType : "html", 
+  		    method:"post",
+  		    async: true,  
+  		    data: {},
+  		    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+  		    success:function(data){
+  		    	$(".con-left").html(data);
+  		    }
+  		 });
+  	}	
+	function getHeader(){
+		$.ajax({
+		    url:"index/head.do",
+		    dataType : "html", 
+		    method:"post",
+		    async: true,  
+		    data: {},
+		    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+		    success:function(data){
+		    	$(".top").html(data);
+		    }
+		 });
 	}
+	getHeader();
+
 	
 	function getContextPath() {
 	    var pathName = document.location.pathname;

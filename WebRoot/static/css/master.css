@@ -42,11 +42,11 @@
 .index-main	.focusBox { position: relative; width: 278px; height: 240px; overflow: hidden; font: 12px/1.5 Verdana, Geneva, sans-serif; text-align: left; background: white; }
 .index-main .focusBox .pic img { width: 278px; height: 240px; display: block; }
 .index-main .focusBox .txt-bg {  width:278px;position: absolute; left:0px; bottom: 0px; z-index: 1; height: 36px;  background: #333; filter: alpha(opacity=40); opacity: 0.4; overflow: hidden; }
-.index-main .focusBox .txt {  width:278px;position: absolute; left:0px; bottom: 0px; z-index: 2; height: 36px; overflow: hidden; }
+.index-main .focusBox .txt {  width:278px;position: absolute; left:0px; bottom: 0px; z-index: 2; height: 36px; overflow: hidden;margin:0; }
 .index-main .focusBox .txt li{ height:36px; line-height:36px; position:absolute; bottom:-36px;}
 .index-main .focusBox .txt li a{ display: block; color: white; padding: 0 0 0 10px; font-size: 12px; font-weight: bold; text-decoration: none; }
-.index-main .focusBox .num { position: absolute; z-index: 3; bottom: 6px; right: 11px; }
-.index-main .focusBox .num li{ float: left; position: relative; width: 18px; height: 15px; line-height: 15px; overflow: hidden; text-align: center; margin-right: 1px; cursor: pointer; }
+.index-main .focusBox .num { position: absolute; z-index: 3; bottom: 0; right: 11px;height: 36px;margin:0; }
+.index-main .focusBox .num li{ float: left; position: relative; width: 20px; height: 20px; margin-top:8px; line-height: 20px; overflow: hidden; text-align: center; margin-right: 1px; cursor: pointer; }
 .index-main .focusBox .num li a,
 .index-main .focusBox .num li span { position: absolute; z-index: 2; display: block; color: white; width: 100%; height: 100%; top: 0; left: 0; text-decoration: none; }
 .index-main .focusBox .num li span { z-index: 1; background: black; filter: alpha(opacity=50); opacity: 0.5; }
@@ -252,3 +252,32 @@
 #issues li {width: 980px;height: 300px;list-style: none;float: left;}
 #issues li h1 {color: #ffcc00;font-size: 42px;margin: 20px 0;text-shadow: #000 1px 1px 2px;}
 #issues li p {font-size: 14px;margin-right: 70px; margin:10px; font-weight: normal;line-height: 22px;}
+/* 长安风采 */
+.picList{
+	overflow:hidden;
+	position:relative;
+	width:282px;
+	height:242px;
+}
+.picList li{
+	position:absolute;
+	top:0;
+	left:0;
+	width:282px;
+	height:242px;
+	overflow:hidden;
+	-webkit-transition:all 1s;
+	-moz-transition:all 1s;
+	-o-transition:all 1s;
+	transition:all 1s;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+.picList li.curr{
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+.picList li img{
+	width:282px;
+	height:242px;
+}
