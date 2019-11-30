@@ -13,7 +13,7 @@ a{text-decoration:none;color:#000}
 .tp-nav{float: left;width: 134px}
 .tp-nav li{height:77px;cursor:pointer;}
 .tp-nav li dl{width:110px;height: 77px;background: #3587D8 }
-
+.selectSty{width:243px;height:32px;line-height:32px;font-size:14px;outline:none; }
 
 .tp-nav .showbg{background: url(../images/ico_xwdt_3.png) no-repeat 110px 20px;} 
 .tp-nav .showbg dl{background:#FFB43F;cursor:pointer}
