@@ -157,8 +157,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     					html += "<img src='static/images/fire.png' width='18px' height='18px' style='margin-bottom: -1px;margin-right: 1px;'/>";
     				}
     				html += data.list[i].day_title+"</b>"+img+"</div>" +
-		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
-		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +
+		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'><tr>" +
+		    				" <td width='50%' align='left'><span>发布时间："+data.list[i].create_date+"</span></td>" +
 		    				"<td width='50%' align='right' ><span class='column-name'><b>作者："+data.list[i].author+"</b></span></td>"+
 		    				"</tr></table></a></div>";
 		    	}

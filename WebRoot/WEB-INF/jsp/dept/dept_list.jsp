@@ -15,6 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/index_6.css" rel="stylesheet"/>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <style type="text/css">
 #new_title{  
 		display: block;
@@ -250,7 +251,21 @@ function hi(n){
 		
 	}
 }
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
 </script>
-  
+ 
 </body>
 </html>

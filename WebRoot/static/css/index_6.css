@@ -246,7 +246,7 @@ color: #666666 }
 .bot{width: 1000px;margin: 0 auto;}
 .center,.bottom{width: 1000px;margin:10px auto 0;}
 .bottom{height: 220px;}
-.top-wrap{width: 1002px; margin:auto;margin:0px;}
+.top-wrap{width: 1000px; margin:auto;margin:0px;}
 .log{position:relative}
 
 
@@ -280,7 +280,10 @@ a{color:#666; text-decoration:none;}
 input{ outline:none;}
 a:hover {color: #A10000}
 .padd_t2{ padding-top:20px;}
-
+.page{
+	overflow:hidden;
+	margin-bottom:50px;
+}
 
 
 /**信息公开**/
@@ -291,15 +294,17 @@ a:hover {color: #A10000}
     background: #fff;
     min-height: 500px;    border-right: 1px solid #eeeeee;
 }
-.ztree{width:173px;overflow-x:hidden;overflow-y:hidden }
-.ztree li{
+.ztree{
+	float:left;
+}
+/**.ztree li{
 	line-height: 30px;
 	
 }
 .ztree li span{line-height: 30px;}
 .ztree li span.button.ico_docu,.ztree li span.button.ico_open,.ztree li span.button.ico_close{
 	margin-top: 7px;
-}
+}**/
 .list-left1{width: 173px;
 border-right: 1px solid #dddddd;
 min-height: 950px;}
@@ -315,7 +320,7 @@ min-height: 950px;}
 	min-width:170px;
 	width:auto;
 	min-height:120px;
-	border:1px solid #eeeeee;
+	border:1px solid #b5b5b5;
 	background:#f2f2f2;
 	border-top:0;
 	overflow:hidden;
@@ -352,8 +357,9 @@ min-height: 950px;}
 	color:#ffffff;
 }
 .list_div {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px  dotted #ccc;
   padding-bottom:15px;
+  padding:0 15px 15px;
   font-size: 12px;
 }
 .list-right_title  {
@@ -371,14 +377,14 @@ min-height: 950px;}
     background: #f7f7f7;
 }
 .list-right_title  a:hover{color:#A10000 !important;}
-.cen-div-1{min-height:600px;border-top:1px solid #eeeeee;}
+.cen-div-1{min-height:600px;border-top:1px solid #b5b5b5;}
 .column-name {
   background: #7fb2d2;
   padding: 5px;
   color:#fff;
 }
 .column-name a{ color:#fff !important; font-size:15px;}
-.list_left_title{ color:#ff6000;font-size:24px;}
+.list_left_title{ color:#ff6000;font-size:24px;display:none;}
 .con_title_left {color:##666;}
 .con_title_left a:hover{color:#A10000;font-size:12px}
 .con_title_left a{color:##666;}

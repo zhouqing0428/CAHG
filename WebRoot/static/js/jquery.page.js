@@ -33,9 +33,9 @@
 		var height=this.height=20;//parseInt(this.obj.css('height'));
 		
 		var style=this.style=$.extend({
-			"fontSize":18,//字体大小
+			"fontSize":14,//字体大小
 			"width":700,//页码盒子总宽度
-			"height":20,//页码总高度，默认20px
+			"height":28,//页码总高度，默认20px
 			"pagesMargin":2,//每个页码或按钮之间的间隔
 			"paddL":0,//左边留白
 			"paddR":0,//右边留白
@@ -79,10 +79,10 @@
 		//上一页
 		if(args.showPrev){
 			if(args.current > 1){
-				obj.append('<a href="javascript:;" class="prevPage"><上一页</a>');
+				obj.append('<a href="javascript:;" class="prevPage">上一页</a>');
 			}else{
 				obj.remove('.prevPage');
-				obj.append('<span class="disabled"><上一页</span>');
+				obj.append('<span class="disabled">上一页</span>');
 			}
 		}
 		//中间页码
@@ -129,9 +129,9 @@
 		if(args.showNext){
 			if(args.current== args.pageCount||args.pageCount==1){
 				obj.remove('.nextPage');
-				obj.append('<span class="disabled">下一页></span>');
+				obj.append('<span class="disabled">下一页</span>');
 			}else{
-				obj.append('<a href="javascript:;" class="nextPage">下一页></a>');
+				obj.append('<a href="javascript:;" class="nextPage">下一页</a>');
 			}
 		}
 		
@@ -167,7 +167,7 @@
 		
 		this.obj.find('span.countYe').css({'color':'#4C4C4C','font-size':s.fontSize+'px','width':s.trunWidth+'px'});
 
-		this.obj.find('input').css({'outline':'none','border':'1px solid #ddd','height':s.height-2+'px','line-height':s.height-2+'px','width':'30px',margin: '0 5px'});
+		this.obj.find('input').css({'outline':'none','border':'1px solid #ddd','height':s.height-2+'px','line-height':s.height-2+'px','width':'50px',margin: '0 5px'});
 		
 		
 		this.obj.find('.tcdNumber').css({'width':s.pageWidth-2+'px','height':s.height-2+'px','line-height':s.height-2+'px'});
