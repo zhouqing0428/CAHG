@@ -51,7 +51,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						<option value="${ele.parameter }">${ele.value }</option> 
 					</c:forEach>
 				</select>
-				<input id="newTitle" placeholder='标题、时间'>
+				<input id="newTitle" placeholder='标题、时间' autocomplete="off">
 				<a class="searchBtn" href="javascript:void(0)" onclick="checkSubmit()">搜索</a>
 		    </div>
 		</div>
