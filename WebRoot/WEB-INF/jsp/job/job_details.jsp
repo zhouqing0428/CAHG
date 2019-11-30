@@ -53,8 +53,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       </c:forEach>
       <c:if test="${newMap.status lt 2}">
-	      <div id="dealJob">
-	      	<input type="button" value="办结" onclick="doJob('${jobId}');"/>
+	      <div id="dealJob" style="overflow:hidden;">
+        	<a href="javascript:void(0)"  onclick="doJob('${jobId}');" class="easyui-linkbutton" data-options="iconCls:'icon-search'" style="width:100px;margin:0 auto;display:block;">办结</a>
 	      </div>
       </c:if>
     </div>
