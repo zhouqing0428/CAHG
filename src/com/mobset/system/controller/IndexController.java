@@ -31,6 +31,7 @@ import com.mobset.system.service.CahgMeetingNoticeService;
 import com.mobset.system.service.CahgOfficePostService;
 import com.mobset.system.service.CahgSpecialTopicService;
 import com.mobset.system.service.CahgSurveyService;
+import com.mobset.system.service.CahgViolationService;
 import com.mobset.system.service.CahgWorkTableService;
 import com.mobset.system.service.SysDictionaryService;
 import com.mobset.system.service.deptService;
@@ -82,6 +83,8 @@ public class IndexController {
 	private deptService deptservice;
 	@Resource(name="activityNoticeService")
 	private CahgActivityNoticeService activityNoticeService;
+	@Resource(name="violationService")
+	private CahgViolationService violationService;
 
 	
 	/*	@ResponseBody*/
@@ -124,7 +127,8 @@ public class IndexController {
 		List<HashMap> workTableList = cahgWorkTableService.selectWorkTable(map);
 		List<HashMap> workTableType = cahgWorkTableService.selectType(map);
 		List<Map<String, Object>> noticeList = activityNoticeService.queryIndexList(null); //活动通知
-	
+		List<Map<String, Object>> violationList = violationService.queryIndexList(null); //违纪曝光
+		
 		HashMap wish = sysDictionaryService.wishSelect(map);//祝福语
 		request.setAttribute("wish", wish);
 	
@@ -177,6 +181,7 @@ public class IndexController {
 		request.setAttribute("workTableList", workTableList);
 		request.setAttribute("workTableType", workTableType);
 		request.setAttribute("noticeList", noticeList);
+		request.setAttribute("violationList", violationList);
 		
 		return "../../index";
 	}

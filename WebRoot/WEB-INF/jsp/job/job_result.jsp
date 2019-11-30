@@ -28,26 +28,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgCustomNews/customNewsListPage.do	'  target="_parent">工作督办</a>&nbsp;>&nbsp;<a href=''  target="_parent">工作办结</a>
 </div></div>
       </div>
-	      <div>
-        	<font color="red">*</font>经办科室：
-        	<select id="deptId" name="deptId">
+	      <div class="jobItem">
+	      	<div class="jobItemTitle">
+        		<font color="red">*</font>经办科室：
+        	</div>
+        	<select id="deptId" name="deptId" class="selectSty">
         		<option value="">请选择经办科室</option>
         		<c:forEach items="${deptList}" var="dept">
        			<option value="${dept.dept_id}">${dept.name}</option>
         		</c:forEach>
         	</select>
 	      </div>
-	      <div>
-	      	<font color="red">*</font>经办人：
-	      	<input type="text" id="userName" name="userName" placeholder="请填写经办人"/>
+	      <div class="jobItem">
+	      	<div class="jobItemTitle">
+	      		<font color="red">*</font>经办人：
+	      	</div>
+	      	<input type="text" id="userName" name="userName" class="jobItemTxt" placeholder="请填写经办人"/>
 	      </div>
-	      <div>
-         	<font color="red">*</font>办理情况：
-         	<textarea id="content" name="content" rows="3" cols="150"></textarea>
+	      <div class="jobItem">
+	      	<div class="jobItemTitle">
+         		<font color="red">*</font>办理情况：
+         	</div>
+         	<textarea id="content" name="content" class="jobItemArea" rows="3" cols="150"></textarea>
 	      </div>
-	      <div>
+	      <div class="jobItem">
 	      	<input type="hidden" id="jobId" name="jobId" value="${jobId}"/>
-	      	<input type="button" value="提交" onclick="submit();"/>
+	      	<input type="button" class="jobItemBtn" value="提交" onclick="submit();"/>
+	      	<input type="button" class="jobItemBtn" value="取消" onclick="history.go(-1)"/>
 	      </div>
     </div>
 </div>

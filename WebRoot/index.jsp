@@ -407,17 +407,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--网上办公-->
     <div class="slideTxtBox qywh fr mt10" style="border:1px solid #CCC">
 		<div class="hd">
-			<a href="javascript:void(0)" target="_blank" class="fr fm1">更多>></a>
+			<a href="cahgViolation/violationListPage.do" target="_blank" class="fr fm1">更多>></a>
 		    <ul><li>违纪曝光</li></ul>
 		</div>
 		<div class="bd">
 			<ul class="newsList">
-				<li><a href="javascript:void(0)">测试数据</a></li>
-				<li><a href="javascript:void(0)">测试数据</a></li>
-				<li><a href="javascript:void(0)">测试数据</a></li>
-				<li><a href="javascript:void(0)">测试数据</a></li>
-				<li><a href="javascript:void(0)">测试数据</a></li>
-				<li><a href="javascript:void(0)">测试数据</a></li>
+				<c:forEach items="${violationList }" var="ele" varStatus="index">
+	        		<li><a id="violationList" href="cahgViolation/violationInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
+	            </c:forEach>
 			</ul>
         </div>
     </div>

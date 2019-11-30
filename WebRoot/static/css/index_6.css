@@ -8,6 +8,97 @@ a{text-decoration:none;color:#000}
 .none{display:none}
 
 #main{width:1000px; margin:auto}
+
+.jobItem{
+	padding-left:100px;
+	width:250px;
+	margin:0 auto 20px;;
+	overflow:hidden;
+	position:relative;
+}
+.jobItem .jobItemTitle{
+	position:absolute;
+	left:0;
+	top:0;
+	width:100px;
+	height:32px;
+	line-height:32px;
+	text-align:right;
+}
+.jobItem .jobItemTxt{
+	height:28px;
+	width:239px;
+	line-height:28px;
+	float:left;
+	margin:0;
+	padding:0;
+}
+.jobItem .jobItemArea{
+	height:90px;
+	width:231px;
+	padding:5px;
+	line-height:22px;
+	resize:none;
+	outline:none;
+}
+.jobItem .jobItemBtn{
+	width:80px;
+	height:30px;
+	line-height:30px;
+	text-align:center;
+	margin-right:20px;
+}
+#detailList{
+	margin-bottom:10px;
+	background-color:white;
+	color:black;
+	padding-right:50px;
+	padding-left:50px;
+}
+.detailItem{
+	position:relative;
+	height:auto;
+	overflow:hidden;
+	padding-left:100px;
+	border:1px solid #dcdcdc;
+}
+.detailItem h1{
+	position:absolute;
+	font-size:16px;
+	font-weight:normal;
+	top:0;
+	left:0;
+	bottom:0;
+	margin:auto 0;
+	width:100px;
+	height:20px;
+	line-height:20px;
+	text-align:Center;
+}
+.detailItem .detailFooter{
+	border-left:1px solid #dcdcdc;
+	min-height:40px;
+	padding:5px;
+}
+.detailItem .detailHeader{
+	border-left:1px solid #dcdcdc;
+	border-bottom:1px solid #dcdcdc;
+	height:40px;
+	line-height:40px;
+	overflow:hidden;
+}
+.detailItem .detailHeader strong{
+	display:block;
+	width:264px;
+	float:left;
+	text-align:center;
+	overflow:hidden;
+	font-weight:normal;
+}
+.detailItem .detailHeader strong:nth-of-type(2n+2){
+	border-left:1px solid #dcdcdc;
+	border-right:1px solid #dcdcdc;
+}
 .tp-left{width:480px;height: 309px;float: left;background: #ddd }
 .tpxw{width: 1000px;background: #fff; }
 .tp-nav{float: left;width: 134px}
