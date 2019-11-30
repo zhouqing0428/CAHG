@@ -467,13 +467,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
       </div>
     </div>
-    <div id="roll">
-    	<c:if test="${not empty floatNews}">
-    	<a target="_blank" href="cahgFloatNews/floatNewsDetailsPage.do?float_new_id=${floatNews.float_new_id }"  title="${ele.img_new_title }">
-    		<img src="/file/upFloat/floatNews/${floatNews.float_url }" height="50" width="100" />
-    	</a>
-    	</c:if>
-    </div>
+    <c:if test="${not empty floatNews}">
+	    <div id="roll">
+	    	<a target="_blank" href="cahgFloatNews/floatNewsDetailsPage.do?float_new_id=${floatNews.float_new_id }"  title="${ele.img_new_title }">
+	    		<img src="/file/upFloat/floatNews/${floatNews.float_url }" height="50" width="100" />
+	    	</a>
+	    </div>
+    </c:if>
 	<div class="scrollPic">
 		<div class="scrollName">专题专栏</div>
 		<div id="scrollBox">
@@ -610,7 +610,9 @@ function floatAd(){
   ggRoll.roll.onmouseover=function(){clearInterval(interval)};
   ggRoll.roll.onmouseout=function(){interval=setInterval(function(){ggRoll.Go()},ggRoll.speed)};
 }
-floatAd();
+if(document.getElementById("roll").length > 0){
+	floatAd();
+}
 function startScroll(){
 	var oDiv = document.getElementById('scrollBox');
 	var oUl = oDiv.getElementsByTagName('ul')[0];

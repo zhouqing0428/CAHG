@@ -69,7 +69,7 @@
 				<div id="content">
 					<!-- <ul id="treeDemo" class="ztree"></ul> -->
 					<div id="searchTable" style="text-align:right;"></div>
-					<table id="myTable" co style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
+					<table id="myTable"  style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
 						<tr style="background:#2b67ac;">
 							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
 								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">姓名</span></td>
