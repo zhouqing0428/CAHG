@@ -456,10 +456,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="bd">
             <ol id="picList" class="picList">
-            	<li class="curr"><img src="static/images/pic1.jpg" /></li>
-            	<li><img src="static/images/pic2.jpg" /></li>
-            	<li><img src="static/images/pic3.jpg" /></li>
-            	<li><img src="static/images/pic4.jpg" /></li>
+            	<c:forEach items="${styleList }" var="ele">
+				<li>
+				   <%-- <a href="cahgStyle/styleDetailsPage.do?style_id=${ele.style_id }"  target="_blank" title='${ele.style_title }'> --%>
+				   		<img src="/file/upStyle/style/${ele.style_url }"/>
+				   <!-- </a> -->
+				</li>
+				</c:forEach>
             </ol>
         </div>
       </div>
