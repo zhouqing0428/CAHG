@@ -38,13 +38,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style type="text/css">
 #roll {
   width:100px;
-  height:100px;
+  height:50px;
   background-color:green;
   color:#fff;
   position:absolute;
   font-size:12px;
   text-align:center;
   line-height:100px;
+  overflow:hidden;
 }
 .scrollPic{
 	overflow:hidden;
