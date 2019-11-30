@@ -12,8 +12,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title></title>
-<link href="static/css/index.css" rel="stylesheet"/>
+
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="static/js/jquery.js"></script>
 <link href="static/css/common.css" rel="stylesheet" />
 <style type="text/css">
 #new_title{  
@@ -54,12 +57,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </script>
 </head>
 <body>
-
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
- 	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-    
+ 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
@@ -72,8 +72,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
-        <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/special_left.do?url=${url}" widht="100%"></iframe>
-        <div class="con-right fr mar-l-2">
+        <%-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/special_left.do?url=${url}" widht="100%"></iframe> --%>
+         <!-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/office_work_left.do?url=${url}" height="auto" width="100%"></iframe> -->
+        <dl class="con-left fl"></dl>
+        <div class="con-right fr mar-l-2" style="width:740px;">
  			<div id="list">
  			</div>
  			<div class="page"  style="width:100%; margin-top:50px;"></div> 
@@ -86,8 +88,35 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div> 
    
 <script>
-
-
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
+getSlideMenu()
+function getSlideMenu(){
+	var url = "${url}"
+	$.ajax({
+	    url:"index/special_left.do?url="+url,
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".con-left").html(data);
+	    }
+	 });
+}	
 
 	var url = '${url}';
 	var pageCount = '${pageCount}';
