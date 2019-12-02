@@ -208,7 +208,10 @@ public class IndexController {
 	@RequestMapping(value="/look_left")
 	public String look_left(HttpServletRequest request){
 		String dept_id = request.getParameter("dept_id");
-		List<Map<String, Object>> deptList = sysDictionaryService.deptList(null);// 新闻类型列表
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put("condition", " dept_id != '38' ");
+		List<Map<String, Object>> deptList = sysDictionaryService.deptList(paramMap);// 科室列表
+		
 		request.setAttribute("deptList", deptList); //科室列表
 		request.setAttribute("dept_id", dept_id);//左导航判断用
 		return "page/look_left";

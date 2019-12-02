@@ -36,7 +36,6 @@
 </head>
 <body>
  <div id="main">
- 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
   	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
@@ -48,84 +47,54 @@
     </div>
       
     <div class="cen-div-1 mar-t" >
-      <!-- <iframe style="width:280px;height:700px;" class="con-left fl" frameborder="0" scrolling="no" src="index/look_left.do?dept_id=${dept_id}"></iframe> -->
       	<dl class="con-left fl"></dl>
 		<c:if test="${!empty deptAddress.data_path}">
 			<p align="right"><a href="http://10.56.65.100/file/upImg/fileload/${deptAddress.data_path}"><span style="color:red;">点击下载：${deptAddress.file_names }</span></a></p>
 		</c:if>
       <div class="con-right fr mar-l-2" style="width:665px;">
 		<div id="list" >
-		 	<c:if test="${empty addressLookList}">
-	 			<div class="con_title mar-t2 text">
-		        	<h4 align="center">${dept.name}</h4>
-	        	</div>
-		 	</c:if>
 			<c:if test="${!empty addressLookList}">
 				<div class="con_title mar-t2 text">
 					<h4 align="center">${dept.name}</h4>
 				</div>
 			</c:if>
-			<c:if test="${empty dept_id or dept_id =='38'}">
-				<div id="content">
-					<!-- <ul id="treeDemo" class="ztree"></ul> -->
-					<div id="searchTable" style="text-align:right;"></div>
-					<table id="myTable"  style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
-						<tr style="background:#2b67ac;">
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">姓名</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">工号</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">科室</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">职务</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工内线</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工外线</span></td>
-						</tr>
-						<c:forEach items="${addressLookList}" var="item" varStatus="idx">
-						<tr>
-							<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${idx.index+1}</td>
-							<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.name}</td>
-							<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.job_number}</td>
-							<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${dept.name}</td>
-							<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.duty}</td>
-							<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.interior}</td>
-							<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.external}</td>
-						</tr>
-						</c:forEach>
-					</table>
-		    	</div>
-			</c:if>
-			<c:if test="${!empty dept_id and dept_id!='38'}">
-				<div id="content">
+			<div id="content">
+				<table id="myTable" co style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
+					<tr style="background:#2b67ac;">
+						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
+						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">姓名</span></td>
+						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">工号</span></td>
+						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">科室</span></td>
+						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">职务</span></td>
+						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工内线</span></td>
+						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工外线</span></td>
+					</tr>
 					<c:if test="${!empty addressLookList}">
-						<table id="myTable" co style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
-							<tr style="background:#2b67ac;">
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">姓名</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">工号</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">科室</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">职务</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工内线</span></td>
-								<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工外线</span></td>
-							</tr>
-							<c:forEach items="${addressLookList}" var="item" varStatus="idx">
-							<tr>
-								<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${idx.index+1}</td>
-								<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.name}</td>
-								<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.job_number}</td>
-								<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${dept.name}</td>
-								<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.duty}</td>
-								<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.interior}</td>
-								<td style="border:1px solid;line-height:50px;font-size:12px;text-align:center;">${item.external}</td>
-							</tr>
-							</c:forEach>
-						</table>
+					<c:forEach items="${addressLookList}" var="item" varStatus="idx">
+					<tr>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${idx.index+1}</td>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.name}</td>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.job_number}</td>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${dept.name}</td>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.duty}</td>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.interior}</td>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.external}</td>
+					</tr>
+					</c:forEach>
 					</c:if>
-				</div>
-			</c:if>
+					<c:if test="${empty addressLookList}">
+					<tr>
+						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;" colspan="7">该科室下暂无人员信息</td>
+					</tr>
+					</c:if>
+				</table>
+			</div>
 		</div>
+		<div class="page" style="width:100%; margin-top:50px;"></div> 
       </div>
  </div>
     
-   	<iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
+   	<iframe class="bot" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
     
   </div>
   <script>
@@ -161,13 +130,13 @@
   		 });
   	}
   	getHeader();
-  	var html = "<select class='selectSty'>";
+  	/* var html = "<select class='selectSty' id='deptId'>";
+  	html += "<option value=''>---全部科室---</option>";
   	for(var i = 0; i < deptList.length; i++){
   		html += "<option value='"+ deptList[i].dept_id +"'>"+ deptList[i].name +"</option>"
   	}
   	html += "</select>";
-  	$("#searchTable").html(html);
+  	$("#searchTable").html(html); */
   </script>
-  <%-- <script src="static/js/biz/address_book_show.js?_${date.systemTime}"></script> --%>
 </body>
 </html>
