@@ -77,10 +77,7 @@ ul.lightBlue > li  {
 	border-right: 1px solid #008c84;
 }
 
-/* first li have home class*/
-ul#jDropDown > li > a {
-	color: #fff;
-}	
+/* first li have home class*/	
 /*top*/
 .top{width: 1000px;margin: 0 auto;height: auto;}
 .bot{width: 1000px;margin: 0 auto;}
@@ -100,7 +97,8 @@ ul#jDropDown > li > a {
 	text-align:center;
 	font-weight:normal;
 	display:block;
-	padding:0 18px;
+	padding:0 17px;
+	color: #fff;
 }
 ul#jDropDown > li > .slideList{
 	position:relative;

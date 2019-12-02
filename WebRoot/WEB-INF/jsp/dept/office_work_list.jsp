@@ -116,10 +116,12 @@ function getDataList(){
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
 		    		html += "<div class='list_div mar-top2 '>" +
-		    				"<a href='http://10.56.65.100/file/upImg/officeWork/"+data.list[i].file_name+"' target='_blank' class='list-right_title fon_1'>"+data.list[i].title+"</a>" +
-		    				"<b>发布时间："+data.list[i].create_date+"</b>" +
-		    				"<a href='http://10.56.65.100/file/upImg/officeWork/"+data.list[i].file_name+"' target='_blank' class='column-name'>点击下载</a>" +
-		    				"</div>";
+		    				"<a href='http://10.56.65.100/file/upImg/officeWork/"+data.list[i].file_name+"' target='_blank'  >"+
+		    				"  <div class='list-right_title fon_1'><b id='new_title'>"+data.list[i].title+"</b></div>" +
+		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
+		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +
+		    				"<td width='50%' align='right' ><span class='column-name'><b>点击下载</b></span></td>"+
+		    				"</tr></table></a></div>";
 		    	}
 		     	$("#list").html(html);
 		    }
