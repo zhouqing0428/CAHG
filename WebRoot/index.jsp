@@ -451,7 +451,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>  
     <div class="slideTxtBox xgxz fr mt10" style="height:280px;border:1px solid #CCC">
         <div class="hd">
-        	<a href="" class="fr fm1">更多>></a> 
+        	<a href="cahgStyle/styleListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>长安风采</li></ul>
         </div>
         <div class="bd">

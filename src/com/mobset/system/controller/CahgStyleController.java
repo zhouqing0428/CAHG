@@ -33,7 +33,7 @@ public class CahgStyleController {
 	
 	
 	/**
-	 *  图片新闻详情页
+	 *  长安风采详情页
 	 */
 	@RequestMapping(value="/styleDetailsPage")
 	public String styleDetailsPage(HttpServletRequest request){
@@ -49,7 +49,7 @@ public class CahgStyleController {
 	}
 	
 	/**
-	 * 图片新闻列表页
+	 * 长安风采列表页
 	 * @throws UnsupportedEncodingException 
 	 */
 	@RequestMapping(value="/styleListPage")
@@ -75,7 +75,7 @@ public class CahgStyleController {
 	}
 	
 	/**
-	 * 图片新闻列表数据
+	 * 长安风采列表数据
 	 * @throws UnsupportedEncodingException 
 	 */
 	@RequestMapping(value="/styleList")
@@ -94,7 +94,7 @@ public class CahgStyleController {
 			map.put("title", "%"+title+"%");
 		}
 		
-		List<HashMap> styleList = cahgStyleService.styleList(map);//图片新闻list
+		List<HashMap> styleList = cahgStyleService.styleList(map);//风采图片list
 		Map<String, Object> result = new HashMap<String, Object>();//传值方式
 		result.put("list", styleList);
 		return result;

@@ -63,11 +63,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
 		          <div class="list_left_title">
-		            图片新闻
+		            长安风采
 		          </div>
 		        </div>
 		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;图片新闻列表
+		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;长安风采列表
 		</div>   
       </div>
       
@@ -94,19 +94,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	var title = '${title}';
 	$('.page').createPage(function(curPage){
 		$.ajax({
-		    url:"cahgImgNews/imgNewsList.do",
+		    url:"cahgStyle/styleList.do",
 		    dataType : "json", 
 		    method:"post",
 		    async: true,  
 		    data: {curPage:curPage,title:encodeURI(title, "UTF-8")},
 		    success:function(data){
 		    	var html = "";
-		     	for(var i=0;i<data.list.length;i++){
+		     	for(var i=0;i<data.list.length;i++){//src="http://10.56.65.100/file/upStyle/style/'
 		    		html += '<div class="list_div mar-top2" style="display:block;">'+
-		    				'<a onClick="jump('+data.list[i].img_new_id+')" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id='+data.list[i].img_new_id+'" target="_blank">'+
+		    				'<a onClick="jump('+data.list[i].style_id+')" href="cahgStyle/styleDetailsPage.do?style_id='+data.list[i].style_id+'" target="_blank">'+
 		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">'+
-		    				'<tr><td rowspan="2" style="width:150px;"><img style="width:150px;" height="120px;" src="http://10.56.65.100/file/upImg/imgNews/'+data.list[i].img_url+'"></td>'+
-		    				'<td colspan="2"> <div class="list-right_title fon_1"><b id="new_title">'+data.list[i].img_new_title+'</b></div></td></tr>'+
+		    				'<tr><td rowspan="2" style="width:150px;"><img style="width:150px;" height="120px;" src="/file/upStyle/style/'+data.list[i].style_url+'"></td>'+
+		    				'<td colspan="2"> <div class="list-right_title fon_1"><b id="new_title">'+data.list[i].style_title+'</b></div></td></tr>'+
 		    				'<tr><td >'+
 		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px; color:#9E9E9E;">'+
 		    				'<tr><td width="60%" align="left"><b>发布时间：'+data.list[i].create_date+'</b></td>'+
@@ -126,7 +126,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 	function jump(tarUrl){	    
 	    var path = getContextPath();
-		var url = path+"/cahgImgNews/imgNewsDetailsPage.do?img_new_id="+tarUrl;
+		var url = path+"/cahgStyle/styleDetailsPage.do?style_id="+tarUrl;
 		window.open(encodeURI(url));
 	}
 	
