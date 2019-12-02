@@ -8,8 +8,9 @@
 			date_format(end_time,'%Y-%m-%d %H:%i:%s')  end_time ,date_format(create_user_date,'%m-%d')  create_date_show
 		from
 			cahg_job
-		ORDER BY  create_date DESC  
-			limit 0,8
+		WHERE status in (0,1)
+		ORDER BY create_date DESC  
+			limit 0,6
 	</select>
 	
 	<!-- 工作督办内容展示 -->
