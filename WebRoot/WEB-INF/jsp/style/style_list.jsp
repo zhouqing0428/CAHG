@@ -23,14 +23,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	padding-top:40px;
 } 
 #style_list li{
-	width:220px;
-	heigth:255px;
+	width:150px;
+	height:185px;
 	overflow:hidden;
+	margin-right:50px;
 	margin-bottom:20px;
 	float:left;
 } 
-#style_list li:nth-of-type(3n+2){
-	margin:0 50px 20px;
+#style_list li:nth-of-type(4n+4){
+	margin-right:0px;
 }
 #style_list li img{
 	width:150px;

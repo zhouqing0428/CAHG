@@ -610,9 +610,12 @@ function floatAd(){
   ggRoll.roll.onmouseover=function(){clearInterval(interval)};
   ggRoll.roll.onmouseout=function(){interval=setInterval(function(){ggRoll.Go()},ggRoll.speed)};
 }
-if(document.getElementById("roll").length > 0){
-	floatAd();
-}
+setTimeout(function(){
+	if(document.getElementById("roll")){
+		floatAd();
+	}
+},1000)
+
 function startScroll(){
 	var oDiv = document.getElementById('scrollBox');
 	var oUl = oDiv.getElementsByTagName('ul')[0];

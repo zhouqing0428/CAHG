@@ -5,45 +5,18 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<base href="<%=basePath%>">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="static/css/index.css" rel="stylesheet"/>
-<title></title>
-<style type="text/css">
-li a{
-corlor:#333;
-line-height:33px;
-border-bottom:1px solid #b5b5b5;
-border-top:1px solid #b5b5b5;
-border-right:1px solid #b5b5b5;
-border-left:1px solid #b5b5b5;
-background: url('static/images/tubiao1.png') 10px 8px no-repeat;
-padding-right:10px;
-padding-left:10px;
-}
-</style>
-</head>
-<body>
-	<div class="con-left fl " style="width:170px;min-height:260px;border:1px solid;">
-          <ul>
-          			<li style="background-color: #006FCB;color: #fff;text-align:center"><b>分类</b></li>
-          	<c:forEach items="${tableCategoryList }" var="ele">
-          		<c:if test="${work_table_category_id eq ele.work_table_category_id }">
-          			<li style="padding-right:10px;padding-left:10px;margin-top:15px;">
-	                	<a style="background: #0066a6; color: #fff !important;" href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id}"  target="_parent" title='${ele.name }' ><span style="margin-left:20px;">${ele.name }</span></a>
-	             	</li>
-          		</c:if>
-	          	
-	          	<c:if test="${work_table_category_id ne ele.work_table_category_id }">
-          			<li style="margin-top:15px;padding-right:10px;padding-left:10px;">
-	                	<a style="color: #333;"  href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id}"  target="_parent" title='${ele.name }' ><span style="margin-left:20px;">${ele.name }</span></a>
-	             	</li>
-          		</c:if>
-	          	</c:forEach>
-          </ul>
-        </div>
-</body>
-</html>
+
+<dt>报表表格</dt>
+<c:forEach items="${tableCategoryList }" var="ele">
+<c:if test="${work_table_category_id eq ele.work_table_category_id }">
+<dd class="curr">
+<a href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id}"  target="_parent" title='${ele.name }' >${ele.name }</a>
+</dd>
+</c:if>
+
+<c:if test="${work_table_category_id ne ele.work_table_category_id }">
+<dd>
+<a href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id}"  target="_parent" title='${ele.name }' >${ele.name }</a>
+</dd>
+</c:if>
+</c:forEach>
