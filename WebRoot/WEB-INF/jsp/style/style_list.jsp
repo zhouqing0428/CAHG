@@ -17,6 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 <style type="text/css">
 #style_list{  
 	overflow:hidden;
@@ -50,7 +51,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
-<script src="static/layui/layui.all.js"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$(".con-left a").each(function(){

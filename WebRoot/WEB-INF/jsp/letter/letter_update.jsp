@@ -22,6 +22,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="static/js/easyui/themes/icon.css">
 <link rel="stylesheet" href="static/kindeditor-4.1.7/themes/default/default.css"/>
 <script charset="utf-8" src="static/kindeditor-4.1.7/kindeditor.js"></script>
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 <script charset="utf-8" src="static/kindeditor-4.1.7/lang/zh_CN.js"></script>
 <style type="text/css">
 #new_title{  

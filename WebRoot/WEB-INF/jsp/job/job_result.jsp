@@ -18,6 +18,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/dropdown.class.demo_3.js"></script>
 <script type="text/javascript" src="static/js/jquery.min.js"></script>
 <script type="text/javascript" src="static/js/jquery.js"></script>
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 <div id="main">
 <!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
   	<div class="top"></div>

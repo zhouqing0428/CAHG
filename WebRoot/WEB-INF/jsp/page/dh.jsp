@@ -66,7 +66,10 @@ function checkSubmit(){
 	type = obj.options[index].value; // 选中值
 	title=document.getElementById("newTitle").value;
 	if(title=="" || title=="标题、时间"){
-		alert("请输入需要查询的值");
+		layui.layer.alert('请输入需要查询的值', {
+			  icon: 2,
+			  skin: 'layer-ext-moon' //该皮肤由layer.seaning.com友情扩展。关于皮肤的扩展规则，去这里查阅
+			});
 		return false;
 	}
 	var path = getContextPath();

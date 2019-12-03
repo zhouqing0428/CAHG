@@ -11,15 +11,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta charset="utf-8">
 <base href="<%=basePath%>">
 <title>${newMap.float_new_title}</title>
-
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 </head>
 <body>
 <script type="text/javascript" src="js/dropdown.class.demo_3.js"></script>
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css"/>
+<link rel="stylesheet" type="text/css" href="static/css/menu.css"/>
+<script type="text/javascript" src="static/js/jquery.js"></script>
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 
 <div id="main">
-<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
+<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
  <div style="background-color: #fff">
     
     <div class="cen-div color mar-t">
@@ -53,3 +56,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
 </body>
 </html>
+<script>
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+	}
+	getHeader();
+</script>

@@ -27,6 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$(".con-left a").each(function(){

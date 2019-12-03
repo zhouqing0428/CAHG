@@ -17,6 +17,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 <style type="text/css">
 table{margin: 0 auto}
 
@@ -48,7 +50,7 @@ table{margin: 0 auto}
          	
          	<table id="Table1" style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
          		<tbody>
-         		<tr style="background:#2b67ac;">
+         		<tr style="background:#df3a39;">
          			<td colspan="2" style="border:1px solid;line-height:50px;font-size:18px;text-align:center;"><span style="color:#fff;font-weight:bold;">会议通知</span></td>
          		</tr>
          		<tr>

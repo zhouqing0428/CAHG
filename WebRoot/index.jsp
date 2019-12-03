@@ -16,6 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/> 
 <title>中华人民共和国东莞长安海关</title>
 
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
+
+<link href="static/layui/css/layui.css" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="static/js/easyui/themes/default/easyui.css">
 <script type="text/javascript" src="static/js/easyui/jquery.min.js"></script>
 <script type="text/javascript" src="static/js/easyui/jquery.easyui.min.js"></script>

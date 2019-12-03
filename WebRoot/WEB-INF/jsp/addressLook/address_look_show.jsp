@@ -19,6 +19,8 @@
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
 <script src="static/ztree/jquery.ztree.all.min.js" type="text/javascript" charset="utf-8"></script>
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$(".con-left a").each(function(){

@@ -16,6 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link rel="stylesheet" type="text/css" href="static/js/easyui/themes/default/easyui.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 </head>
 <body>
 <div id="main">

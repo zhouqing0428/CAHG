@@ -15,6 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="js/dropdown.class.demo_3.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
+<link href="static/layui/css/layui.css" rel="stylesheet">
+<script src="static/layui/layui.all.js"></script>
 </head>
 <body>
 <div id="main">
