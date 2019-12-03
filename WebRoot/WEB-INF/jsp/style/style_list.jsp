@@ -33,8 +33,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	margin:0 50px 20px;
 }
 #style_list li img{
-	width:220px;
-	height:220px;
+	width:150px;
+	height:150px;
 	display:block;
 }
 #style_list li strong{
@@ -154,7 +154,7 @@ getHeader();
 		    	var html = "<ul id='style_list'  class='style_list'>";  //data.list[i].style_id   /file/upStyle/style/'+data.list[i].style_url+' data.list[i].create_date  data.list[i].style_title
 		     	for(var i=0;i<data.list.length;i++){//src="http://10.56.65.100/file/upStyle/style/'
 		    		html += "<li>";
-		    		html += '<img onerror="this.src=\'static/images/jiazai.gif\'" alt="'+ data.list[i].style_title +'" layer-pid="'+data.list[i].style_id+'" layer-src="static/images/default.png" src="static/images/default.png" />'
+		    		html += '<img onerror="this.src=\'static/images/jiazai.gif\'" alt="'+ data.list[i].style_title +'" layer-pid="'+data.list[i].style_id+'" layer-src="/file/upStyle/style/'+data.list[i].style_url+'" src="/file/upStyle/style/'+data.list[i].style_url+'" />'
 		    		html += '<strong>'+ data.list[i].style_title +'</strong>'
 		    		html += "</li>";
 		     	}
