@@ -119,7 +119,7 @@ function getHeader(){
 		    		html += '<div class="list_div mar-top2" style="display:block;">'+
 		    				'<a onClick="jump('+data.list[i].img_new_id+')" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id='+data.list[i].img_new_id+'" target="_blank">'+
 		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">'+
-		    				'<tr><td rowspan="2" style="width:150px;"><img style="width:150px;" height="120px;" src="http://10.56.65.100/file/upImg/imgNews/'+data.list[i].img_url+'"></td>'+
+		    				'<tr><td rowspan="2" style="width:150px;"><img style="width:150px;" height="120px;" src="http://10.56.65.100/file/upImg/floatNews/'+data.list[i].img_url+'"></td>'+
 		    				'<td colspan="2"> <div class="list-right_title fon_1"><b id="new_title">'+data.list[i].img_new_title+'</b></div></td></tr>'+
 		    				'<tr><td >'+
 		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px; color:#9E9E9E;">'+

@@ -79,7 +79,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
  <div id="main">
- 	<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
   	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
@@ -89,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          </div>
 		        </div>
 		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;长安风采列表
+			<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;长安风采列表
 		</div>   
       </div>
       
@@ -152,10 +151,10 @@ getHeader();
 		    async: true,  
 		    data: {curPage:curPage,title:encodeURI(title, "UTF-8")},
 		    success:function(data){
-		    	var html = "<ul id='style_list'  class='style_list'>";  //data.list[i].style_id   /file/upStyle/style/'+data.list[i].style_url+' data.list[i].create_date  data.list[i].style_title
-		     	for(var i=0;i<data.list.length;i++){//src="http://10.56.65.100/file/upStyle/style/'
+		    	var html = "<ul id='style_list'  class='style_list'>";
+		     	for(var i=0;i<data.list.length;i++){
 		    		html += "<li>";
-		    		html += '<img onerror="this.src=\'static/images/jiazai.gif\'" alt="'+ data.list[i].style_title +'" layer-pid="'+data.list[i].style_id+'" layer-src="/file/upStyle/style/'+data.list[i].style_url+'" src="/file/upStyle/style/'+data.list[i].style_url+'" />'
+		    		html += '<img onerror="this.src=\'static/images/jiazai.gif\'" alt="'+ data.list[i].style_title +'" layer-pid="'+data.list[i].style_id+'" layer-src="http://10.56.65.100/file/upImg/style/'+data.list[i].style_url+'" src="http://10.56.65.100/file/upImg/style/'+data.list[i].style_url+'" />'
 		    		html += '<strong>'+ data.list[i].style_title +'</strong>'
 		    		html += "</li>";
 		     	}
