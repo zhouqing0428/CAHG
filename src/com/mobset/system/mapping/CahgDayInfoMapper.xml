@@ -12,7 +12,7 @@
 		where
 			day_status = '0'
 		ORDER BY day_stick DESC, create_date DESC
-			limit 0,7
+			limit 0,6
 	</select>
 	
 	<!-- 每日信息内容展示 -->
