@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  }
 	   #leaderSpeechList{  
 		display: block;
-		width: 200px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
@@ -128,7 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  
 	  #afficheList{
 	 	 display: block;
-		width: 190px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
@@ -463,7 +463,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             	<c:forEach items="${styleList }" var="ele">
 				<li>
 				   <%-- <a href="cahgStyle/styleDetailsPage.do?style_id=${ele.style_id }"  target="_blank" title='${ele.style_title }'> --%>
-				   		<img src="/file/upStyle/style/${ele.style_url }"/>
+				   		<img src="http://10.56.65.100/file/upImg/style/${ele.style_url }"/>
 				   <!-- </a> -->
 				</li>
 				</c:forEach>
@@ -474,7 +474,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <c:if test="${not empty floatNews}">
 	    <div id="roll">
 	    	<a target="_blank" href="cahgFloatNews/floatNewsDetailsPage.do?float_new_id=${floatNews.float_new_id }"  title="${ele.img_new_title }">
-	    		<img src="/file/upFloat/floatNews/${floatNews.float_url }" height="50" width="100" />
+	    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="50" width="100" />
 	    	</a>
 	    </div>
     </c:if>
@@ -510,7 +510,7 @@ function getContextPath() {
   }
 function meetingRoom(){
 	var path = getContextPath();
-	var url = path+"/cahgMeetingNotice/meetingRoomPage.do";
+	var url = "cahgMeetingNotice/meetingRoomPage.do";
 	window.open(encodeURI(url),'newwindow','height=400,width=800,top=100,left=400%,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
 	/* window.open ('cahgMeetingNotice/meetingRoomPage.do','newwindow','height=400,width=500,top=100,left=400%,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')  */
 }
