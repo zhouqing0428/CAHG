@@ -11,7 +11,7 @@
 			cahg_day_info
 		where
 			day_status = '0'
-		ORDER BY day_stick DESC, create_date DESC
+		ORDER BY create_date DESC
 			limit 0,6
 	</select>
 	
@@ -40,7 +40,7 @@
 		<if test="title !=null and title !=''">
 			and (day_title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
 		</if>
-			ORDER BY day_stick DESC, create_date DESC
+			ORDER BY create_date DESC
 		limit
 			#{page},#{rows}
 	</select>

@@ -106,13 +106,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    				'<a href="/cahgImgNews/imgNewsDetailsPage.do?img_new_id='+data.list[i].img_new_id+'" target="_blank">'+
 		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">'+
 		    				'<tr><td rowspan="2" style="width:150px;"><img style="width:150px;" height="120px;" src="http://10.56.65.100/file/upImg/imgNews/'+data.list[i].img_url+'"></td>'+
-		    				'<td colspan="2"> <div class="list-right_title fon_1"><b id="new_title">';
-    				if(data.list[i].day_stick == 1){
-    					html += "<img src='static/images/fire.png' width='18px' height='18px' style='margin-bottom: -1px;margin-right: 1px;'/>";
+		    				'<td colspan="2"> <div class="list-right_title fon_1" style="margin-left: 5px;"><b id="new_title">';
+    				if(data.list[i].img_news_stick == 1){
+    					html += "<font color='red' style='font-weight: bold;'><i>采用</i></font>&nbsp;&nbsp;";
     				}
     				html += data.list[i].img_new_title+'</b></div></td></tr>'+
 		    				'<tr><td >'+
-		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px; color:#9E9E9E;">'+
+		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0" style="margin-top:10px; margin-left: 6px;color:#9E9E9E;">'+
 		    				'<tr><td width="60%" align="left"><b>发布时间：'+data.list[i].create_date+'</b></td>'+
 		    				'<td width="40%" align="right" ><span class="column-name"><b>作者：'+data.list[i].author+'</b></span></td></tr>'+
 		    				'</table></td></tr></table></a></div>';

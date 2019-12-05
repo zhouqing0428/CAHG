@@ -10,7 +10,7 @@
 			cahg_img_news
 		where
 			img_new_status = '0'
-		ORDER BY img_news_stick DESC,create_date DESC
+		ORDER BY create_date DESC
 			limit 0,5
 	</select>
 	
@@ -38,7 +38,7 @@
 		<if test="title !=null and title !=''">
 			and (img_new_title like #{title} OR DATE_FORMAT(create_date,'%Y-%m-%d') like #{title})
 		</if>
-			ORDER BY img_news_stick DESC,create_date DESC
+			ORDER BY create_date DESC
 		limit 
 			#{page},#{rows}
 	</select>

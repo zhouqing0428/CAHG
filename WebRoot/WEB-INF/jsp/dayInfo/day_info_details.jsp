@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    <div class="con_title mar-t2 text">
 	       <h4 style="margin:20px;" align="center">
 	       <c:if test="${newMap.day_stick eq 1 }">
-	 			<img src="static/images/fire.png" width="30px" height="30px" style="margin-bottom:-4px;margin-right:-5px;"/>
+	 			<font color="red" style="font-weight: bold;"><i>采用</i></font>&nbsp;
 		   </c:if>
 	       ${newMap.day_title }</h4>
 	    </div>

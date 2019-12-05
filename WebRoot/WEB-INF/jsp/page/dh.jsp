@@ -16,26 +16,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="index/page.do" target="_parent" class="_xxgk">首页</a>
 				</li>
 				<li>
-					<a href="cahgIntro/toIntroPage.do"  target="_parent">简介</a>
+					<a href="cahgIntro/toIntroPage.do" target="_parent">&nbsp;&nbsp;简介&nbsp;&nbsp;</a>
+					<dl class="slideList">
+						<dd><a href="dept/dept_left.do" target="_parent">制度建设</a></dd>
+						<dd><a href="cahgIntro/toIntroPage2.do" target="_parent">工作亮点</a></dd> 
+					</dl>
 				</li>
 				<li>
-					<a href="cahgLetter/letterShow.do"  target="_parent">关长信箱</a>
+					<a href="cahgLetter/letterShow.do" target="_parent">关长信箱</a>
 				</li>
 				<li>
-					<a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent">值班安排</a>
+					<a href="cahgDutySchedule/dutyDetailsShow.do?type=1" target="_parent">值班安排</a>
 				</li>
 				<li>
-					<a href="cahgAddressLook/addressLookShowPage.do?dept_id=8"  target="_parent">通讯录</a>
+					<a href="cahgAddressLook/addressLookShowPage.do?dept_id=8" target="_parent">通讯录</a>
 				</li>
 				<li>
 					<a href="javascript:void(0)">常用链接</a>
 					<dl class="slideList">
 						<dd><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/"  target="_parent">HB2012</a></dd>
 						<dd><a href="http://10.56.2.115/HBWebApp/HB2004Portal/default.aspx"  target="_parent">HB2004</a></dd> 
-						<dd><a href="javascript:void(0)"  target="_parent">考勤系统</a></dd> 
-						<dd><a href="javascript:void(0)"  target="_parent">综保平台</a></dd> 
-						<dd><a href="javascript:void(0)"  target="_parent">表格下载</a></dd> 
-						<dd><a href="javascript:void(0)"  target="_parent">交通路线</a></dd> 
+						<dd><a href="javascript:void(0)" target="_parent">考勤系统</a></dd> 
+						<dd><a href="javascript:void(0)" target="_parent">综保平台</a></dd> 
+						<dd><a href="javascript:void(0)" target="_parent">表格下载</a></dd> 
+						<dd><a href="javascript:void(0)" target="_parent">交通路线</a></dd> 
 					</dl>
 				</li>
 				<li>

@@ -156,7 +156,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    				"<a href='cahgDayInfo/dayInfoDetailsPage.do?day_id="+data.list[i].day_id+"' target='_blank'  >"+
 		    				"  <div class='list-right_title fon_1'><b style='float:left' id='new_title'>";
 		    		if(data.list[i].day_stick == 1){
-    					html += "<img src='static/images/fire.png' width='18px' height='18px' style='margin-bottom: -1px;margin-right: 1px;'/>";
+    					html += "<font color='red' style='font-weight: bold;'><i>采用</i></font>&nbsp;&nbsp;";
     				}
     				html += data.list[i].day_title+"</b>"+img+"</div>" +
 		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'><tr>" +

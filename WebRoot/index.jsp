@@ -1,4 +1,4 @@
-﻿
+﻿﻿
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -199,7 +199,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<c:forEach items="${imgNewsList}" var="ele">
 		   			<li><a target="_blank" id="imgTitle" href="cahgImgNews/imgNewsDetailsPage.do?img_new_id=${ele.img_new_id }"  title="${ele.img_new_title }">
 		   			<c:if test="${ele.img_news_stick eq 1 }">
-		   			<img src="static/images/fire.png" width="20px" height="20px" style="margin-top:-5px;margin-right:-5px;"/>
+		   			<font color="red" style="font-weight: bold;"><i>采用</i></font>
 		   			</c:if>
 		   			${ele.img_new_title }
 		   			</a></li>
@@ -231,7 +231,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                <a href="cahgDayInfo/dayInfoDetailsPage.do?day_id=${ele.day_id}" target="_blank" title='${ele.day_title}'>
 	                <span id="new_title">
 	                <c:if test="${ele.day_stick eq 1 }">
-			   			<img src="static/images/fire.png" width="20px" height="20px" style="margin-top:-7px;margin-right:-5px;"/>
+			   			<font color="red" style="font-weight: bold;"><i>采用</i></font>
 		   			</c:if>
 	                ${ele.day_title}
 	                </span>
