@@ -55,6 +55,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		"currentColor":"#ed601b"//当前页码的字体颜色
 	});
 </script>
+<script type="text/javascript">	
+	$(document).ready(function(){
+		var ip = '${ip}';
+		if(ip==""){
+			
+		}else if(ip==0){
+			alert("对不起，您无权访问本模块！");
+			window.opener=null;
+			window.close();
+		}
+		
+	});
+</script>
 </head>
 <body>
 

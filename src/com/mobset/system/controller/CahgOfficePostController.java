@@ -36,7 +36,7 @@ public class CahgOfficePostController {
 	@RequestMapping(value="/officePostDetailsPage")
 	public String officePostDetailsPage(HttpServletRequest request){
 		
-		HashMap ipMap = new HashMap();
+		/*HashMap ipMap = new HashMap();
 		ipMap = cahgOfficePostService.selectIP();
 		if (ipMap != null) {
 			String status = ipMap.get("status").toString();
@@ -62,7 +62,8 @@ public class CahgOfficePostController {
 				}
 
 			}
-		}
+		}*/
+		
 		String office_post_id = request.getParameter("office_post_id");
 		HashMap map = new HashMap();//参数统一map
 		if(office_post_id==null || "".equals(office_post_id)){//ID为空,进入404页面

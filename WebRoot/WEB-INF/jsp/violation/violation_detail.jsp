@@ -18,6 +18,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <link href="static/layui/css/layui.css" rel="stylesheet">
 <script src="static/layui/layui.all.js"></script>
+<script type="text/javascript">	
+	$(document).ready(function(){
+		var ip = '${ip}';
+		if(ip==""){
+			
+		}else if(ip==0){
+			alert("对不起，您无权访问本模块！");
+			window.opener=null;
+			window.close();
+		}
+		
+	});
+</script>
+
 </head>
 <body>
 <div id="main">
