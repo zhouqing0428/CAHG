@@ -472,11 +472,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
     </div>
     <c:if test="${not empty floatNews}">
-	    <div id="roll">
-	    	<a target="_blank" href="cahgFloatNews/floatNewsDetailsPage.do?float_new_id=${floatNews.float_new_id }"  title="${ele.img_new_title }">
-	    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="50" width="100" />
-	    	</a>
-	    </div>
+	     <c:if test="${empty floatNews.float_link}">
+		    <div id="roll">
+		    	<a target="_blank" href="cahgFloatNews/floatNewsDetailsPage.do?float_new_id=${floatNews.float_new_id }"  title="${floatNews.float_new_title }">
+		    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="50" width="100" />
+		    	</a>
+		    </div>
+		</c:if>
+		<c:if test="${not empty floatNews.float_link}">
+	 		<div id="roll">
+		    	<a target="_blank" href="${floatNews.float_link }"  title="${floatNews.float_new_title }">
+		    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="50" width="100" />
+		    	</a>
+		    </div>
+    	</c:if>
     </c:if>
 	<div class="scrollPic">
 		<div class="scrollName">专题专栏</div>
