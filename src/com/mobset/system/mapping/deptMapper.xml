@@ -8,6 +8,7 @@
 		<if test="condition!=null">
 			and ${condition}
 		</if>	
+		ORDER BY sys_rank is null ,sys_rank='',sys_rank ASC 
 	</select>
 	
 	<select id="deptDetails" parameterType="java.util.HashMap" resultType="java.util.HashMap">

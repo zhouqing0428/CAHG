@@ -102,7 +102,7 @@
   <script>
   	var deptList = '${depts}';
   	deptList = JSON.parse(deptList);
-  	getSlideMenu()
+  	getSlideMenu();
   	function getSlideMenu(){
   		var url = "${dept_id}"
   		$.ajax({
