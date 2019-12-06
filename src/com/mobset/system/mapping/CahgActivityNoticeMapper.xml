@@ -14,11 +14,10 @@
 	<!-- 查询活动通知列表 -->
 	<select id="queryList" parameterType="java.util.Map" resultType="java.util.Map">
 		select
-			id, title,
-			(select name from sys_user u where u.user_id = c.create_user_id) userName,
+			id, title, user_name,
 			date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date
 		from
-			cahg_activity_notice c
+			cahg_activity_notice
 		ORDER BY create_date DESC
 		limit
 			#{page},#{rows}
@@ -36,9 +35,9 @@
 	<select id="queryObject" parameterType="java.util.Map" resultType="java.util.Map">
 		select
 			id, title,date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date, content, file_name, file_old_name,
-			(select name from sys_user u where u.user_id = c.create_user_id) userName
+			user_name, address, time, person, remark
 		from
-			cahg_activity_notice c
+			cahg_activity_notice
 		where
 			 1 = 1
 		<if test="id !=null">

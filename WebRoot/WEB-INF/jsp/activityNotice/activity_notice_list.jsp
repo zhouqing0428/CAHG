@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <style type="text/css">
 #new_title{  
 		display: block;
-		width: 500px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		/* width: 500px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */ */
 		overflow: hidden;
 		white-space: nowrap;
 		-o-text-overflow: ellipsis;
@@ -134,7 +134,7 @@ getHeader();
 		    				"  <div class='list-right_title fon_1'><b id='new_title'>"+data.list[i].title+"</b></div>" +
 		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
 		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +
-		    				"<td width='50%' align='right' ><span class='column-name'><b>作者："+data.list[i].userName+"</b></span></td>"+
+		    				"<td width='50%' align='right' ><span class='column-name'><b>发布人："+data.list[i].user_name+"</b></span></td>"+
 		    				"</tr></table></a></div>";
 		    	}
 		     	$("#list").html(html);

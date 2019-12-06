@@ -40,7 +40,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="line mar-t2 hov">
         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="padding-left:10px; padding-right:10px;color:#666666;">
           <tr>
-            <td align="center" width="100%"><b>作者：${info.userName}&nbsp;&nbsp;&nbsp;创建时间：${info.create_date }&nbsp;&nbsp;&nbsp;</b></td>
+            <td align="center" width="100%"><b>发布人：${info.user_name}&nbsp;&nbsp;&nbsp;发布时间：${info.create_date }&nbsp;&nbsp;&nbsp;</b></td>
           </tr>
           <c:if test="${info.file_name ne null and info.file_name ne ''}">          <tr>
           	<td align="center" width="100%"><b><a style="color:blue;" href="http://10.56.65.100/file/upImg/cahgActivityNotice/${info.file_name }">【${info.file_old_name}】下载</a></b></td>
@@ -52,7 +52,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </table>
       </div>
       <div id="content" style="margin-top:10px;background-color:white;color:black;padding-right:50px;padding-left:50px;">
-         	${info.content }
+         	<table id="Table1" style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
+         		<tbody>
+         		<tr>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">活动目标及方案</span></td>
+         			<td width="85%" style="padding-left:10px;" align="left"><span id="_ctl1__ctl0__ctl0_MNameLb">${info.content}</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">活动地点</span></td>
+         			<td width="85%" style="padding-left:10px;" align="left"><span id="_ctl1__ctl0__ctl0_MNameLb">${info.address}</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">活动时间</span></td>
+         			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MTimeLb">${info.time}</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">参加人员</span> </td>
+         			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MLocationLb">${info.person}</span>&nbsp;</td>
+         		</tr>
+         		<tr>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">备注</span> </td>
+         			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MDepLb">${info.remark}</span>&nbsp;</td>
+         		</tr>
+         	</tbody>
+         </table>
       </div>
       
     </div>
