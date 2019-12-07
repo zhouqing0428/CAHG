@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 } 
 #style_list li{
 	width:150px;
-	height:185px;
+	height:164px;
 	overflow:hidden;
 	margin-right:50px;
 	margin-bottom:20px;
@@ -36,7 +36,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 }
 #style_list li img{
 	width:150px;
-	height:150px;
+	height:129px;
 	display:block;
 }
 #style_list li strong{

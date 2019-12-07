@@ -55,23 +55,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          	<table id="Table1" style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
          		<tbody>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">活动目标及方案</span></td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>活动目标及方案</span></td>
          			<td width="85%" style="padding-left:10px;" align="left"><span id="_ctl1__ctl0__ctl0_MNameLb">${info.content}</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">活动地点</span></td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>活动地点</span></td>
          			<td width="85%" style="padding-left:10px;" align="left"><span id="_ctl1__ctl0__ctl0_MNameLb">${info.address}</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">活动时间</span></td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>活动时间</span></td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MTimeLb">${info.time}</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">参加人员</span> </td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>参加人员</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MLocationLb">${info.person}</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">备注</span> </td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>备注</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MDepLb">${info.remark}</span>&nbsp;</td>
          		</tr>
          	</tbody>
