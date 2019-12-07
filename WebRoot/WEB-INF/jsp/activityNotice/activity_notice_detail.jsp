@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       		<div class="font2 dgrey">
 	      		<img src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
 				<a href='index/page.do' target="_parent">首页</a>&nbsp;>&nbsp;
-				<a href='cahgActivityNotice/activityNoticeListPage.do' target="_parent">违法曝光列表</a>&nbsp;>&nbsp;<a href='' target="_parent">违法曝光</a>
+				<a href='cahgActivityNotice/activityNoticeListPage.do' target="_parent">活动通知列表</a>&nbsp;>&nbsp;<a href='' target="_parent">活动通知</a>
 			</div>
 		</div>
       </div>
