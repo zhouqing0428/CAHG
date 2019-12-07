@@ -141,7 +141,7 @@ public class CahgJobController {
 		
 		//获取经办科室
 		HashMap map = new HashMap();
-		map.put("condition", "dept_id != 38 ");
+//		map.put("condition", "dept_id != 38 ");
 		List<HashMap> deptList = service.deptSelectList(map);
 		request.setAttribute("deptList", deptList); // 科室列表
 		

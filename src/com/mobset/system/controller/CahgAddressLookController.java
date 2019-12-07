@@ -60,7 +60,7 @@ public class CahgAddressLookController {
 		}
 		
 		Map<String, Object> paramMap = new HashMap<>();
-		paramMap.put("condition", " dept_id != '38' ");
+//		paramMap.put("condition", " dept_id != '38' ");
 		List<Map<String, Object>> deptList = sysDictionaryService.deptList(paramMap);// 科室列表
 		
 		request.setAttribute("depts", JSONArray.fromObject(deptList)); //科室列表

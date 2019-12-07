@@ -221,7 +221,7 @@ public class IndexController {
 	public String look_left(HttpServletRequest request){
 		String dept_id = request.getParameter("dept_id");
 		Map<String, Object> paramMap = new HashMap<>();
-		paramMap.put("condition", " dept_id != '38' ");
+//		paramMap.put("condition", " dept_id != '38' ");
 		List<Map<String, Object>> deptList = sysDictionaryService.deptList(paramMap);// 科室列表
 		
 		request.setAttribute("deptList", deptList); //科室列表
