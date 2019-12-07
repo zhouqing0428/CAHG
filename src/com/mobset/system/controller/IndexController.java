@@ -36,6 +36,7 @@ import com.mobset.system.service.CahgViolationService;
 import com.mobset.system.service.CahgWorkTableService;
 import com.mobset.system.service.SysDictionaryService;
 import com.mobset.system.service.deptService;
+import com.mobset.system.util.Page;
 
 /**
  * @说明  首页controller
@@ -101,6 +102,17 @@ public class IndexController {
 		Date date = new Date();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
 		request.setAttribute("sysDate", formatter.format(date));//系统当前时间
+		
+		//取交通路线附件
+		HashMap trafficMap = new HashMap();//参数统一map
+		HashMap traffic = new HashMap();
+		trafficMap.put("type", 5);
+		List<HashMap> trafficList = sysDictionaryService.selectFormList(trafficMap);
+		if(trafficList.size() > 0){
+			traffic = trafficList.get(0);
+		}
+		
+		request.setAttribute("traffic", traffic);//交通路线附件
 		return "page/dh";
 	}
 	

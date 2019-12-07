@@ -36,10 +36,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<dl class="slideList">
 						<dd><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/"  target="_parent">HB2012</a></dd>
 						<dd><a href="http://10.56.2.115/HBWebApp/HB2004Portal/default.aspx"  target="_parent">HB2004</a></dd> 
-						<dd><a href="javascript:void(0)" target="_parent">考勤系统</a></dd> 
-						<dd><a href="javascript:void(0)" target="_parent">综保平台</a></dd> 
-						<dd><a href="javascript:void(0)" target="_parent">表格下载</a></dd> 
-						<dd><a href="javascript:void(0)" target="_parent">交通路线</a></dd> 
+						<dd><a href="http://10.99.108.62/portal/home/welcomepage/welcomepage.jsp" target="_parent">考勤系统</a></dd> 
+						<dd><a href="http://10.56.1.186/HPZBPortal/Default.aspx" target="_parent">综保平台</a></dd> 
+						<dd><a href="commomForm/commomFormsListPage.do?type=0" target="_blank">表格下载</a></dd> 
+						<c:if test="${not empty traffic}">
+							<dd><a href="http://10.56.65.100/file/upImg/commonforms/${traffic.file_name }" target="_blank">交通路线</a></dd> 
+						</c:if>
 					</dl>
 				</li>
 				<li>
