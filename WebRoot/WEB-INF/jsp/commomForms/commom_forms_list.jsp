@@ -15,6 +15,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/index.css" rel="stylesheet"/>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="static/css/menu.css">
+<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
 <link href="static/layui/css/layui.css" rel="stylesheet">
@@ -47,11 +49,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 
-<link rel="stylesheet" type="text/css" href="static/css/menu_3.css">
-<link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
  <div id="main">
-  	<iframe style="margin-top:-4px;"  class="top" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="180px;"></iframe>
-     
+  	·<!-- <iframe class="top" id="topif" name="topif" frameborder="0" scrolling="no" src="index/head.do" widht="100%" height="280px;"></iframe> -->
+  	<div class="top"></div>
     <div class="cen-div color mar-t">
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
@@ -65,69 +65,67 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       </div>
       <div class="cen-div-1 mar-t">
        
-		<div class="con-left fl ">
-          <ul>
+		<dl class="con-left fl ">
+				<dt>常用表格</dt>
           		<c:if test="${type eq 0}">
-          			<li style="background: #0066a6; color: #fff !important;" >
-	                	<a style="color: white;" href="commomForm/commomFormsListPage.do?type=0"  target="_parent" title='财务' >财务</a>
-	             	</li>
+          			<dd class="curr">
+	                	<a href="commomForm/commomFormsListPage.do?type=0"  target="_parent" title='财务' >财务</a>
+	             	</dd>
           		</c:if>
           		<c:if test="${type ne 0}">
-          			<li>
-	                	<a style="color: #67a6d8;" href="commomForm/commomFormsListPage.do?type=0"  target="_parent" title='财务' >财务</a>
-	             	</li>
+          			<dd>
+	                	<a href="commomForm/commomFormsListPage.do?type=0"  target="_parent" title='财务' >财务</a>
+	             	</dd>
           		</c:if>	
           		
           		<c:if test="${type eq 1}">
-          			<li style="background: #0066a6; color: #fff !important;" >
-	                	<a style="color: white;" href="commomForm/commomFormsListPage.do?type=1"  target="_parent" title='后勤' >后勤</a>
-	             	</li>
+          			<dd class="curr">
+	                	<a href="commomForm/commomFormsListPage.do?type=1"  target="_parent" title='后勤' >后勤</a>
+	             	</dd>
           		</c:if>
           		<c:if test="${type ne 1}">
-          			<li>
-	                	<a style="color: #67a6d8;" href="commomForm/commomFormsListPage.do?type=1"  target="_parent" title='后勤' >后勤</a>
-	             	</li>
+          			<dd>
+	                	<a href="commomForm/commomFormsListPage.do?type=1"  target="_parent" title='后勤' >后勤</a>
+	             	</dd>
           		</c:if>	
           		
           		
           		<c:if test="${type eq 2}">
-          			<li style="background: #0066a6; color: #fff !important;" >
-	                	<a style="color: white;" href="commomForm/commomFormsListPage.do?type=2"  target="_parent" title='技术' >技术</a>
-	             	</li>
+          			<dd class="curr">
+	                	<a href="commomForm/commomFormsListPage.do?type=2"  target="_parent" title='技术' >技术</a>
+	             	</dd>
           		</c:if>
           		<c:if test="${type ne 2}">
-          			<li>
-	                	<a style="color: #67a6d8;" href="commomForm/commomFormsListPage.do?type=2"  target="_parent" title='技术' >技术</a>
-	             	</li>
+          			<dd>
+	                	<a href="commomForm/commomFormsListPage.do?type=2"  target="_parent" title='技术' >技术</a>
+	             	</dd>
           		</c:if>	
           		
           		
           		<c:if test="${type eq 3}">
-          			<li style="background: #0066a6; color: #fff !important;" >
-	                	<a style="color: white;" href="commomForm/commomFormsListPage.do?type=3"  target="_parent" title='机要' >机要</a>
-	             	</li>
+          			<dd class="curr">
+	                	<a href="commomForm/commomFormsListPage.do?type=3"  target="_parent" title='机要' >机要</a>
+	             	</dd>
           		</c:if>
           		<c:if test="${type ne 3}">
-          			<li>
-	                	<a style="color: #67a6d8;" href="commomForm/commomFormsListPage.do?type=3"  target="_parent" title='机要' >机要</a>
-	             	</li>
+          			<dd>
+	                	<a href="commomForm/commomFormsListPage.do?type=3"  target="_parent" title='机要' >机要</a>
+	             	</dd>
           		</c:if>	
           		
           		
           		<c:if test="${type eq 4}">
-          			<li style="background: #0066a6; color: #fff !important;" >
-	                	<a style="color: white;" href="commomForm/commomFormsListPage.do?type=4"  target="_parent" title='科室日常办公' >科室日常办公</a>
-	             	</li>
+          			<dd class="curr">
+	                	<a href="commomForm/commomFormsListPage.do?type=4"  target="_parent" title='科室日常办公' >科室日常办公</a>
+	             	</dd>
           		</c:if>
           		<c:if test="${type ne 4}">
-          			<li>
-	                	<a style="color: #67a6d8;" href="commomForm/commomFormsListPage.do?type=4"  target="_parent" title='科室日常办公' >科室日常办公</a>
-	             	</li>
+          			<dd>
+	                	<a href="commomForm/commomFormsListPage.do?type=4"  target="_parent" title='科室日常办公' >科室日常办公</a>
+	             	</dd>
           		</c:if>	
-          			      	             		             	
           			
-        	</ul>
-	    </div>
+	    </dl>
 
         <div class="con-right fr mar-l-2">
  			<div id="list">
@@ -142,7 +140,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
            <iframe class="bot"  frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes" src="index/bottom.do" widht="100%" ></iframe>
     
   </div> 
-   
+  
+<script>
+function getHeader(){
+	$.ajax({
+	    url:"index/head.do",
+	    dataType : "html", 
+	    method:"post",
+	    async: true,  
+	    data: {},
+	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
+	    success:function(data){
+	    	$(".top").html(data);
+	    }
+	 });
+}
+getHeader();
+</script> 
 <script>
 	var pageCount = '${pageCount}';
 	var count = '${count}';

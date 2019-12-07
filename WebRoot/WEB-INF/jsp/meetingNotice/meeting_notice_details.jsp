@@ -50,35 +50,32 @@ table{margin: 0 auto}
          	
          	<table id="Table1" style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
          		<tbody>
-         		<tr style="background:#df3a39;">
-         			<td colspan="2" style="border:1px solid;line-height:50px;font-size:18px;text-align:center;"><span style="color:#fff;font-weight:bold;">会议通知</span></td>
-         		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">会议名称</span></td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>会议名称</span></td>
          			<td width="85%" style="padding-left:10px;" align="left"><span id="_ctl1__ctl0__ctl0_MNameLb">${newMap.title }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">会议时间</span></td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>会议时间</span></td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MTimeLb">${newMap.meeting_time }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">会议地点</span> </td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>会议地点</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MLocationLb">${newMap.meeting_place }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">参加部门</span> </td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>参加部门</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MDepLb">${newMap.meeting_dep }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81" height="30"><span style="color:#fff;">参加人员</span> </td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81" height="30"><span>参加人员</span> </td>
          			<td height="30" style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MPeopleLb">${newMap.meeting_person }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;"><span style="color:#fff;">会议要求</span> </td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>会议要求</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MContentLb">${newMap.meeting_require }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;background:#2b67ac;" width="81"><span style="color:#fff;">联 系 人</span> </td>
+         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>联 系 人</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_ContackLb">${newMap.meeting_contact }</span>&nbsp;</td>
          		</tr>
          	</tbody>

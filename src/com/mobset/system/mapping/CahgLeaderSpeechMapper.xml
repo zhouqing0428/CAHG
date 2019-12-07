@@ -13,7 +13,7 @@
 		and
 			type="总办领导"
 		ORDER BY  create_date DESC  
-			limit 0,6
+			limit 0,8
 	</select>
 	
 	
@@ -27,7 +27,7 @@
 		and
 			type = "本办领导"
 		ORDER BY  create_date DESC  
-			limit 0,6
+			limit 0,8
 	</select>
 	
 	

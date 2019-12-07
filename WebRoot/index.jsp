@@ -41,8 +41,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <style type="text/css">
 #roll {
-  width:100px;
-  height:50px;
+  width:235px;
+  height:92px;
   background-color:green;
   color:#fff;
   position:absolute;
@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	  #new_title{  
 		display: block;
-		width: 350px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 300px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
@@ -121,9 +121,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		display: block;
 		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-	    text-overflow: ellipsis; /*以省略号...显示*/
-	    white-space: nowrap;  /*强制不换行*/
-	    float:left;
+		max-height:56px;
+	    /*text-overflow: ellipsis; 以省略号...显示*/
+	   /* white-space: nowrap;  强制不换行*/
+	   
 	  } 
 	  
 	  #afficheList{
@@ -215,7 +216,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
     <!--TAB选项卡-->
     
-    <div class="slideTxtBox fl ml8" style="border:1px solid #CCC">
+    <div class="slideTxtBox fl ml8" style="border:1px solid #CCC;width:350px;">
         <div class="hd">
         	<a href="cahgDayInfo/dayInfoListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>每日信息</li></ul>
@@ -283,7 +284,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="bd" style="height:218px;overflow:hidden;">
             <ul class="newsList">
             <c:forEach items="${meetingNoticeList }" var="ele">
-          			<li style="line-height:20px;">
+          			<li>
           			<fmt:parseDate var="systemDate" value="${sysDate}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把java取来的系统当前时间格式化 -->
 		                 <fmt:parseDate var="create_date" value="${ele.create_date}" pattern="yyyy-MM-dd HH:mm:ss" /><!-- 把数据对应的时间格式化 -->
 		                 <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
@@ -475,7 +476,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	     <c:if test="${empty floatNews.float_link}">
 		    <div id="roll">
 		    	<a target="_blank" href="cahgFloatNews/floatNewsDetailsPage.do?float_new_id=${floatNews.float_new_id }"  title="${floatNews.float_new_title }">
-		    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="50" width="100" />
+		    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="92" width="235" />
 		    	</a>
 		    </div>
 		</c:if>
@@ -520,8 +521,16 @@ function getContextPath() {
 function meetingRoom(){
 	var path = getContextPath();
 	var url = "cahgMeetingNotice/meetingRoomPage.do";
-	window.open(encodeURI(url),'newwindow','height=400,width=800,top=100,left=400%,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
-	/* window.open ('cahgMeetingNotice/meetingRoomPage.do','newwindow','height=400,width=500,top=100,left=400%,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')  */
+	/*  window.open(encodeURI(url),'newwindow','height=400,width=800,top=100,left=400%,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no');
+	window.open ('cahgMeetingNotice/meetingRoomPage.do','newwindow','height=400,width=500,top=100,left=400%,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')  */
+	layer.open({
+	  type: 2,
+	  title: false,
+	  shadeClose: true,
+	  shade: 0.6,
+	  area: ['380px', '400px'],
+	  content: url //iframe的url
+	}); 
 }
 
 
@@ -591,7 +600,7 @@ function startSetInterval(){
 		console.log(index)
 		$("#picList li").removeClass("curr");
 		$("#picList li:eq("+ index +")").addClass("curr");
-	},5000)
+	},10000)
 }
 startSetInterval()
 </script>
@@ -601,7 +610,7 @@ var ggRoll=null;
 function floatAd(){
   ggRoll={
     roll:document.getElementById("roll"),
-    speed:20,
+    speed:80,
     statusX:1,
     statusY:1,
     x:100,
@@ -646,12 +655,12 @@ function startScroll(){
 		}
 		oUl.style.left = oUl.offsetLeft-iSpeed+'px';//正负为方向
 	}
-	timer =setInterval(Slider,30);
+	timer =setInterval(Slider,60);
 	oDiv.onmouseover = function(){
 		clearInterval(timer);
 	}
 	oDiv.onmouseout = function(){
-		timer =setInterval(Slider,30);
+		timer =setInterval(Slider,60);
 	}
 };
 startScroll();

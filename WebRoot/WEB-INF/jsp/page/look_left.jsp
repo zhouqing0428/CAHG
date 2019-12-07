@@ -5,17 +5,33 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-<dt>科室</dt>
-<c:forEach items="${deptList }" var="ele" >
-<c:if test="${dept_id eq ele.dept_id }">
-<dd class="curr">
-	<a href="cahgAddressLook/addressLookShowPage.do?dept_id=${ele.dept_id}"  target="_parent" title='${ele.name }' >${ele.name }</a>
-</dd>
-</c:if>
-
-<c:if test="${dept_id ne ele.dept_id }">
-<dd>
-	<a href="cahgAddressLook/addressLookShowPage.do?dept_id=${ele.dept_id}"  target="_parent" title='${ele.name }' >${ele.name }</a>
-</dd>
-</c:if>
-</c:forEach>
+<dl class="slideItem">
+	<dt onclick="$(this).nextAll('.subItem').slideToggle()">东莞长安海关通讯录</dt>
+	<dd class="subItem">
+		<a href="javascript:void(0)">长安海关科室一</a>
+	</dd>
+	<dd class="subItem">
+		<a href="javascript:void(0)">长安海关科室二</a>
+	</dd>
+	<dd class="subItem">
+		<a href="javascript:void(0)">长安海关科室三</a>
+	</dd>
+	<dd class="subItem">
+		<a href="javascript:void(0)">长安海关科室四</a>
+	</dd>
+</dl>
+<dl class="slideItem">
+	<dt onclick="$(this).nextAll('.subItem').slideToggle()">黄埔海关驻长安办事处缉私分局</dt>
+	<dd class="subItem">
+		<a href="javascript:void(0)">黄埔海关科室一</a>
+	</dd>
+	<dd class="subItem">
+		<a href="javascript:void(0)">黄埔海关科室二</a>
+	</dd>
+	<dd class="subItem">
+		<a href="javascript:void(0)">黄埔海关科室三</a>
+	</dd>
+	<dd class="subItem">
+		<a href="javascript:void(0)">黄埔海关科室四</a>
+	</dd>
+</dl>

@@ -416,6 +416,15 @@ min-height: 950px;}
 	border-top:0;
 	overflow:hidden;
 }
+.con-left .slideItem dt{
+	padding:0 15px;
+}
+.con-left .slideItem:first-child .subItem{
+	display:block;
+}
+.con-left .slideItem .subItem{
+	display:none;
+}
 .con-left dt{
 	height:40px;
 	line-height:40px;

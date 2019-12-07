@@ -19,24 +19,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/layui/css/layui.css" rel="stylesheet">
 <script src="static/layui/layui.all.js"></script>
 </head>
-<body >
-	<table align="center" style="text-align: center" border="1px">
+<body style="margin:0;padding: 20px;">
+	<table id="Table1" style="width:100%;margin:0 auto 30px;padding:0px; border-collapse:collapse;">
 			<tr>
-				<td align="center" style="font-size:22px;" colspan="4" width="400px;" height="40px;">会议室使用情况</td>
+				<td colspan="4" align="center" style="border:1px solid;line-height:44px;font-size:14px;text-align:center;">
+					<span">会议室使用情况</span>
+				</td>
 			</tr>
 			<tr>
-					<td align="center"  style="font-size:18px;"><b>会议室</b></td>
-					<td align="center"  style="font-size:18px;"><b>使用科室</b></td>
-					<td align="center"  style="font-size:18px;"><b>开始时间</b></td>
-					<td align="center"  style="font-size:18px;"><b>结束时间</b></td>
+					<td align="center" style="border:1px solid;line-height:34px;font-size:14px;text-align:center;"><span>会议室</span></td>
+					<td align="center" style="border:1px solid;line-height:34px;font-size:14px;text-align:center;"><span>使用科室</span></td>
+					<td align="center" style="border:1px solid;line-height:34px;font-size:14px;text-align:center;"><span>开始时间</span></td>
+					<td align="center" style="border:1px solid;line-height:34px;font-size:14px;text-align:center;"><span>结束时间</span></td>
 			</tr>
 		<c:forEach items="${meetingRoomList }" var="ele">
 			
 			<tr>
-				<td align="center" style="font-size:18px;width:80px;">${ele.roomName }</td>
-				<td align="center" style="font-size:18px;width:80px;">${ele.deptname }</td>
-				<td align="center" style="font-size:18px;width:180px;">${ele.start_time }</td>
-				<td align="center" style="font-size:18px;width:180px;">${ele.end_time }</td>
+				<td align="center" style="border:1px solid;line-height:34px;font-size:12px;text-align:center;">${ele.roomName }</td>
+				<td align="center" style="border:1px solid;line-height:34px;font-size:12px;text-align:center;">${ele.deptname }</td>
+				<td align="center" style="border:1px solid;line-height:34px;font-size:12px;text-align:center;">${ele.start_time }</td>
+				<td align="center" style="border:1px solid;line-height:34px;font-size:12px;text-align:center;">${ele.end_time }</td>
 			</tr>
 		</c:forEach>
 	</table>

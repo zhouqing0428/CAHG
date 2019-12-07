@@ -30,7 +30,7 @@ jQuery(".navBar").slide({
 });
 
 //焦点图
-jQuery(".focusBox").slide({ titCell:".num li", mainCell:".pic",effect:"fold", autoPlay:true,trigger:"click",
+jQuery(".focusBox").slide({ titCell:".num li", mainCell:".pic",effect:"fold",interTime:6000, autoPlay:true,trigger:"click",
 			startFun:function(i){
 				 jQuery(".focusBox .txt li").eq(i).animate({"bottom":0}).siblings().animate({"bottom":-36});
 			}

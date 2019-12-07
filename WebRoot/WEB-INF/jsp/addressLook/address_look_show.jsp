@@ -49,7 +49,7 @@
     </div>
       
     <div class="cen-div-1 mar-t" >
-      	<dl class="con-left fl"></dl>
+      	<div class="con-left fl"></div>
 		<c:if test="${!empty deptAddress.data_path}">
 			<p align="right"><a href="http://10.56.65.100/file/upImg/fileload/${deptAddress.data_path}"><span style="color:red;">点击下载：${deptAddress.file_names }</span></a></p>
 		</c:if>

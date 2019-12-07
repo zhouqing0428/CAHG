@@ -12,7 +12,7 @@
 		where
 			day_status = '0'
 		ORDER BY create_date DESC
-			limit 0,6
+			limit 0,8
 	</select>
 	
 	<!-- 每日信息内容展示 -->
