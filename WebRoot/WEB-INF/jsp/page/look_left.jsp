@@ -5,33 +5,22 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<c:forEach items="${deptList }" var="ele" >
 <dl class="slideItem">
-	<dt onclick="$(this).nextAll('.subItem').slideToggle()">东莞长安海关通讯录</dt>
-	<dd class="subItem">
-		<a href="javascript:void(0)">长安海关科室一</a>
-	</dd>
-	<dd class="subItem">
-		<a href="javascript:void(0)">长安海关科室二</a>
-	</dd>
-	<dd class="subItem">
-		<a href="javascript:void(0)">长安海关科室三</a>
-	</dd>
-	<dd class="subItem">
-		<a href="javascript:void(0)">长安海关科室四</a>
-	</dd>
+	<dt onclick="$(this).nextAll('.subItem').slideToggle();">${ele.name }</dt>
+	<c:forEach items="${cdeptList }" var="dept" >
+	<c:if test="${ele.dept_id eq dept.parent_id }">
+		<c:if test="${dept_id eq dept.dept_id }">
+		<dd class="subItem curr">
+			<a href="cahgAddressLook/addressLookShowPage.do?dept_id=${dept.dept_id}" target="_parent" title='${dept.name }' >${dept.name }</a>
+		</dd>
+		</c:if>
+		<c:if test="${dept_id ne dept.dept_id }">
+		<dd class="subItem">
+			<a href="cahgAddressLook/addressLookShowPage.do?dept_id=${dept.dept_id}" target="_parent" title='${dept.name }' >${dept.name }</a>
+		</dd>
+		</c:if>
+	</c:if>
+	</c:forEach>
 </dl>
-<dl class="slideItem">
-	<dt onclick="$(this).nextAll('.subItem').slideToggle()">黄埔海关驻长安办事处缉私分局</dt>
-	<dd class="subItem">
-		<a href="javascript:void(0)">黄埔海关科室一</a>
-	</dd>
-	<dd class="subItem">
-		<a href="javascript:void(0)">黄埔海关科室二</a>
-	</dd>
-	<dd class="subItem">
-		<a href="javascript:void(0)">黄埔海关科室三</a>
-	</dd>
-	<dd class="subItem">
-		<a href="javascript:void(0)">黄埔海关科室四</a>
-	</dd>
-</dl>
+</c:forEach>

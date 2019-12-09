@@ -3,6 +3,7 @@ package com.mobset.system.controller;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
@@ -22,7 +23,6 @@ import com.mobset.system.service.CahgAfficheService;
 import com.mobset.system.service.CahgCustomNewsService;
 import com.mobset.system.service.CahgDayInfoService;
 import com.mobset.system.service.CahgFloatNewsService;
-import com.mobset.system.service.CahgStyleService;
 import com.mobset.system.service.CahgHyperlinkService;
 import com.mobset.system.service.CahgImgNewsService;
 import com.mobset.system.service.CahgImptWordService;
@@ -31,12 +31,12 @@ import com.mobset.system.service.CahgLeaderSpeechService;
 import com.mobset.system.service.CahgMeetingNoticeService;
 import com.mobset.system.service.CahgOfficePostService;
 import com.mobset.system.service.CahgSpecialTopicService;
+import com.mobset.system.service.CahgStyleService;
 import com.mobset.system.service.CahgSurveyService;
 import com.mobset.system.service.CahgViolationService;
 import com.mobset.system.service.CahgWorkTableService;
 import com.mobset.system.service.SysDictionaryService;
 import com.mobset.system.service.deptService;
-import com.mobset.system.util.Page;
 
 /**
  * @说明  首页controller
@@ -221,10 +221,19 @@ public class IndexController {
 	public String look_left(HttpServletRequest request){
 		String dept_id = request.getParameter("dept_id");
 		Map<String, Object> paramMap = new HashMap<>();
-//		paramMap.put("condition", " dept_id != '38' ");
 		List<Map<String, Object>> deptList = sysDictionaryService.deptList(paramMap);// 科室列表
+		List<Map<String, Object>> pdeptList = new ArrayList<>();
+		List<Map<String, Object>> cdeptList = new ArrayList<>();
+		for (Map<String, Object> map : deptList) {
+			if ("0".equals(map.get("parent_id").toString())) {
+				pdeptList.add(map);
+			} else {
+				cdeptList.add(map);
+			}
+		}
 		
-		request.setAttribute("deptList", deptList); //科室列表
+		request.setAttribute("deptList", pdeptList); // 父级科室
+		request.setAttribute("cdeptList", cdeptList); // 子级科室
 		request.setAttribute("dept_id", dept_id);//左导航判断用
 		return "page/look_left";
 	}

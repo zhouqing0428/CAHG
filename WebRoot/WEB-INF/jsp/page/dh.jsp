@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="cahgDutySchedule/dutyDetailsShow.do?type=1" target="_parent">值班安排</a>
 				</li>
 				<li>
-					<a href="cahgAddressLook/addressLookShowPage.do?dept_id=8" target="_parent">通讯录</a>
+					<a href="cahgAddressLook/addressLookShowPage.do?dept_id=38" target="_parent">通讯录</a>
 				</li>
 				<li>
 					<a href="javascript:void(0)">常用链接</a>

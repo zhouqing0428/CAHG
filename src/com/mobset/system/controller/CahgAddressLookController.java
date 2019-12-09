@@ -48,19 +48,16 @@ public class CahgAddressLookController {
 	public String addressLookShowPage(HttpServletRequest request){
 		String dept_id = request.getParameter("dept_id");
 		HashMap map = null;// 参数统一map
-		if (!(dept_id == null || "".equals(dept_id) || CommonConstants.DEPT_ID.equals(dept_id))) {// ID为空,进入404页面
+		if (!(dept_id == null || "".equals(dept_id))) {// ID为空,进入404页面
 			map = new HashMap();
 			map.put("dept_id", dept_id);
-		}		
-		List<HashMap> addressLookList = cahgAddressLookService.addressLookList(map);
-		
-		if(!CommonConstants.DEPT_ID.equals(dept_id)){
-			HashMap dept = sysDictionaryService.deptSelect(map);
-			request.setAttribute("dept", dept);//科室信息
 		}
-		
+		List<HashMap> addressLookList = cahgAddressLookService.addressLookList(map);
+
+		HashMap dept = sysDictionaryService.deptSelect(map);
+		request.setAttribute("dept", dept);// 科室信息
+
 		Map<String, Object> paramMap = new HashMap<>();
-//		paramMap.put("condition", " dept_id != '38' ");
 		List<Map<String, Object>> deptList = sysDictionaryService.deptList(paramMap);// 科室列表
 		
 		request.setAttribute("depts", JSONArray.fromObject(deptList)); //科室列表

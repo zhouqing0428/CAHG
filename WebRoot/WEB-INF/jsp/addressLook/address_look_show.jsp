@@ -15,10 +15,7 @@
 <link href="static/css/common.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="static/ztree/css/zTreeStyle/zTreeStyle.css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
-<script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
-<script src="static/ztree/jquery.ztree.all.min.js" type="text/javascript" charset="utf-8"></script>
 <link href="static/layui/css/layui.css" rel="stylesheet">
 <script src="static/layui/layui.all.js"></script>
 <script type="text/javascript">	
@@ -30,11 +27,6 @@
 		})
 	});
 </script>
-<style type="text/css">
-.ztree li span.button.ico_docu,.ztree li span.button.ico_open{
-	margin-top:0;
-}
-</style>
 </head>
 <body>
  <div id="main">
@@ -55,12 +47,14 @@
 		</c:if>
       <div class="con-right fr mar-l-2" style="width:665px;">
 		<div id="list" >
-			<c:if test="${!empty addressLookList}">
-				<div class="con_title mar-t2 text">
-					<h4 align="center">${dept.name}</h4>
-				</div>
-			</c:if>
+			<div class="con_title mar-t2 text">
+				<h4 align="center">${dept.name}</h4>
+			</div>
 			<div id="content">
+				<c:if test="${dept.parent_id eq 0}">
+					<p style="white-space:pre-line;font-weight: bold;font-size: 14px;margin-top: 15px;">${dept.remark }</p>
+				</c:if>
+				<c:if test="${dept.parent_id ne 0}">
 				<table id="myTable" co style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
 					<tr style="background:#2b67ac;">
 						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
@@ -90,9 +84,9 @@
 					</tr>
 					</c:if>
 				</table>
+				</c:if>
 			</div>
 		</div>
-		<div class="page" style="width:100%; margin-top:50px;"></div> 
       </div>
  </div>
     
@@ -132,13 +126,6 @@
   		 });
   	}
   	getHeader();
-  	/* var html = "<select class='selectSty' id='deptId'>";
-  	html += "<option value=''>---全部科室---</option>";
-  	for(var i = 0; i < deptList.length; i++){
-  		html += "<option value='"+ deptList[i].dept_id +"'>"+ deptList[i].name +"</option>"
-  	}
-  	html += "</select>";
-  	$("#searchTable").html(html); */
   </script>
 </body>
 </html>
