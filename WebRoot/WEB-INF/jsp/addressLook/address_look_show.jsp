@@ -48,43 +48,26 @@
       <div class="con-right fr mar-l-2" style="width:665px;">
 		<div id="list" >
 			<div class="con_title mar-t2 text">
-				<h4 align="center">${dept.name}</h4>
+				<h4 id="deptName" align="center"></h4>
 			</div>
 			<div id="content">
-				<c:if test="${dept.parent_id eq 0}">
-					<p style="white-space:pre-line;font-weight: bold;font-size: 14px;margin-top: 15px;">${dept.remark }</p>
-				</c:if>
-				<c:if test="${dept.parent_id ne 0}">
+				<p id="deptRemark" style="white-space:pre-line;font-weight: bold;font-size: 14px;margin-top: 15px;"></p>
 				<table id="myTable" co style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
-					<tr style="background:#2b67ac;">
-						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
-						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">姓名</span></td>
-						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">工号</span></td>
-						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">科室</span></td>
-						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">职务</span></td>
-						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工内线</span></td>
-						<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工外线</span></td>
-					</tr>
-					<c:if test="${!empty addressLookList}">
-					<c:forEach items="${addressLookList}" var="item" varStatus="idx">
-					<tr>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${idx.index+1}</td>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.name}</td>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.job_number}</td>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${dept.name}</td>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.duty}</td>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.interior}</td>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">${item.external}</td>
-					</tr>
-					</c:forEach>
-					</c:if>
-					<c:if test="${empty addressLookList}">
-					<tr>
-						<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;" colspan="7">该科室下暂无人员信息</td>
-					</tr>
-					</c:if>
+					<thead>
+						<tr style="background:#2b67ac;">
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">姓名</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">工号</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">科室</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">职务</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工内线</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工外线</span></td>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
 				</table>
-				</c:if>
 			</div>
 		</div>
       </div>
@@ -126,6 +109,39 @@
   		 });
   	}
   	getHeader();
+  	function getTableData(_id){
+  		alert("晴姐接口写这里"+_id)
+  		$.ajax({
+  		    url:"index/head.do",
+  		    dataType : "html", 
+  		    method:"post",
+  		    async: true,  
+  		    data: {},
+  		    success:function(data){
+  		    	var html = ""
+  		    	if(data.length > 0){
+  		    		for(var i = 0; i < 10; i++){
+  		    			html += '<tr>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">'+ i +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">张三_'+ _id +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">工号_'+ _id +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">科室_'+ _id +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">职务_'+ _id +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">办工内线_'+ _id +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">办工外线_'+ _id +'</td>';
+  		    			html += '</tr>';
+  		    		}
+  		    	}else{
+  		    		html += '<tr>';
+  		    			html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;" colspan="7">该科室下暂无人员信息</td>';
+  		    		html += '</tr>';
+  		    	}
+  		    	$("#deptName").text("科室名称");
+  		    	$("#deptRemark").text("科室备注");
+  		    	$("#myTable tbody").html(html);
+  		    }
+  		 });
+  	}
   </script>
 </body>
 </html>

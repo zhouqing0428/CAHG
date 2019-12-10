@@ -119,7 +119,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  }
 	   #meeting{  
 		display: block;
-		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 285px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 		max-height:56px;
 	    /*text-overflow: ellipsis; 以省略号...显示*/
@@ -131,9 +131,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	 	 display: block;
 		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-	    text-overflow: ellipsis; /*以省略号...显示*/
-	    white-space: nowrap;  /*强制不换行*/
-	    float:left;
+	
 	  }
 	  #imptWorkList{
 	  	display: block;
@@ -162,7 +160,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  }
 	#indexJobList{
 		display: block;
-		width: 350px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 300px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/
@@ -276,7 +274,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>    
         <!--入园企业-->
      <!--会议通知-->
-    <div class="slideTxtBox zhengce fl mt10" style="border:1px solid #CCC">
+    <div class="slideTxtBox meeting fl mt10" style="border:1px solid #CCC">
         <div class="hd">
      	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" target="_blank" class="fr fm1">更多>></a>
             <ul><li>会议通知</li></ul>
@@ -307,7 +305,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     
     <!--本办发文-->
-    <div class="slideTxtBox  fl ml8 mt10" style="height:290px;border:1px solid #CCC">
+    <div class="slideTxtBox sendNews  fl ml8 mt10" style="height:290px;border:1px solid #CCC">
         <div class="hd">
         	<a href="cahgOfficePost/officePostListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>本关发文</li></ul>

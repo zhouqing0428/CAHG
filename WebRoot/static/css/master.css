@@ -59,7 +59,7 @@
 .index-main .slideTxtBox .hd ul li{color:#333333; float:left; height:30px; line-height:30px; width:105px; text-align:center; font-size:14px;font-weight: bold;}
 .index-main .slideTxtBox .hd ul li.on{color:#f60; height:30px;  background:url(../images/backaa.jpg) repeat-x;font-weight: bold;}
 .index-main .slideTxtBox .bd ul{ padding:15px;  zoom:1; overflow:hidden;margin:0; }
-.index-main .slideTxtBox .bd ul.newsList li{ line-height:28px;min-height:28px;max-height:56px;border-bottom:1px #ccc dotted; font-size:14px; background:url(../images/li-ico.jpg) no-repeat left center; padding-left:10px;   }
+.index-main .slideTxtBox .bd ul.newsList li{ line-height:28px;min-height:28px;max-height:56px;border-bottom:1px #ccc dotted; font-size:14px; background:url(../images/li-ico.jpg) no-repeat left 12px;padding-left:10px;   }
 .index-main .slideTxtBox .bd li .date{ float:right; color:#999;  }
 /* 首页园区公示 */
 .index-main .yqgs{ background:#f5f5f5; padding:5px; width:245px; height:228px; overflow:hidden}
@@ -88,12 +88,15 @@
 .index-main .ryqy .qy .bd ul li .text a{ color:#000;}
 .index-main .ryqy .qy .bd ul li .text p{ color:#8d8b8b;}
 /* 首页市级、省级、国家政策 */
+.index-main .meeting{ width:328px;height:290px;}
 .index-main .zhengce{ width:278px;height:290px;}
+.index-main .sendNews{width:350px;}
 /* 首页入园指南、服务平台 */
 .index-main .ryzn .bd ul li{ background:none; float:left; width:180px; height:35px; padding:0; margin-bottom:20px; margin-left:8px;}
 .index-main .ryzn .bd ul li a:hover img{-moz-opacity:0.8; filter:alpha(opacity=80);opacity: 0.8;}
 /* 首页相关下载 */
 .index-main .xgxz{width:283px;height:290px;}
+.index-main .xgxz .bd .newsList{height:245px;}
 /* 首页入园企业 */
 .index-main .ruyuans{ width:715px;}
 /* 首页企业新闻 */

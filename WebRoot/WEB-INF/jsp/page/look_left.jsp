@@ -12,12 +12,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<c:if test="${ele.dept_id eq dept.parent_id }">
 		<c:if test="${dept_id eq dept.dept_id }">
 		<dd class="subItem curr">
-			<a href="cahgAddressLook/addressLookShowPage.do?dept_id=${dept.dept_id}" target="_parent" title='${dept.name }' >${dept.name }</a>
+			<a href="javascript:void(0)" onclick="getTableData(${dept.dept_id})" title='${dept.name }' >${dept.name }</a>
 		</dd>
 		</c:if>
 		<c:if test="${dept_id ne dept.dept_id }">
 		<dd class="subItem">
-			<a href="cahgAddressLook/addressLookShowPage.do?dept_id=${dept.dept_id}" target="_parent" title='${dept.name }' >${dept.name }</a>
+			<a href="javascript:void(0)" onclick="getTableData(${dept.dept_id})" title='${dept.name }' >${dept.name }</a>
 		</dd>
 		</c:if>
 	</c:if>
