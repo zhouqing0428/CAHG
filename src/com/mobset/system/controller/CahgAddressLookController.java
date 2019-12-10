@@ -18,13 +18,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.mobset.system.constant.CommonConstants;
 import com.mobset.system.service.CahgAddressLookService;
 import com.mobset.system.service.SysDictionaryService;
 
 import net.sf.json.JSONArray;
 
 /**
+ * @param <R>
  * @说明  通讯录controller
  * @创建人 陈礼刚
  * @时间 2017年7月10日13:47:16
@@ -32,7 +32,7 @@ import net.sf.json.JSONArray;
 @Controller
 @RequestMapping("/cahgAddressLook")
 
-public class CahgAddressLookController {
+public class CahgAddressLookController<R> {
 	
 	@Resource(name="cahgAddressLookService")
 	private CahgAddressLookService cahgAddressLookService;
@@ -64,6 +64,26 @@ public class CahgAddressLookController {
 		request.setAttribute("addressLookList", addressLookList);//通讯录列表
 		request.setAttribute("dept_id", dept_id);
 		return "addressLook/address_look_show";
+	}
+	
+	@RequestMapping(value="/getAddressLookByDeptId")
+	@ResponseBody
+	public Map<String, Object> getAddressLookByDeptId(HttpServletRequest request) {
+		String dept_id = request.getParameter("dept_id");
+		HashMap map = null;// 参数统一map
+		if (!(dept_id == null || "".equals(dept_id))) {
+			map = new HashMap();
+			map.put("dept_id", dept_id);
+		}
+		List<HashMap> addressLookList = cahgAddressLookService.addressLookList(map);
+
+		HashMap dept = sysDictionaryService.deptSelect(map);
+		Map<String, Object> returnMap = new HashMap();
+
+		returnMap.put("dept", dept);// 科室信息
+		returnMap.put("list", addressLookList);// 通讯录列表
+		returnMap.put("dept_id", dept_id);
+		return returnMap;
 	}
 
 	

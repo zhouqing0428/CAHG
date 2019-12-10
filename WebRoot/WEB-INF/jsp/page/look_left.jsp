@@ -11,12 +11,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<c:forEach items="${cdeptList }" var="dept" >
 	<c:if test="${ele.dept_id eq dept.parent_id }">
 		<c:if test="${dept_id eq dept.dept_id }">
-		<dd class="subItem curr">
+		<dd class="subItem curr" data-id = '${dept.dept_id}'>
 			<a href="javascript:void(0)" onclick="getTableData(${dept.dept_id})" title='${dept.name }' >${dept.name }</a>
 		</dd>
 		</c:if>
 		<c:if test="${dept_id ne dept.dept_id }">
-		<dd class="subItem">
+		<dd class="subItem" data-id = '${dept.dept_id}'>
 			<a href="javascript:void(0)" onclick="getTableData(${dept.dept_id})" title='${dept.name }' >${dept.name }</a>
 		</dd>
 		</c:if>

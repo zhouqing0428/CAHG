@@ -48,11 +48,13 @@
       <div class="con-right fr mar-l-2" style="width:665px;">
 		<div id="list" >
 			<div class="con_title mar-t2 text">
-				<h4 id="deptName" align="center"></h4>
+				<h4 id="deptName" align="center">${dept.name}</h4>
 			</div>
 			<div id="content">
-				<p id="deptRemark" style="white-space:pre-line;font-weight: bold;font-size: 14px;margin-top: 15px;"></p>
-				<table id="myTable" co style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
+				<p id="deptRemark" style="white-space:pre-line;font-weight: bold;font-size: 14px;margin-top: 15px;">
+				<c:if test="${dept.parent_id eq 0}">${dept.remark }</c:if>
+				</p>
+				<table id="myTable" style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
 					<thead>
 						<tr style="background:#2b67ac;">
 							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
@@ -68,6 +70,7 @@
 						
 					</tbody>
 				</table>
+				
 			</div>
 		</div>
       </div>
@@ -77,6 +80,12 @@
     
   </div>
   <script>
+  	var isParent = false;
+  	var parentId = '${dept.parent_id}';
+  	if(parentId == '0'){
+  		isParent = true;
+  		$("#myTable").hide();
+  	}
   	var deptList = '${depts}';
   	deptList = JSON.parse(deptList);
   	getSlideMenu();
@@ -110,25 +119,58 @@
   	}
   	getHeader();
   	function getTableData(_id){
-  		alert("晴姐接口写这里"+_id)
   		$.ajax({
-  		    url:"index/head.do",
+  		    url:"cahgAddressLook/getAddressLookByDeptId.do",
   		    dataType : "html", 
   		    method:"post",
   		    async: true,  
-  		    data: {},
+  		    data: {
+  		    	dept_id: _id
+  		    },
   		    success:function(data){
+  		    	var json = $.parseJSON(data);
+  		    	var dept = json.dept;
+  		    	var list = json.list;
   		    	var html = ""
-  		    	if(data.length > 0){
-  		    		for(var i = 0; i < 10; i++){
+  		    	if(dept.parent_id != '0'){
+  		    		$("#myTable").show();
+  		    		$("#deptRemark").text("");
+  		    	}
+  		    	if(_id == dept.dept_id){
+  		    		$(".subItem").removeClass("curr");
+  		    		$(".subItem").each(function(i, _this) {
+  		    			var obj = $(_this).attr("data-id");
+  		    			if(obj == _id){
+  		    				$(_this).addClass("curr");
+  		    			}
+  		    		});
+  		    	}
+  		    	if(list.length > 0){
+  		    		for(var i = 0; i < list.length; i++){
   		    			html += '<tr>';
-  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">'+ i +'</td>';
-  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">张三_'+ _id +'</td>';
-  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">工号_'+ _id +'</td>';
-  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">科室_'+ _id +'</td>';
-  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">职务_'+ _id +'</td>';
-  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">办工内线_'+ _id +'</td>';
-  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">办工外线_'+ _id +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">'+ (i+1) +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">'+ list[i].name +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">';
+  		    				if(list[i].job_number != undefined && list[i].job_number !=null && list[i].job_number !=""){
+  		    					html += list[i].job_number;
+  		    				}
+  		    				html += '</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">'+ dept.name +'</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">';
+  		    				if(list[i].duty != undefined && list[i].duty !=null && list[i].duty !=""){
+  		    					html += list[i].duty;
+  		    				}
+  		    				html += '</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">';
+  		    				if(list[i].interior != undefined && list[i].interior !=null && list[i].interior !=""){
+  		    					html += list[i].interior;
+  		    				}
+  		    				html += '</td>';
+  		    				html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;">';
+  		    				if(list[i].external != undefined && list[i].external !=null && list[i].external !=""){
+  		    					html += list[i].external;
+  		    				}
+  		    				html += '</td>';
   		    			html += '</tr>';
   		    		}
   		    	}else{
@@ -136,8 +178,7 @@
   		    			html += '<td style="border:1px solid;line-height:35px;font-size:12px;text-align:center;" colspan="7">该科室下暂无人员信息</td>';
   		    		html += '</tr>';
   		    	}
-  		    	$("#deptName").text("科室名称");
-  		    	$("#deptRemark").text("科室备注");
+  		    	$("#deptName").text(dept.name);
   		    	$("#myTable tbody").html(html);
   		    }
   		 });
