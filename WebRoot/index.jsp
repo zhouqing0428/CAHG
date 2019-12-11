@@ -119,19 +119,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  }
 	   #meeting{  
 		display: block;
-		width: 285px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 		max-height:56px;
-	    /*text-overflow: ellipsis; 以省略号...显示*/
-	   /* white-space: nowrap;  强制不换行*/
+	    display: -webkit-box;
+	    -webkit-box-orient: vertical;
+	    -webkit-line-clamp: 2;
 	   
 	  } 
 	  
 	  #afficheList{
-	 	 display: block;
+	 	display: block;
 		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
-	
+		display: -webkit-box;
+	    -webkit-box-orient: vertical;
+	    -webkit-line-clamp: 2;
 	  }
 	  #imptWorkList{
 	  	display: block;
@@ -160,7 +163,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	  }
 	#indexJobList{
 		display: block;
-		width: 300px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
+		width: 350px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 	    text-overflow: ellipsis; /*以省略号...显示*/
 	    white-space: nowrap;  /*强制不换行*/

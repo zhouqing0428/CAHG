@@ -88,9 +88,9 @@
 .index-main .ryqy .qy .bd ul li .text a{ color:#000;}
 .index-main .ryqy .qy .bd ul li .text p{ color:#8d8b8b;}
 /* 首页市级、省级、国家政策 */
-.index-main .meeting{ width:328px;height:290px;}
+.index-main .meeting{ width:278px;height:290px;}
 .index-main .zhengce{ width:278px;height:290px;}
-.index-main .sendNews{width:350px;}
+.index-main .sendNews{width:400px;}
 /* 首页入园指南、服务平台 */
 .index-main .ryzn .bd ul li{ background:none; float:left; width:180px; height:35px; padding:0; margin-bottom:20px; margin-left:8px;}
 .index-main .ryzn .bd ul li a:hover img{-moz-opacity:0.8; filter:alpha(opacity=80);opacity: 0.8;}
