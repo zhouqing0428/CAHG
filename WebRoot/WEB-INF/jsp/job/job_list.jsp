@@ -65,10 +65,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <dl class="con-left fl"></dl>
         <!-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url }" widht="100%"></iframe>  -->
         <div class="con-right fr mar-l-2">
-        <table style="width:100%;font-size:20px;"><tr>
-        	<td align="center"><a href="cahgJob/jobListPage.do">全部</a></td>
-        	<td align="center"><a href="cahgJob/jobListPage.do?status=0">未办结</a></td>
-        	<td align="center"><a href="cahgJob/jobListPage.do?status=2">已办结</a></td>
+        <table style="width:100%;font-size:20px;background:#ff6000;"><tr>
+        	<td align="center"><a style="color:#fff;height:50px;line-height:50px;" href="cahgJob/jobListPage.do">全部</a></td>
+        	<td align="center"><a style="color:#fff;height:50px;line-height:50px;" href="cahgJob/jobListPage.do?status=0">未办结</a></td>
+        	<td align="center"><a style="color:#fff;height:50px;line-height:50px;" href="cahgJob/jobListPage.do?status=2">已办结</a></td>
         </tr></table>
  			<div id="list">
  				

@@ -39,8 +39,8 @@
 
 .index-main	{ background:#FFF; padding:10px; width:1000px; margin:0 auto;overflow:hidden;}
 /* 首页焦点图 */
-.index-main	.focusBox { position: relative; width: 328px; height: 296px; overflow: hidden; font: 12px/1.5 Verdana, Geneva, sans-serif; text-align: left; background: white; }
-.index-main .focusBox .pic img { width: 328px; height: 296px; display: block; }
+.index-main	.focusBox { position: relative; width: 326px; height: 286px;border:1px solid #ccc; overflow: hidden; font: 12px/1.5 Verdana, Geneva, sans-serif; text-align: left; background: white; }
+.index-main .focusBox .pic img { width: 308px; height: 231px; display: block; margin:9px;}
 .index-main .focusBox .txt-bg {  width:328px;position: absolute; left:0px; bottom: 0px; z-index: 1; height: 36px;  background: #333; filter: alpha(opacity=40); opacity: 0.4; overflow: hidden; }
 .index-main .focusBox .txt {  width:328px;position: absolute; left:0px; bottom: 0px; z-index: 2; height: 36px; overflow: hidden;margin:0; }
 .index-main .focusBox .txt li{ height:36px; line-height:36px; position:absolute; bottom:-36px;}
@@ -265,10 +265,10 @@
 }
 .picList li{
 	position:absolute;
-	top:0;
-	left:0;
-	width:282px;
-	height:242px;
+	top:10px;
+	left:10px;
+	width:259px;
+	height:222px;
 	overflow:hidden;
 	-webkit-transition:all 1s;
 	-moz-transition:all 1s;
@@ -282,6 +282,6 @@
 	filter:alpha(opacity=100);
 }
 .picList li img{
-	width:282px;
-	height:242px;
+	width:259px;
+	height:222px;
 }

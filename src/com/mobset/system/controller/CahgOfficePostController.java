@@ -36,7 +36,7 @@ public class CahgOfficePostController {
 	@RequestMapping(value="/officePostDetailsPage")
 	public String officePostDetailsPage(HttpServletRequest request){
 		
-		/*HashMap ipMap = new HashMap();
+		HashMap ipMap = new HashMap();
 		ipMap = cahgOfficePostService.selectIP();
 		if (ipMap != null) {
 			String status = ipMap.get("status").toString();
@@ -56,13 +56,14 @@ public class CahgOfficePostController {
 					boolean exists = ipExistsInRange(ip, ipSection);// 判断访问IP是否在设置号段内
 					if (exists == false) {
 						request.setAttribute("ip", "0");
+						return "officePost/office_post_details";
 					} else {
 						request.setAttribute("ip", "1");
 					}
 				}
 
 			}
-		}*/
+		}
 		
 		String office_post_id = request.getParameter("office_post_id");
 		HashMap map = new HashMap();//参数统一map

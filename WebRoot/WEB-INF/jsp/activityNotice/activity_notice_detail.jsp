@@ -35,7 +35,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
       </div>
       <div class="con_title mar-t2 text">
-        <h4 style="margin:20px;" align="center">${info.title }</h4>
+        <h4 style="margin:20px auto;width:600px;" align="center">${info.title }</h4>
       </div>
       <div class="line mar-t2 hov">
         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="padding-left:10px; padding-right:10px;color:#666666;">

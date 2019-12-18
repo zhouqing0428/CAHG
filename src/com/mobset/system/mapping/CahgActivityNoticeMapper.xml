@@ -14,11 +14,12 @@
 	<!-- 查询活动通知列表 -->
 	<select id="queryList" parameterType="java.util.Map" resultType="java.util.Map">
 		select
-			id, title, user_name,
-			date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date
+			a.id, a.title, ifnull(d.name,'') as name, 
+			date_format(a.create_date,'%Y-%m-%d %H:%i:%s') create_date
 		from
-			cahg_activity_notice
-		ORDER BY create_date DESC
+			cahg_activity_notice a
+		LEFT JOIN sys_dept d on a.dept_id = d.dept_id
+		ORDER BY a.create_date DESC
 		limit
 			#{page},#{rows}
 	</select>
@@ -34,14 +35,15 @@
 	<!-- 查询活动通知信息 -->
 	<select id="queryObject" parameterType="java.util.Map" resultType="java.util.Map">
 		select
-			id, title,date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date, content, file_name, file_old_name,
-			user_name, address, time, person, remark
+			a.id, a.title,date_format(a.create_date,'%Y-%m-%d %H:%i:%s') create_date, a.content, a.file_name, a.file_old_name,
+			a.user_name, a.address, a.time, a.person, a.remark, a.plan, d.name
 		from
-			cahg_activity_notice
+			cahg_activity_notice a
+		LEFT JOIN sys_dept d on a.dept_id = d.dept_id
 		where
 			 1 = 1
 		<if test="id !=null">
-			and id =  #{id}
+			and a.id =  #{id}
 		</if>
 	</select>
 	

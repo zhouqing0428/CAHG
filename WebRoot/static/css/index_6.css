@@ -412,7 +412,7 @@ min-height: 950px;}
 	width:auto;
 	min-height:120px;
 	border:1px solid #b5b5b5;
-	background:#f2f2f2;
+	/* background:#f2f2f2; */
 	border-top:0;
 	overflow:hidden;
 }

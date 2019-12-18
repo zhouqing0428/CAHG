@@ -1,7 +1,6 @@
 package com.mobset.system.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mobset.system.service.deptService;
 import com.mobset.system.util.Page;
-
 
 @Controller
 @RequestMapping("/dept")

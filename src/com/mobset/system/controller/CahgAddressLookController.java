@@ -18,6 +18,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.mobset.system.constant.CommonConstants;
 import com.mobset.system.service.CahgAddressLookService;
 import com.mobset.system.service.SysDictionaryService;
 
@@ -59,6 +60,18 @@ public class CahgAddressLookController<R> {
 
 		Map<String, Object> paramMap = new HashMap<>();
 		List<Map<String, Object>> deptList = sysDictionaryService.deptList(paramMap);// 科室列表
+		
+		if (CommonConstants.DEPT_ID.equals(dept_id)) {
+			// 取交通路线附件
+			HashMap trafficMap = new HashMap();// 参数统一map
+			HashMap traffic = new HashMap();
+			trafficMap.put("type", 6);
+			List<HashMap> trafficList = sysDictionaryService.selectFormList(trafficMap);
+			if (trafficList.size() > 0) {
+				traffic = trafficList.get(0);
+				request.setAttribute("traffic", traffic); // 科室列表
+			}
+		}
 		
 		request.setAttribute("depts", JSONArray.fromObject(deptList)); //科室列表
 		request.setAttribute("addressLookList", addressLookList);//通讯录列表

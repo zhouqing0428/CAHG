@@ -1,5 +1,4 @@
-﻿﻿
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -91,8 +90,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	width: 100%;
 	height: 100%;
 }
-
-
 	  #new_title{  
 		display: block;
 		width: 300px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
@@ -124,8 +121,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		max-height:56px;
 	    display: -webkit-box;
 	    -webkit-box-orient: vertical;
-	    -webkit-line-clamp: 2;
-	   
+	    -webkit-line-clamp: 2;	   	
 	  } 
 	  
 	  #afficheList{
@@ -217,7 +213,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
     <!--TAB选项卡-->
     
-    <div class="slideTxtBox fl ml8" style="border:1px solid #CCC;width:350px;">
+    <div class="slideTxtBox fl ml8" style="border:1px solid #CCC;width:350px;height:286px;">
         <div class="hd">
         	<a href="cahgDayInfo/dayInfoListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul><li>每日信息</li></ul>
@@ -247,7 +243,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
 	</div>
     <!--领导讲话-->
-    <div class="yqg border fr slideTxtBox" style="border:1px solid #CCC">
+    <div class="yqg border fr slideTxtBox" style="border:1px solid #CCC;height:286px;">
 		<div class="hd">
 			<a href="leaderSpeech/leaderSpeechListPage.do?type=2" target="_blank" class="fm1 fr">更多>></a>
 		    <ul><li style="cursor:pointer; ">总关领导讲话</li><li style="cursor:pointer; ">本关领导讲话</li></ul>
@@ -291,7 +287,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                 <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
 						 <c:set var="imgShow"><fmt:formatNumber value="${timeMis/1000/3600}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->
 	               	 	<a href="cahgMeetingNotice/meetingNoticeDetailsPage.do?meeting_notice_id=${ele.meeting_notice_id }" target="_blank" title='${ele.title }'>
-		               	 	<span  id="meeting">
+		               	 	<span id="meeting" style="font-size:13px;">
 		               	 		${ele.title }
 		               	 		<c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
 									<img style="margin-top:-12px;" src="static/images/new.gif">
@@ -341,7 +337,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
 							<c:set var="imgShow"><fmt:formatNumber value="${timeMis/1000/3600}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->
 							
-	                	<a href="cahgAffiche/afficheDetailsPage.do?affiche_id=${ele.affiche_id }" target="_blank" title='${ele.title}'><span id="afficheList">${ele.title}</span>
+	                	<a href="cahgAffiche/afficheDetailsPage.do?affiche_id=${ele.affiche_id }" target="_blank" title='${ele.title}'><span id="afficheList" style="font-size:13px;">${ele.title}</span>
 			             <%--  <span style="color:#999">[${ele.create_date_show }]</span> --%>
 			              <c:if test="${imgShow <=24.0 }"><!-- 判断是否显示 -->
 								<img style="margin-top:-14px;float:right" src="static/images/new.gif">
@@ -356,7 +352,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <!--重点工作-->
 	<div class="slideTxtBox ruyuan fl mt10" style="border:1px solid #CCC">
 		<div class="hd">
-			<a href="cahgImptWork/imptWorkListPage.do" target="_blank" class="fr fm1">更多>></a>
+			<a href="cahgWorkTable/workTableListPage.do?work_table_category_id=5" target="_blank" class="fr fm1">更多>></a>
 		    <ul><li>重点工作</li></ul>
 		</div>
 		<div class="bd" >
@@ -365,8 +361,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%-- <li   style="background-image:url(static/images/worktable.jpg);background-size:cover;height:30px; width:220px; border:1px solid #CCC;margin:8px;" >
 				      <a    style="font-size:15px;height:100%;width:100%;;line-height:30px; "  href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }"  target="_blank">${ele.name }</a>
 				</li> --%>
-				<li style="background:#f6d05a url(static/images/${ele.img }) 10px center no-repeat;background-size:auto 22px;height:30px;line-height:30px;width:246px;padding-left:40px;margin-bottom:8px;border-radius:20px;" >
-					<a style="color:#fff;" href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }">${ele.name }</a>
+				<li style="background:url(static/images/${ele.img }) left center no-repeat;height:30px;line-height:30px;width:246px;padding-left:43px;margin-bottom:8px;border-radius:20px;" >
+					<a style="color:#fff;" href="cahgWorkTable/workTableListPage.do?work_table_category_id=${ele.work_table_category_id }" target="_blank">${ele.name }</a>
 				</li>
 			</c:forEach>
 	        </ul>
@@ -428,13 +424,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="hd">
         	<a href="cahgActivityNotice/activityNoticeListPage.do" target="_blank" class="fr fm1">更多>></a>
             <ul>
-            	<li>活动通知</li>
+            	<li>文体活动</li>
             </ul>
         </div>
         <div class="bd">
        		<ul class="newsList">
         		<c:forEach items="${noticeList }" var="ele" varStatus="index">
-	        		<li><a id="indexNoticeList" href="cahgActivityNotice/activityNoticeInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
+	        		<li><a id="indexNoticeList" href="cahgActivityNotice/activityNoticeInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting" style="font-size:13px;">${ele.title }</span></a></li>
 	            </c:forEach>
            	</ul>
         </div>
@@ -449,7 +445,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<c:forEach items="${customNewsList }" var="ele">
 				<li>
 				   <a href="cahgCustomNews/customNewsDetailsShow.do?custom_news_id=${ele.custom_news_id }"  target="_blank" title='${ele.title }'><span id="imptWorkList2">${ele.title }</span></a>
-				<%-- <span style="color:#999;float:right;margin-top:-20px">[${ele.create_date_show }]</span></a> --%>
 				</li>
 				</c:forEach>
 			</ul>
@@ -462,12 +457,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </div>
         <div class="bd">
             <ol id="picList" class="picList">
-            	<c:forEach items="${styleList }" var="ele">
-				<li>
-				   <%-- <a href="cahgStyle/styleDetailsPage.do?style_id=${ele.style_id }"  target="_blank" title='${ele.style_title }'> --%>
+            	<c:forEach items="${styleList }" var="ele" varStatus="idxStatus">
+            	<c:if test="${idxStatus.first}">
+            		<li class="curr">
 				   		<img src="http://10.56.65.100/file/upImg/style/${ele.style_url }"/>
-				   <!-- </a> -->
-				</li>
+					</li>
+            	</c:if>
+            	<c:if test="${!idxStatus.first}">
+					<li>
+				   		<img src="http://10.56.65.100/file/upImg/style/${ele.style_url }"/>
+					</li>
+				</c:if>
 				</c:forEach>
             </ol>
         </div>
@@ -511,8 +511,6 @@ function hf(){
 	document.body.className='body2';
 	document.getElementById('topif').contentWindow.document.getElementById('hx').style="background:#fff;";
 }
-
-
 function getContextPath() {
     var pathName = document.location.pathname;
     var index = pathName.substr(1).indexOf("/");
@@ -533,15 +531,12 @@ function meetingRoom(){
 	  content: url //iframe的url
 	}); 
 }
-
-
 function wish(){
 	   var wish = '${wish.wish_center}';
 	   if(wish!=''){
 		  alert(wish);
 	   }
 }
-
 function survey(){
 	var radios=document.getElementsByName("surveyAnswer");
 	var ck = "0";
@@ -637,8 +632,7 @@ setTimeout(function(){
 	if(document.getElementById("roll")){
 		floatAd();
 	}
-},1000)
-
+},1000);
 function startScroll(){
 	var oDiv = document.getElementById('scrollBox');
 	var oUl = oDiv.getElementsByTagName('ul')[0];

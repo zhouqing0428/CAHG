@@ -1,9 +1,6 @@
 package com.mobset.system.controller;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +47,14 @@ public class CahgWorkTableController {
 		request.setAttribute("pageCount", p.getPageCount()); //总页数
 		request.setAttribute("count", p.getCount()); //总记录
 		request.setAttribute("url", "cahgDayInfo/dayInfoListPage.do");//左导航判断用
+		
+		HashMap paramMap = new HashMap();
+		paramMap.put("categoryId", work_table_category_id);
+		List<HashMap> tableCategoryList = cahgWorkTableService.selectTableCategory(paramMap);
+		if (tableCategoryList != null && tableCategoryList.size() > 0) {
+			request.setAttribute("title", tableCategoryList.get(0).get("name"));
+		}
+		
 		return "workTable/work_table_list";
 	}
 	
