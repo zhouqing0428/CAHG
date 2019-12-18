@@ -19,7 +19,7 @@
 			title,content,
 			date_format(create_user_date,'%Y-%m-%d %H:%i:%s') create_date,file_name,
 			date_format(end_time,'%Y-%m-%d %H:%i:%s') end_time,
-			status
+			status, dept_id
 		from
 			cahg_job c
 		where

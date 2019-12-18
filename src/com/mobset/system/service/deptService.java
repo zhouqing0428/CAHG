@@ -2,6 +2,7 @@ package com.mobset.system.service;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public interface deptService {
 	
@@ -22,4 +23,6 @@ public interface deptService {
 	public List<HashMap> selectWorkStandard(HashMap map);
 	
 	public Integer selectWorkStandardCount(HashMap map);
+	
+	public List<Map<String,Object>> queryListByIds(List<String> list);
 }

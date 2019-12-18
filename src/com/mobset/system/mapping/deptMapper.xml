@@ -82,4 +82,11 @@
 		where
 			dept_id=#{dept_id}
 	</select>
+	
+	<select id="queryListByIds" resultType="java.util.Map">
+		select * from sys_dept where 1 = 1 and dept_id in 
+		<foreach item="id" collection="list" open="(" separator="," close=")">
+			#{id}
+		</foreach>
+	</select>
 </mapper>
