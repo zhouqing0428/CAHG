@@ -42,7 +42,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 #roll {
   width:235px;
   height:92px;
-  background-color:green;
   color:#fff;
   position:absolute;
   font-size:12px;
@@ -129,6 +128,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		width: 235px; /* li 的宽度 这个控制显示多少字后显示...设的宽度大于字数时， 是不会显示...的 */
 		overflow: hidden;  /*溢出隐藏*/
 		display: -webkit-box;
+		max-height:56px;
 	    -webkit-box-orient: vertical;
 	    -webkit-line-clamp: 2;
 	  }

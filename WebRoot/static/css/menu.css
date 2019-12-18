@@ -119,6 +119,8 @@ ul#jDropDown > li > .slideList dd a{
 	display:block;
 	color:#000000;
 	text-align:center;
+	font-size:14px;
+	font-weight:normal;
 }
 ul#jDropDown > li > .slideList dd a:hover{
 	color:#a10000;

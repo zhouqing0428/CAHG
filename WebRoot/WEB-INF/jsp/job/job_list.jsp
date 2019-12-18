@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title></title>
+<title>工作督办列表</title>
 <link href="static/layui/css/layui.css" rel="stylesheet">
 <script src="static/layui/layui.all.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
@@ -20,6 +20,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/common.css" rel="stylesheet" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
+<style type="text/css">
+.itemState{
+height:34px;line-height:34px;width:96px;color:#fff;text-align:center;background:#c3c0c0;;display:block;border-radius:4px;
+}
+.itemState.curr{
+	background:#7fb2d2;
+}
+</style>
 <script type="text/javascript">	
 	$(document).ready(function(){
 		$(".con-left a").each(function(){
@@ -65,10 +73,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <dl class="con-left fl"></dl>
         <!-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url }" widht="100%"></iframe>  -->
         <div class="con-right fr mar-l-2">
-        <table style="width:100%;font-size:20px;background:#ff6000;"><tr>
-        	<td align="center"><a style="color:#fff;height:50px;line-height:50px;" href="cahgJob/jobListPage.do">全部</a></td>
-        	<td align="center"><a style="color:#fff;height:50px;line-height:50px;" href="cahgJob/jobListPage.do?status=0">未办结</a></td>
-        	<td align="center"><a style="color:#fff;height:50px;line-height:50px;" href="cahgJob/jobListPage.do?status=2">已办结</a></td>
+        <table style="width:100%;font-size:20px;margin:15px auto"><tr>
+        	<td align="center">
+	        	<c:if test="${empty status}">
+        		<a class="itemState curr" href="cahgJob/jobListPage.do">全部</a>
+	        	</c:if>
+	        	<c:if test="${not empty status}">
+        		<a class="itemState" href="cahgJob/jobListPage.do">全部</a>
+	        	</c:if>
+        	</td>
+        	<td align="center">
+        		<c:if test="${not empty status and status eq 0}">
+        		<a class="itemState curr" href="cahgJob/jobListPage.do?status=0">未办结</a>
+        		</c:if>
+        		<c:if test="${empty status or status eq 2}">
+        		<a class="itemState" href="cahgJob/jobListPage.do?status=0">未办结</a>
+        		</c:if>
+        	</td>
+        	<td align="center">
+        		<c:if test="${not empty status and status eq 2}">
+        		<a class="itemState curr" href="cahgJob/jobListPage.do?status=2">已办结</a>
+        		</c:if>
+        		<c:if test="${empty status or status eq 0}">
+        		<a class="itemState" href="cahgJob/jobListPage.do?status=2">已办结</a>
+        		</c:if>
+        	</td>
         </tr></table>
  			<div id="list">
  				

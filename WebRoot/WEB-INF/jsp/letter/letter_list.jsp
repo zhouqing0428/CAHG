@@ -95,7 +95,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index < 4 }">
-        					<td align="center" style="width:25%;background-color: #1c649f;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
+        					<td align="center" style="width:25%;background-color: #2b67ac;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
         					<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -125,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index >= 4 and i.index<8}">
-        					<td align="center" style="width:25%;background-color: #1c649f;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
+        					<td align="center" style="width:25%;background-color: #2b67ac;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
         					<td>    </td>
         				</c:if>
         			</c:forEach>
