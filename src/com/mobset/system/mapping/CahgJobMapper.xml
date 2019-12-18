@@ -36,7 +36,7 @@
 		where
 			 1 = 1
 		<if test="title !=null and title !=''">
-			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+			and (title like #{title} OR DATE_FORMAT(create_user_date,'%Y%m%d') like #{title})
 		</if>
 		<if test="status !=null and status !=''">
 			and status = #{status}
@@ -58,7 +58,7 @@
 		where
 			 1 = 1
 		<if test="title !=null and title !=''">
-			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+			and (title like #{title} OR DATE_FORMAT(create_user_date,'%Y%m%d') like #{title})
 		</if>
 		<if test="status !=null and status !=''">
 			and status = #{status}

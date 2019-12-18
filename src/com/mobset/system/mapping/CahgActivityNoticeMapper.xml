@@ -19,6 +19,12 @@
 		from
 			cahg_activity_notice a
 		LEFT JOIN sys_dept d on a.dept_id = d.dept_id
+		where
+			 1 = 1
+		<if test="title !=null and title !=''">
+			and (a.title like #{title} OR DATE_FORMAT(a.create_date,'%Y%m%d') like #{title})
+		</if>
+		
 		ORDER BY a.create_date DESC
 		limit
 			#{page},#{rows}
@@ -30,6 +36,11 @@
 			count(*)
 		from
 			cahg_activity_notice
+		where
+			 1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
 	</select>
 	
 	<!-- 查询活动通知信息 -->

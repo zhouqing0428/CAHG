@@ -1,6 +1,7 @@
 package com.mobset.system.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +73,7 @@ public class CahgViolationController {
 	}
 
 	@RequestMapping(value="/violationListPage")
-	public String violationListPage(HttpServletRequest request) {
+	public String violationListPage(HttpServletRequest request) throws UnsupportedEncodingException{
 		HashMap ipMap = new HashMap();
 		ipMap = cahgOfficePostService.selectIP();
 		if (ipMap != null) {
@@ -103,7 +104,14 @@ public class CahgViolationController {
 		}
 		
 		Map<String, Object> map = new HashMap<>();
-		Integer count = violationService.queryCount(null);
+		String title = request.getParameter("title");
+		if(title!=null && !"".equals(title)){
+			title = URLDecoder.decode(title,"UTF-8");//解码
+			request.setAttribute("title", title);
+			map.put("title", "%"+title+"%");
+		}
+		
+		Integer count = violationService.queryCount(map);
 		Page p = new Page();
 		p.setCount(count);
 		map.put("page", p.getPage());// 从第几个开始
@@ -127,6 +135,13 @@ public class CahgViolationController {
 		map.put("page", p.getPage());// 从第几个开始
 		map.put("rows", p.getPageSize());// 每页大小
 
+		String title = request.getParameter("title");
+		if(title!=null && !"".equals(title)){
+			title = URLDecoder.decode(title,"UTF-8");//解码
+			request.setAttribute("title", title);
+			map.put("title", "%"+title+"%");
+		}
+		
 		List<Map<String, Object>> list = violationService.queryList(map);// 违法曝光list
 		Map<String, Object> result = new HashMap<String, Object>();// 传值方式
 		result.put("list", list);

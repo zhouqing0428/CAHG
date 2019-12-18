@@ -1,6 +1,7 @@
 package com.mobset.system.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -38,9 +39,16 @@ public class CahgActivityNoticeController {
 	}
 
 	@RequestMapping(value="/activityNoticeListPage")
-	public String activityNoticeListPage(HttpServletRequest request) {
+	public String activityNoticeListPage(HttpServletRequest request) throws UnsupportedEncodingException{
 		Map<String, Object> map = new HashMap<>();
-		Integer count = activityNoticeService.queryCount(null);
+		String title = request.getParameter("title");
+		if(title!=null && !"".equals(title)){
+			title = URLDecoder.decode(title,"UTF-8");//解码
+			request.setAttribute("title", title);
+			map.put("title", "%"+title+"%");
+		}
+		
+		Integer count = activityNoticeService.queryCount(map);
 		Page p = new Page();
 		p.setCount(count);
 		map.put("page", p.getPage());// 从第几个开始
@@ -64,6 +72,13 @@ public class CahgActivityNoticeController {
 		map.put("page", p.getPage());// 从第几个开始
 		map.put("rows", p.getPageSize());// 每页大小
 
+		String title = request.getParameter("title");
+		if(title!=null && !"".equals(title)){
+			title = URLDecoder.decode(title,"UTF-8");//解码
+			request.setAttribute("title", title);
+			map.put("title", "%"+title+"%");
+		}
+		
 		List<Map<String, Object>> list = activityNoticeService.queryList(map);// 图片新闻list
 		Map<String, Object> result = new HashMap<String, Object>();// 传值方式
 		result.put("list", list);

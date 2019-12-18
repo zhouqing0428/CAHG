@@ -132,13 +132,14 @@ getHeader();
 	var url = '${url}';
 	var pageCount = '${pageCount}';
 	var count = '${count}';
+	var title = '${title}';
 	$('.page').createPage(function(curPage){
 		$.ajax({
 		    url:"cahgViolation/violationList.do",
 		    dataType : "json", 
 		    method:"post",
 		    async: true,  
-		    data: {curPage:curPage,url:url},
+		    data: {curPage:curPage,title:encodeURI(title, "UTF-8"),url:url},
 		    success:function(data){
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){

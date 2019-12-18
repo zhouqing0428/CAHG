@@ -19,6 +19,11 @@
 			date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date
 		from
 			cahg_violation c
+		where 1 = 1
+		<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y-%m-%d') like #{title})
+		</if>
+		
 		ORDER BY create_date DESC
 		limit
 			#{page},#{rows}
@@ -30,6 +35,11 @@
 			count(*)
 		from
 			cahg_violation
+		where
+			1 = 1
+			<if test="title !=null and title !=''">
+			and (title like #{title} OR DATE_FORMAT(create_date,'%Y%m%d') like #{title})
+		</if>
 	</select>
 	
 	<!-- 查询违纪曝光信息 -->

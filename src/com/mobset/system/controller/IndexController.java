@@ -290,6 +290,15 @@ public class IndexController {
 			else if(type.equals("cahg_custom_news")){//海关新闻
 				return "redirect:/cahgCustomNews/customNewsListPage.do?title="+title;
 			}
+			else if(type.equals("cahg_violation")){//违纪曝光
+				return "redirect:/cahgViolation/violationListPage.do?title="+title;
+			}
+			else if(type.equals("cahg_style")){//长安风采
+				return "redirect:/cahgStyle/styleListPage.do?title="+title;
+			}
+			else if(type.equals("cahg_activity_notice")){//活动通知
+				return "redirect:/cahgActivityNotice/activityNoticeListPage.do?title="+title;
+			}
 		}
 		return "page/404";
 	}

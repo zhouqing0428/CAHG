@@ -119,13 +119,14 @@ getHeader();
 	var url = '${url}';
 	var pageCount = '${pageCount}';
 	var count = '${count}';
+	var title = '${title}';
 	$('.page').createPage(function(curPage){
 		$.ajax({
 		    url:"cahgActivityNotice/activityNoticeList.do",
 		    dataType : "json", 
 		    method:"post",
 		    async: true,  
-		    data: {curPage:curPage,url:url},
+		    data: {curPage:curPage,url:url,title:encodeURI(title, "UTF-8")},
 		    success:function(data){
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
