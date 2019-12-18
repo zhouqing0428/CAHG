@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title></title>
+<title>关长信箱</title>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,57 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		white-space: nowrap;
 		-o-text-overflow: ellipsis;
 		text-overflow: ellipsis;
-	  }  
+	  } 
+.letterList{
+	width:690px;
+	height:auto;
+	margin:10px auto 0;
+	overflow:hidden;
+} 
+.letterList li{
+	width:198px;
+	height:auto;
+	border:1px solid #ccc;
+	overflow:hidden;
+	float:left;
+	margin:0 15px 20px;
+}
+.letterList li a:hover{
+	color:#ff6000;
+}
+.letterList li .userName{
+	display:block;
+	height:34px;
+	line-height:34px;
+	text-align:center;
+	overflow:hidden;
+	color:#333;
+}
+.letterList li .userPic{
+	display:block;
+	height:266px;
+	width:200px;
+	text-align:center;
+	overflow:hidden;
+}
+.letterList li .userPic img{
+	height:266px;
+	width:200px;
+	height:266px;
+	width:200px;
+}
+.letterList li .userDesc{
+	display:block;
+	height:66px;
+	line-height:22px;
+	text-align:left;
+	overflow:hidden;
+	color:#333;
+	padding:3px 10px;
+	display: -webkit-box;
+	    -webkit-box-orient: vertical;
+	    -webkit-line-clamp: 3;
+}
 </style>
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
@@ -85,17 +135,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
          				${attentive.content }
          			</td>
          		</tr>
-         		<tr></tr><tr></tr><tr></tr>
          		
          		<tr>
-         			<td align="right">东莞长安海关</td>
+         			<td align="center" style="margin-top:20px;font-size:18px;color:blue;text-align:center;height:40px;line-height:40px;">东莞长安海关</td>
          		</tr>
          	</table>
-        <table width="100%" style="table-layout: fixed;margin-top:50px;" >        	
+         	<ul class="letterList">
+         		<c:forEach items="${letterList }" var="ele" varStatus="i">
+         			<li>
+         				<a class="userName" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a>
+         				<a class="userPic" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }"><img src="http://10.56.65.100/file/upImg/userPhoto/${ele.photo}" /></a>
+         				<a class="userDesc" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.intro}</a>
+         			</li>
+         		</c:forEach>
+         	</ul>
+        <%-- <table width="100%" style="table-layout: fixed;margin-top:50px;" >        	
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index < 4 }">
-        					<td align="center" style="width:25%;background-color: #2b67ac;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
+        					<td align="center" style="width:25%;height:40px;line-height:40px;color: #1c649f"><a style="color:#1c649f" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
         					<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -125,7 +183,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         		<tr>
         			<c:forEach items="${letterList }" var="ele" varStatus="i">
         				<c:if test="${i.index >= 4 and i.index<8}">
-        					<td align="center" style="width:25%;background-color: #2b67ac;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
+        					<td align="center" style="width:25%;background-color: #1c649f;height:40px;line-height:40px;color: #fff"><a style="color:#fff" href="cahgLetter/updatePage.do?to_user_id=${ele.user_id }">${ele.remark}</a></td>
         					<td>    </td>
         				</c:if>
         			</c:forEach>
@@ -147,7 +205,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         			</c:forEach>
         		</tr>
         		
-        	</table>
+        	</table> --%>
         </div>
         <div class="con-right fr mar-l-2">
         	

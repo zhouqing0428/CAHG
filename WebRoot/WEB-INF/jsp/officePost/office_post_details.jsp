@@ -19,7 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script language="javascript" type="text/javascript" src="static/js/jquery.page.js"></script>
 <link href="static/layui/css/layui.css" rel="stylesheet">
 <script src="static/layui/layui.all.js"></script>
-<!-- <script type="text/javascript">	
+<script type="text/javascript">	
 	$(document).ready(function(){
 		var ip = '${ip}';
 		if(ip==""){
@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		
 	});
-</script> -->
+</script>
 </head>
 
 <body>

@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>值班表</title>
+<title>值班安排</title>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
@@ -72,12 +72,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        		<dt>值班安排</dt>
 			<c:if test="${type eq 1 }">
         		<dd class="curr">
-	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='值班规章制度' >值班规章制度</a>
+	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='规章制度' >规章制度</a>
 	             </dd>
              </c:if>
              <c:if test="${type eq 2 }">
         		<dd>
-	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='值班规章制度' >值班规章制度</a>
+	               <a href="cahgDutySchedule/dutyDetailsShow.do?type=1"  target="_parent" title='规章制度' >规章制度</a>
 	            </dd>
              </c:if>
              <c:if test="${type eq 1 }">

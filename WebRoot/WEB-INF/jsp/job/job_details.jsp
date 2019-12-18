@@ -39,9 +39,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           <tr>
             <td align="center" width="100%"><b>发起时间：${newMap.create_date }&nbsp;&nbsp;&nbsp;办理期限：${newMap.end_time } &nbsp;&nbsp;&nbsp;办理进度：<c:if test="${newMap.status eq 0}">待办</c:if><c:if test="${newMap.status eq 1}">在办</c:if><c:if test="${newMap.status eq 2}">已办</c:if><c:if test="${newMap.status eq 3}">超时完结</c:if> </b></td>
           </tr>
-          <c:if test="${not empty newMap.deptName}">
-            	<tr><td align="center" width="100%"><b><font color="blue">经办科室：${newMap.deptName }</font></b></td></tr>
-            </c:if>
           <tr style="height:50px;">
 	          <td><hr/></td>
           </tr>

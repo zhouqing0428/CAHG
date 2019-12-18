@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>工作督办列表</title>
+<title>工作督办</title>
 <link href="static/layui/css/layui.css" rel="stylesheet">
 <script src="static/layui/layui.all.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">

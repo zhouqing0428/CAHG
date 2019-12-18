@@ -34,7 +34,7 @@ table{margin: 0 auto}
 </div></div>
       </div>
       <div class="con_title mar-t2 text">
-        <h4 style="margin:20px;" align="center">${newMap.title }</h4>
+        <h4 style="margin:20px auto;width:70%;" align="center">${newMap.title }</h4>
       </div>
       <div class="line mar-t2 hov">
         <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" style="padding-left:10px; padding-right:10px;color:#666666;">
@@ -47,39 +47,43 @@ table{margin: 0 auto}
         </table>
       </div>
       <div id="content"  style="margin-top:10px;color:black;padding-right:50px;padding-left:50px;">
-         	
-         	<table id="Table1" style="width:100%;margin:10px auto 30px;padding:0px; border-collapse:collapse;">
+         	<c:if test="${not empty newMap.content}">
+         	${newMap.content }
+         	</c:if>
+         	<c:if test="${empty newMap.content}">
+         	<table id="Table1" style="width:75%;margin:10px auto 30px;padding:0px; border-collapse:collapse;font-size:16px;">
          		<tbody>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>会议名称</span></td>
+         			<td style="border:1px solid;line-height:50px;text-align:center;font-weight: bold;" width="81"><span>会议名称</span></td>
          			<td width="85%" style="padding-left:10px;" align="left"><span id="_ctl1__ctl0__ctl0_MNameLb">${newMap.title }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>会议时间</span></td>
+         			<td style="border:1px solid;line-height:50px;text-align:center;font-weight: bold;" width="81"><span>会议时间</span></td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MTimeLb">${newMap.meeting_time }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>会议地点</span> </td>
+         			<td style="border:1px solid;line-height:50px;text-align:center;font-weight: bold;" width="81"><span>会议地点</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MLocationLb">${newMap.meeting_place }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>参加部门</span> </td>
+         			<td style="border:1px solid;line-height:50px;text-align:center;font-weight: bold;" width="81"><span>参加部门</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MDepLb">${newMap.meeting_dep }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81" height="30"><span>参加人员</span> </td>
+         			<td style="border:1px solid;line-height:50px;text-align:center;font-weight: bold;" width="81" height="30"><span>参加人员</span> </td>
          			<td height="30" style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MPeopleLb">${newMap.meeting_person }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>会议要求</span> </td>
+         			<td style="border:1px solid;line-height:50px;text-align:center;font-weight: bold;"><span>会议要求</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_MContentLb">${newMap.meeting_require }</span>&nbsp;</td>
          		</tr>
          		<tr>
-         			<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;" width="81"><span>联 系 人</span> </td>
+         			<td style="border:1px solid;line-height:50px;text-align:center;font-weight: bold;" width="81"><span>联 系 人</span> </td>
          			<td style="padding-left:10px;"><span id="_ctl1__ctl0__ctl0_ContackLb">${newMap.meeting_contact }</span>&nbsp;</td>
          		</tr>
          	</tbody>
          </table>
+         </c:if>
          <p><br/></p>
       </div>
     </div>

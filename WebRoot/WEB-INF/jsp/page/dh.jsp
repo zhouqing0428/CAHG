@@ -16,28 +16,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					<a href="index/page.do" target="_parent" class="_xxgk">首页</a>
 				</li>
 				<li>
-					<a href="cahgIntro/toIntroPage.do" target="_parent">&nbsp;&nbsp;简介&nbsp;&nbsp;</a>
+					<a href="cahgIntro/toIntroPage.do" target="_blank">&nbsp;&nbsp;简介&nbsp;&nbsp;</a>
 					<dl class="slideList">
-						<dd><a href="dept/dept_left.do" target="_parent">制度建设</a></dd>
-						<dd><a href="cahgIntro/toIntroPage2.do" target="_parent">工作亮点</a></dd> 
+						<dd><a href="dept/dept_left.do" target="_blank">制度建设</a></dd>
+						<dd><a href="cahgIntro/toIntroPage2.do" target="_blank">工作亮点</a></dd> 
 					</dl>
 				</li>
 				<li>
-					<a href="cahgLetter/letterShow.do" target="_parent">关长信箱</a>
+					<a href="cahgLetter/letterShow.do" target="_blank">关长信箱</a>
 				</li>
 				<li>
-					<a href="cahgDutySchedule/dutyDetailsShow.do?type=1" target="_parent">值班安排</a>
+					<a href="cahgDutySchedule/dutyDetailsShow.do?type=1" target="_blank">值班安排</a>
+					<dl class="slideList">
+						<dd><a href="cahgDutySchedule/dutyDetailsShow.do?type=1" target="_blank">规章制度</a></dd>
+						<dd><a href="cahgDutySchedule/dutyDetailsShow.do?type=2" target="_blank">值&nbsp;班&nbsp;表</a></dd> 
+					</dl>
 				</li>
 				<li>
-					<a href="cahgAddressLook/addressLookShowPage.do?dept_id=38" target="_parent">通讯录</a>
+					<a href="cahgAddressLook/addressLookShowPage.do?dept_id=38" target=_blank>通讯录</a>
 				</li>
 				<li>
 					<a href="javascript:void(0)">常用链接</a>
 					<dl class="slideList">
-						<dd><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/"  target="_parent">HB2018</a></dd>
-						<dd><a href="http://10.56.2.115/HBWebApp/HB2004Portal/default.aspx"  target="_parent">HB2004</a></dd> 
-						<dd><a href="http://10.99.108.62/portal/home/welcomepage/welcomepage.jsp" target="_parent">考勤系统</a></dd> 
-						<dd><a href="http://10.56.1.186/HPZBPortal/Default.aspx" target="_parent">综保平台</a></dd> 
+						<dd><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/" target="_blank">HB2012</a></dd>
+						<dd><a href="http://10.56.2.115/HBWebApp/HB2004Portal/default.aspx" target="_blank">HB2004</a></dd> 
+						<dd><a href="http://10.99.108.62/portal/home/welcomepage/welcomepage.jsp" target="_blank">考勤系统</a></dd> 
+						<dd><a href="http://10.56.1.186/HPZBPortal/Default.aspx" target="_blank">综保平台</a></dd> 
 						<dd><a href="commomForm/commomFormsListPage.do?type=0" target="_blank">表格下载</a></dd> 
 						<c:if test="${not empty traffic}">
 							<dd><a href="http://10.56.65.100/file/upImg/commonforms/${traffic.file_name }" target="_blank">交通路线</a></dd> 
@@ -46,10 +50,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				</li>
 				
 				<li>
-					<a href="http://10.56.65.100/CAHGAdmin"  target="_blank">登录</a>
+					<a href="http://10.56.65.100/CAHGAdmin" target="_blank">登录</a>
 				</li>
 				<li>
-					<a href="javascript:void(0);"  target="_parent">${sysDate }</a>
+					<a href="javascript:void(0);" target="_parent">${sysDate }</a>
 				</li>
 			</ul>
 			<div class="suos" >

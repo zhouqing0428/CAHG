@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>${newMap.title}</title>
+<title>东莞长安海关简介</title>
 <link href="static/css/common.css" rel="stylesheet" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <script type="text/javascript" src="js/dropdown.class.demo_3.js"></script>

@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>制度建设</title>
+<title>${title}</title>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
@@ -55,11 +55,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
 		          <div class="list_left_title">
-		         	 	报表表格
+		         	 	重点工作
 		          </div>
 		        </div>
 		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;报表表格
+		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;重点工作
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">

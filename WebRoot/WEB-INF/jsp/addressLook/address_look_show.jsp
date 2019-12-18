@@ -51,9 +51,15 @@
 				<h4 id="deptName" align="center">${dept.name}</h4>
 			</div>
 			<div id="content">
-				<p id="deptRemark" style="white-space:pre-line;font-weight: bold;font-size: 14px;margin-top: 15px;">
+				<p id="deptRemark" style="white-space:pre-line;font-weight: bold;font-size: 16px;margin-top: 15px;">
 				<c:if test="${dept.parent_id eq 0}">${dept.remark }</c:if>
 				</p>
+				<c:if test="${not empty traffic}">
+				<div id="showAttach">
+					<br>
+					<b><a style="color:blue;font-size:16px;" href="http://10.56.65.100/file/upImg/commonforms/${traffic.file_name }" target="_blank">${traffic.file_old_name }</a></b>
+				</div>
+				</c:if>
 				<table id="myTable" style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
 					<thead>
 						<tr style="background:#2b67ac;">
@@ -119,6 +125,7 @@
   	}
   	getHeader();
   	function getTableData(_id){
+  		$("#showAttach").hide();
   		$.ajax({
   		    url:"cahgAddressLook/getAddressLookByDeptId.do",
   		    dataType : "html", 

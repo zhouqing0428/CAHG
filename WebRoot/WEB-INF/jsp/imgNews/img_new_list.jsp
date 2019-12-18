@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>图片新闻列表</title>
+<title>图片新闻</title>
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
 <link href="static/css/common.css" rel="stylesheet" />
 <style type="text/css">
@@ -103,7 +103,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
 		    		html += '<div class="list_div mar-top2" style="display:block;">'+
-		    				'<a href="/cahgImgNews/imgNewsDetailsPage.do?img_new_id='+data.list[i].img_new_id+'" target="_blank">'+
+		    				'<a href="cahgImgNews/imgNewsDetailsPage.do?img_new_id='+data.list[i].img_new_id+'" target="_blank">'+
 		    				'<table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">'+
 		    				'<tr><td rowspan="2" style="width:150px;"><img style="width:150px;" height="120px;" src="http://10.56.65.100/file/upImg/imgNews/'+data.list[i].img_url+'"></td>'+
 		    				'<td colspan="2"> <div class="list-right_title fon_1" style="margin-left: 5px;"><b id="new_title">';

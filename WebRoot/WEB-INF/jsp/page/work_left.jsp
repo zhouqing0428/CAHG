@@ -6,7 +6,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
-<dt>报表表格</dt>
+<dt>重点工作</dt>
 <c:forEach items="${tableCategoryList }" var="ele">
 <c:if test="${work_table_category_id eq ele.work_table_category_id }">
 <dd class="curr">

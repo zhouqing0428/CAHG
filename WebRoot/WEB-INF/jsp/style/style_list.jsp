@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title></title>
+<title>长安风采</title>
 
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
@@ -24,8 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	padding-top:40px;
 } 
 #style_list li{
-	width:150px;
-	height:164px;
+	width:259px;
+	height:257px;
 	overflow:hidden;
 	margin-right:50px;
 	margin-bottom:20px;
@@ -35,8 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	margin-right:0px;
 }
 #style_list li img{
-	width:150px;
-	height:129px;
+	width:259px;
+	height:222px;
 	display:block;
 }
 #style_list li strong{

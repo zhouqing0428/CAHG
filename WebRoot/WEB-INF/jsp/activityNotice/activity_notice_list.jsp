@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>活动通知列表</title>
+<title>文体活动</title>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
@@ -65,11 +65,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div class="con_title_left fl_left">
 		        <div class=" font24 padd-b">
 		          <div class="list_left_title">
-		            	活动通知
+		            	文体活动
 		          </div>
 		        </div>
 		        <div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;活动通知列表
+		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;文体活动列表
 		</div>   
       </div>
       <div class="cen-div-1 mar-t">
@@ -119,14 +119,13 @@ getHeader();
 	var url = '${url}';
 	var pageCount = '${pageCount}';
 	var count = '${count}';
-	var title = '${title}';
 	$('.page').createPage(function(curPage){
 		$.ajax({
 		    url:"cahgActivityNotice/activityNoticeList.do",
 		    dataType : "json", 
 		    method:"post",
 		    async: true,  
-		    data: {curPage:curPage,url:url,title:encodeURI(title, "UTF-8")},
+		    data: {curPage:curPage,url:url},
 		    success:function(data){
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
@@ -135,7 +134,7 @@ getHeader();
 		    				"  <div class='list-right_title fon_1'><b id='new_title'>"+data.list[i].title+"</b></div>" +
 		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
 		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +
-		    				"<td width='50%' align='right' ><span class='column-name'><b>发布人："+data.list[i].user_name+"</b></span></td>"+
+		    				"<td width='50%' align='right' ><span class='column-name'><b>发布科室："+data.list[i].name+"</b></span></td>"+
 		    				"</tr></table></a></div>";
 		    	}
 		     	$("#list").html(html);

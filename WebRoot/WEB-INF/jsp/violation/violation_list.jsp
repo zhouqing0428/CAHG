@@ -11,7 +11,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>违纪曝光列表</title>
+<title>违纪曝光</title>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
 <link href="static/css/index_6.css" rel="stylesheet" type="text/css" />
 <link href="static/css/page.css" rel="stylesheet" type="text/css" />
@@ -132,14 +132,13 @@ getHeader();
 	var url = '${url}';
 	var pageCount = '${pageCount}';
 	var count = '${count}';
-	var title = '${title}';
 	$('.page').createPage(function(curPage){
 		$.ajax({
 		    url:"cahgViolation/violationList.do",
 		    dataType : "json", 
 		    method:"post",
 		    async: true,  
-		    data: {curPage:curPage,title:encodeURI(title, "UTF-8"),url:url},
+		    data: {curPage:curPage,url:url},
 		    success:function(data){
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
