@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<li>
 					<a href="javascript:void(0)">常用链接</a>
 					<dl class="slideList">
-						<dd><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/" target="_blank">HB2012</a></dd>
+						<dd><a href="http://10.56.1.128/HBPlusWebApp/HidealCloud/" target="_blank">HB2018</a></dd>
 						<dd><a href="http://10.56.2.115/HBWebApp/HB2004Portal/default.aspx" target="_blank">HB2004</a></dd> 
 						<dd><a href="http://10.99.108.62/portal/home/welcomepage/welcomepage.jsp" target="_blank">考勤系统</a></dd> 
 						<dd><a href="http://10.56.1.186/HPZBPortal/Default.aspx" target="_blank">综保平台</a></dd> 
