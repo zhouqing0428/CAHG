@@ -2,6 +2,7 @@ package com.mobset.system.controller;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,25 @@ public class CahgJobController {
 		HashMap map = new HashMap();// 参数统一map
 		map.put("job_id", job_id);
 		HashMap newMap = cahgJobService.jobDetailsShow(map);
+		
+		if (newMap.get("dept_id") != null) {
+			String deptId = newMap.get("dept_id").toString();
+			String[] deptIds = deptId.split(";");
+			List<String> idList = new ArrayList<String>();
+			for (String id : deptIds) {
+				idList.add(id);
+			}
+			// 根据科室编码批量取出科室信息
+			StringBuilder deptName = new StringBuilder();
+			List<Map<String, Object>> deptList = service.queryListByIds(idList);
+			for (Map<String, Object> deptMap : deptList) {
+				deptName.append(deptMap.get("name").toString()).append("、");
+			}
+			if (deptName.length() > 0) {
+				newMap.put("deptName", deptName.substring(0, deptName.length() - 1));
+			}
+		}
+
 		request.setAttribute("newMap", newMap);
 		
 		Map<String,Object> params = new HashMap<>();
