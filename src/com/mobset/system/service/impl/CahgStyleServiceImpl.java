@@ -46,6 +46,15 @@ public class CahgStyleServiceImpl implements CahgStyleService{
 		// TODO Auto-generated method stub
 		return dao.styleList(map);
 	}
+	
+	/**
+	 * @说明 长安风采分类列表
+	 */
+	@Override
+	public List<HashMap> styleCateList(HashMap map) {
+		// TODO Auto-generated method stub
+		return dao.styleCateList(map);
+	}
 
 	/**
 	 * @说明 分页

@@ -24,8 +24,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	padding-top:40px;
 } 
 #style_list li{
-	width:259px;
-	height:257px;
+	width:150px;
+	height:164px;
 	overflow:hidden;
 	margin-right:50px;
 	margin-bottom:20px;
@@ -35,8 +35,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	margin-right:0px;
 }
 #style_list li img{
-	width:259px;
-	height:222px;
+	width:150px;
+	height:129px;
 	display:block;
 }
 #style_list li strong{
@@ -94,7 +94,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
       
       <div class="cen-div-1 mar-t">
-        <dl class="con-left fl"></dl>
+        <dl class="con-left fl">
+        	<dt>长安风采</dt>
+        	<c:forEach items="${styleCateList}" var="ele">
+        		<dd>
+					<a href="cahgStyle/styleListPage.do?cateId=${ele.id}" target="_parent" title='${ele.cate_name }' >${ele.cate_name }</a>
+				</dd>
+        	</c:forEach>
+        </dl>
         <!-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url }" widht="100%"></iframe>  -->
         <div class="con-right fr mar-l-2">
  			<div id="list">
@@ -110,22 +117,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div> 
    
 <script>
-getSlideMenu()
-function getSlideMenu(){
-	var url = "${url }"
-		
-	$.ajax({
-	    url:"index/new_left.do?url="+url,
-	    dataType : "html", 
-	    method:"post",
-	    async: true,  
-	    data: {},
-	    contentType: "application/x-www-form-urlencoded; charset=utf-8", 
-	    success:function(data){
-	    	$(".con-left").html(data);
-	    }
-	 });
-}	
 function getHeader(){
 $.ajax({
     url:"index/head.do",
@@ -143,13 +134,14 @@ getHeader();
 	var pageCount = '${pageCount}';
 	var count = '${count}';
 	var title = '${title}';
+	var cateId = '${cateId}';
 	$('.page').createPage(function(curPage){
 		$.ajax({
 		    url:"cahgStyle/styleList.do",
 		    dataType : "json", 
 		    method:"post",
 		    async: true,  
-		    data: {curPage:curPage,title:encodeURI(title, "UTF-8")},
+		    data: {curPage:curPage,cateId:cateId,title:encodeURI(title, "UTF-8")},
 		    success:function(data){
 		    	var html = "<ul id='style_list'  class='style_list'>";
 		     	for(var i=0;i<data.list.length;i++){

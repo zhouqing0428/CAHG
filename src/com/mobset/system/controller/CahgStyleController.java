@@ -63,11 +63,22 @@ public class CahgStyleController {
 			map.put("title", "%"+title+"%");
 		}
 		
+		String cateId = request.getParameter("cateId");
+		if(cateId!=null && !"".equals(cateId)){
+			request.setAttribute("cateId", cateId);
+			map.put("cateId", "%"+cateId+"%");
+		}
+		
+		
 		Integer count = cahgStyleService.count(map);//总记录数
 		Page p =new Page();
 		p.setCount(count);
 		map.put("page",p.getPage());//从第几个开始
 		map.put("rows",p.getPageSize());//每页大小
+		
+		List<HashMap> styleCateList = cahgStyleService.styleCateList(map);
+		
+		request.setAttribute("styleCateList", styleCateList); //总页数
 		request.setAttribute("pageCount", p.getPageCount()); //总页数
 		request.setAttribute("count", p.getCount()); //总记录
 		request.setAttribute("url", "cahgStyle/styleListPage.do");//左导航判断用
@@ -92,6 +103,12 @@ public class CahgStyleController {
 		if(title!=null && !"".equals(title)){
 			title = URLDecoder.decode(title,"UTF-8");//解码
 			map.put("title", "%"+title+"%");
+		}
+		
+		String cateId = request.getParameter("cateId");
+		if(cateId!=null && !"".equals(cateId)){
+			request.setAttribute("cateId", cateId);
+			map.put("cateId", "%"+cateId+"%");
 		}
 		
 		List<HashMap> styleList = cahgStyleService.styleList(map);//风采图片list

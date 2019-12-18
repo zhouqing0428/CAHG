@@ -24,6 +24,8 @@ public interface CahgStyleService {
 	 */
 	public List<HashMap> styleList(HashMap map);
 	
+	public List<HashMap> styleCateList(HashMap map);
+	
 	/**
 	 * @说明 分页
 	 */

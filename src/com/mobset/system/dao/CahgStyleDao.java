@@ -26,6 +26,11 @@ public interface CahgStyleDao {
 	public List<HashMap> styleList(HashMap map);
 	
 	/**
+	 * @说明 长安风采分类列表
+	 */
+	public List<HashMap> styleCateList(HashMap map);
+	
+	/**
 	 * @说明 分页
 	 */
 	public Integer count(HashMap map);
