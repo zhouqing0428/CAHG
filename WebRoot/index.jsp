@@ -32,7 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="static/js/jquery.slideBox.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/jquery.slideBox.css">
 </head>
-<body bgcolor="#F1F1F1" onload="wish()" style="letter-spacing:1.5px;" class="body1">
+<body bgcolor="#F1F1F1" onload="wish()" style="letter-spacing:0.6px;" class="body1">
 <!--头部--> 
 <script type="text/javascript" src="static/js/dropdown.class.demo.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
@@ -410,11 +410,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="slideTxtBox qywh fr mt10" style="border:1px solid #CCC">
 		<div class="hd">
 			<a href="cahgViolation/violationListPage.do" target="_blank" class="fr fm1">更多>></a>
-		    <ul><li>违纪曝光</li></ul>
+		    <ul><li style="cursor:pointer; ">违纪曝光</li><li style="cursor:pointer; ">内务检查通报</li></ul>
 		</div>
 		<div class="bd">
 			<ul class="newsList">
-				<c:forEach items="${violationList }" var="ele" varStatus="index">
+				<c:forEach items="${violationList1 }" var="ele" varStatus="index">
+	        		<li><a id="violationList" href="cahgViolation/violationInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
+	            </c:forEach>
+			</ul>
+			<ul class="newsList">
+				<c:forEach items="${violationList2 }" var="ele" varStatus="index">
 	        		<li><a id="violationList" href="cahgViolation/violationInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
 	            </c:forEach>
 			</ul>
@@ -484,7 +489,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<c:if test="${not empty floatNews.float_link}">
 	 		<div id="roll">
 		    	<a target="_blank" href="${floatNews.float_link }"  title="${floatNews.float_new_title }">
-		    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="50" width="100" />
+		    		<img src="http://10.56.65.100/file/upImg/floatNews/${floatNews.float_url }" height="92" width="235" />
 		    	</a>
 		    </div>
     	</c:if>

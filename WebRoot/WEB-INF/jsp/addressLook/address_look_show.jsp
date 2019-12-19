@@ -62,14 +62,14 @@
 				</c:if>
 				<table id="myTable" style="width:100%;margin:30px auto 30px;padding:0px; border-collapse:collapse;">
 					<thead>
-						<tr style="background:#2b67ac;">
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">序号</span></td>
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">姓名</span></td>
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">工号</span></td>
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">科室</span></td>
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">职务</span></td>
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工内线</span></td>
-							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span style="color:#fff;">办工外线</span></td>
+						<tr style="background:#ccc;">
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>序号</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>姓名</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>工号</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>科室</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>职务</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>办工内线</span></td>
+							<td style="border:1px solid;line-height:50px;font-size:14px;text-align:center;"><span>办工外线</span></td>
 						</tr>
 					</thead>
 					<tbody>

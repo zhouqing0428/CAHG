@@ -428,7 +428,7 @@ min-height: 950px;}
 .con-left dt{
 	height:40px;
 	line-height:40px;
-	background:#2b67ac;
+	background:#ff9f06;
 	color:#ffffff;
 	text-align:center;
 	font-size:16px;
@@ -436,9 +436,9 @@ min-height: 950px;}
 	margin-bottom:15px;
 }
 .con-left dd{
-	margin:0 20px;
-	height:35px;
-	line-height:35px;
+	margin:-9px 20px;
+	height:27px;
+	line-height:27px;
 	padding:0 20px;
 	text-align:center;
 	overflow:hidden;
@@ -450,8 +450,8 @@ min-height: 950px;}
 	font-size:14px;
 }
 .con-left dd.curr{
-	background:#2b67ac;
-	border:1px solid #2b67ac;
+	background:#ccc;
+	border:1px solid #ccc;
 }
 .con-left dd.curr a{
 	color:#ffffff;

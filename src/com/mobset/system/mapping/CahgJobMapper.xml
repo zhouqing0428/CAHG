@@ -30,7 +30,7 @@
 	<select id="jobList" parameterType="java.util.HashMap" resultType="java.util.HashMap">
 		select
 			job_id, title,date_format(create_user_date,'%Y-%m-%d') create_date , 
-			date_format(end_time,'%Y-%m-%d')  end_time
+			date_format(end_time,'%Y-%m-%d') end_time, dept_id
 		from
 			cahg_job
 		where

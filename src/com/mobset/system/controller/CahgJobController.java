@@ -4,8 +4,10 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -74,7 +76,7 @@ public class CahgJobController {
 		
 		request.setAttribute("jobId", job_id);
 		return "job/job_details";
-	}	
+	}
 	
 	/**
 	 * 工作督办列表页
@@ -143,10 +145,70 @@ public class CahgJobController {
 			request.setAttribute("status", status);
 		}
 		
-		List<HashMap> dayInfoList = cahgJobService.jobList(map);//海关新闻list
+		List<HashMap> jobList = cahgJobService.jobList(map);
+		
+		// 封装经办科室名称
+		Map<String,String> deptNameMap = mapDeptName(jobList);
+		StringBuilder deptName = new StringBuilder();
+		String[] deptIds = null;
+		Set<String> deptIdSet = new HashSet<>();
+		for (HashMap jobMap : jobList) {
+			if (jobMap.get("dept_id") == null || StringUtils.isEmpty(jobMap.get("dept_id").toString())) {
+				continue;
+			}
+			deptIds = jobMap.get("dept_id").toString().split(";");
+			deptName.setLength(0);
+			for (String deptId : deptIds) {
+				if (deptNameMap != null && deptNameMap.containsKey(deptId)) {
+					deptName.append(deptNameMap.get(deptId)).append("、");
+				}
+			}
+			if (deptName.length() > 0) {
+				jobMap.put("deptName", deptName.substring(0, deptName.length() - 1));
+			}
+		}
+		
 		Map<String, Object> result = new HashMap<String, Object>();//传值方式
-		result.put("list", dayInfoList);
+		result.put("list", jobList);
 		return result;
+	}
+	
+	/**
+	 * 批量取出科室并缓存
+	 * @param cahgJobList
+	 * @return
+	 */
+	private Map<String, String> mapDeptName(List<HashMap> jobList) {
+		// 封装经办科室ID集合
+		String[] deptIds = null;
+		Set<String> deptIdSet = new HashSet<>();
+		for (HashMap jobMap : jobList) {
+			if (jobMap.get("dept_id") == null || StringUtils.isEmpty(jobMap.get("dept_id").toString())) {
+				continue;
+			}
+			deptIds = jobMap.get("dept_id").toString().split(";");
+			for (String deptId : deptIds) {
+				deptIdSet.add(deptId);
+			}
+		}
+		if (deptIdSet.size() > 0) {
+			List<String> idList = new ArrayList<String>();
+			for (String id : deptIdSet) {
+				idList.add(id);
+			}
+			// 根据科室编码批量取出科室信息
+			List<Map<String, Object>> deptList = service.queryListByIds(idList);
+			
+			//根据科室ID缓存科室信息
+			Map<String, String> deptMap = new HashMap<>();
+			for (Map<String, Object> map : deptList) {
+				deptMap.put(map.get("dept_id").toString(), map.get("name").toString());
+			}
+
+			return deptMap;
+		}
+
+		return null;
 	}
 	
 	/**

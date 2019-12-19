@@ -27,6 +27,11 @@ height:34px;line-height:34px;width:96px;color:#fff;text-align:center;background:
 .itemState.curr{
 	background:#7fb2d2;
 }
+.divcss{
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
 </style>
 <script type="text/javascript">	
 	$(document).ready(function(){
@@ -158,10 +163,14 @@ getHeader();
 		     	for(var i=0;i<data.list.length;i++){
 		    		html += "<div class='list_div mar-top2 '>" +
 		    				"<a href='cahgJob/jobDetailsShow.do?job_id="+data.list[i].job_id+"' target='_blank'  >"+
-		    				"  <div class='list-right_title fon_1'><b id='new_title'>"+data.list[i].title+"</b></div>" +
-		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
-		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +
-		    				"<td width='50%' align='right' ><span class='column-name'><b>时限："+data.list[i].end_time+"</b></span></td>"+
+		    				" <div class='list-right_title fon_1'><b id='new_title'>"+data.list[i].title+"</b></div>" +
+		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;table-layout: fixed;'>" +
+		    				" <td width='70%' align='left' class='divcss'><b>发布时间："+data.list[i].create_date;
+    				if(data.list[i].deptName !=undefined && data.list[i].deptName != null){
+    					html +="&nbsp;&nbsp;经办科室："+data.list[i].deptName;
+    				}
+    				html +="</b></td>"+
+		    				"<td width='30%' align='right' ><span class='column-name'><b>时限："+data.list[i].end_time+"</b></span></td>"+
 		    				"</tr></table></a></div>";
 		    	}
 		     	$("#list").html(html);

@@ -142,7 +142,12 @@ public class IndexController {
 		List<HashMap> workTableList = cahgWorkTableService.selectWorkTable(map);
 		List<HashMap> workTableType = cahgWorkTableService.selectType(map);
 		List<Map<String, Object>> noticeList = activityNoticeService.queryIndexList(null); //活动通知
-		List<Map<String, Object>> violationList = violationService.queryIndexList(null); //违纪曝光
+		
+		HashMap map1 = new HashMap();
+		map1.put("violationCategory", 1);
+		List<Map<String, Object>> violationList1 = violationService.queryIndexList(map1); //违纪曝光
+		map1.put("violationCategory", 2);
+		List<Map<String, Object>> violationList2 = violationService.queryIndexList(map1); //违纪曝光
 		
 		HashMap wish = sysDictionaryService.wishSelect(map);//祝福语
 		request.setAttribute("wish", wish);
@@ -197,7 +202,8 @@ public class IndexController {
 		request.setAttribute("workTableList", workTableList);
 		request.setAttribute("workTableType", workTableType);
 		request.setAttribute("noticeList", noticeList);
-		request.setAttribute("violationList", violationList);
+		request.setAttribute("violationList1", violationList1);
+		request.setAttribute("violationList2", violationList2);
 		
 		return "../../index";
 	}
