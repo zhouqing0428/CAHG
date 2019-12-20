@@ -18,7 +18,7 @@
 	<!-- 查询违纪曝光列表 -->
 	<select id="queryList" parameterType="java.util.Map" resultType="java.util.Map">
 		select
-			id, title,
+			id, title,violation_category violationCategory,
 			(select name from sys_user u where u.user_id = c.create_user_id) userName,
 			date_format(create_date,'%Y-%m-%d %H:%i:%s') create_date
 		from

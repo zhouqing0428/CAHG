@@ -35,9 +35,11 @@ public class CahgViolationController {
 			return "page/404";
 		}
 		
+		String type = request.getParameter("type");
+		
 		HashMap ipMap = new HashMap();
 		ipMap = cahgOfficePostService.selectIP();
-		if (ipMap != null) {
+		if (ipMap != null && type.equals("2")) {
 			String status = ipMap.get("status").toString();
 			String ip_start = "";
 			String ip_end = "";
@@ -75,33 +77,33 @@ public class CahgViolationController {
 	@RequestMapping(value="/violationListPage")
 	public String violationListPage(HttpServletRequest request) throws UnsupportedEncodingException{
 		HashMap ipMap = new HashMap();
-		ipMap = cahgOfficePostService.selectIP();
-		if (ipMap != null) {
-			String status = ipMap.get("status").toString();
-			String ip_start = "";
-			String ip_end = "";
-			String ipSection = "0-0";
-			if ("1".equals(status)) {// 开启状态
-				String ip = getIpAddr(request);// 获取访问IP
-				if (ipMap.get("ip_start") != null) {
-					ip_start = ipMap.get("ip_start").toString();
-				}
-				if (ipMap.get("ip_end") != null) {
-					ip_end = ipMap.get("ip_end").toString();
-				}
-				if (ipMap.get("ip_start") != null && ipMap.get("ip_end") != null) {
-					ipSection = ip_start + "-" + ip_end;
-					boolean exists = ipExistsInRange(ip, ipSection);// 判断访问IP是否在设置号段内
-					if (exists == false) {
-						request.setAttribute("ip", "0");
-						return "violation/violation_list";
-					} else {
-						request.setAttribute("ip", "1");
-					}
-				}
-
-			}
-		}
+//		ipMap = cahgOfficePostService.selectIP();
+//		if (ipMap != null) {
+//			String status = ipMap.get("status").toString();
+//			String ip_start = "";
+//			String ip_end = "";
+//			String ipSection = "0-0";
+//			if ("1".equals(status)) {// 开启状态
+//				String ip = getIpAddr(request);// 获取访问IP
+//				if (ipMap.get("ip_start") != null) {
+//					ip_start = ipMap.get("ip_start").toString();
+//				}
+//				if (ipMap.get("ip_end") != null) {
+//					ip_end = ipMap.get("ip_end").toString();
+//				}
+//				if (ipMap.get("ip_start") != null && ipMap.get("ip_end") != null) {
+//					ipSection = ip_start + "-" + ip_end;
+//					boolean exists = ipExistsInRange(ip, ipSection);// 判断访问IP是否在设置号段内
+//					if (exists == false) {
+//						request.setAttribute("ip", "0");
+//						return "violation/violation_list";
+//					} else {
+//						request.setAttribute("ip", "1");
+//					}
+//				}
+//
+//			}
+//		}
 		
 		Map<String, Object> map = new HashMap<>();
 		String title = request.getParameter("title");

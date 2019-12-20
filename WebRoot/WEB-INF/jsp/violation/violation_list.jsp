@@ -143,7 +143,7 @@ getHeader();
 		    	var html = "";
 		     	for(var i=0;i<data.list.length;i++){
 		    		html += "<div class='list_div mar-top2 '>" +
-		    				"<a href='cahgViolation/violationInfo.do?id="+data.list[i].id+"' target='_blank'  >"+
+		    				"<a href='cahgViolation/violationInfo.do?type="+data.list[i].violationCategory+"&id="+data.list[i].id+"' target='_blank'  >"+
 		    				"  <div class='list-right_title fon_1'><b id='new_title'>"+data.list[i].title+"</b></div>" +
 		    				" <table width='98%' border='0' align='center' cellpadding='0' cellspacing='0' style='margin-top:10px; color:#9E9E9E;'>" +
 		    				" <td width='50%' align='left'><b>发布时间："+data.list[i].create_date+"</b></td>" +

@@ -415,12 +415,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="bd">
 			<ul class="newsList">
 				<c:forEach items="${violationList1 }" var="ele" varStatus="index">
-	        		<li><a id="violationList" href="cahgViolation/violationInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
+	        		<li><a id="violationList" href="cahgViolation/violationInfo.do?id=${ele.id}&type=1" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
 	            </c:forEach>
 			</ul>
 			<ul class="newsList">
 				<c:forEach items="${violationList2 }" var="ele" varStatus="index">
-	        		<li><a id="violationList" href="cahgViolation/violationInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
+	        		<li><a id="violationList" href="cahgViolation/violationInfo.do?id=${ele.id}&type=2" title="${ele.title }" target="_blank"><span id="meeting">${ele.title }</span></a></li>
 	            </c:forEach>
 			</ul>
         </div>
