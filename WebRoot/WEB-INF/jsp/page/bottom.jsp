@@ -16,8 +16,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <link href="static/css/index_1.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="static/js/jquery.js"></script>
 <style type="text/css">
-	select{font-size:16px;}
-	select option{font-size:16px;}
+	select{font-size:14px;}
+	select option{font-size:14px;}
 </style>
 </head>
 <body>

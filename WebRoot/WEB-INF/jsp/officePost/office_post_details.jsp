@@ -10,7 +10,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <head>
 <meta charset="utf-8">
 <base href="<%=basePath%>">
-<title>${newMap.day_title}</title>
+<title>${newMap.title}</title>
 
 <script type="text/javascript" src="js/dropdown.class.demo_3.js"></script>
 <link rel="stylesheet" type="text/css" href="static/css/menu.css">
@@ -29,7 +29,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			window.opener=null;
 			window.close();
 		}
-		
 	});
 </script>
 </head>
@@ -42,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="cen-div color mar-t">
       <div class="con_title_left_c fl_left"> 
       	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgOfficePost/officePostListPage.do'  target="_parent">本关发文列表</a>&nbsp;>&nbsp;<a href=''  target="_parent">本关发文</a>
+<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgOfficePost/officePostListPage.do'  target="_parent">本关发文列表</a>&nbsp;>&nbsp;本关发文
 </div></div>
        
       </div>
@@ -56,12 +55,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </tr>
           
           <tr>
-          	 	<c:if test="${newMap.file_name ne null and newMap.file_name ne ''}">
-          	<td align="center" style="height:50px;"><a target="_blank"	 href="http://10.56.65.100/file/upImg/officePost/${newMap.file_name}">点击下载：${newMap.file_old_name }</a></td>
-         		</c:if>
+        	<c:if test="${newMap.file_name ne null and newMap.file_name ne ''}">
+          	<td align="center" style="height:50px;font-weight: bold;"><a target="_blank" style="color:blue;" href="http://10.56.65.100/file/upImg/officePost/${newMap.file_name}">点击下载：${newMap.file_old_name }</a></td>
+         	</c:if>
           </tr>
            <tr style="height:50px;">
-		          	<td><hr/></td>
+           <td><hr/></td>
 		   </tr>
         </table>
       </div>

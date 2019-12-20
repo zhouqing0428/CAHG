@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="cen-div color mar-t">
       <div class="con_title_left_c fl_left"> 
       	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgCustomNews/customNewsListPage.do	'  target="_parent">工作督办</a>&nbsp;>&nbsp;<a href=''  target="_parent">工作办结</a>
+<a href='index/page.do' target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgJob/jobListPage.do' target="_parent">工作督办</a>&nbsp;>&nbsp;工作办结
 </div></div>
       </div>
 	      <div class="jobItem">
@@ -82,7 +82,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		}
 		$.ajax({
 			type : "POST",
-			url : "../cahgJob/submit.do",
+			url : "cahgJob/submit.do",
 			data : {
 				jobId : jobId,
 				deptId : deptId,
@@ -91,7 +91,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			},
 			success : function(data) {
 				if (data.code == 0) {
-					window.location.href="../cahgJob/jobDetailsShow.do?job_id="+jobId;
+					window.location.href="/cahgJob/jobDetailsShow.do?job_id="+jobId;
 				} else {
 					alert("工作办结提交失败");
 				}
@@ -100,7 +100,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				if (textStatus != "success") {
 					location.reload(true);
 				}
-				;
 			}
 		});
 	}

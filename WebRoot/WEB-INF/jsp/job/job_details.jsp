@@ -27,9 +27,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="cen-div color mar-t">
       <div class="con_title_left_c fl_left"> 
       	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgCustomNews/customNewsListPage.do	'  target="_parent">工作督办列表</a>&nbsp;>&nbsp;<a href=''  target="_parent">工作督办</a>
-</div></div>
-       
+			<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgJob/jobListPage.do' target="_parent">工作督办列表</a>&nbsp;>&nbsp;工作督办
+		</div></div>
       </div>
       <div class="con_title mar-t2 text">
         <h4 style="margin:20px;" align="center">${newMap.title }</h4>
@@ -77,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </div>
 <script type="text/javascript">
 	function doJob(jobId){
-		window.location.href="../cahgJob/toResult.do?jobId="+jobId;
+		window.location.href="/cahgJob/toResult.do?jobId="+jobId;
 	}
 	function getHeader(){
 		$.ajax({

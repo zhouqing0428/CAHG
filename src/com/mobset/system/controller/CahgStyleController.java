@@ -67,6 +67,7 @@ public class CahgStyleController {
 		if(cateId!=null && !"".equals(cateId)){
 			request.setAttribute("cateId", cateId);
 			map.put("cateId", "%"+cateId+"%");
+			request.setAttribute("cateId", cateId); 
 		}
 		
 		

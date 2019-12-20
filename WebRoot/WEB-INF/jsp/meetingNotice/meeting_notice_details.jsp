@@ -30,7 +30,7 @@ table{margin: 0 auto}
     <div class="cen-div color mar-t">
       <div class="con_title_left_c fl_left"> 
       	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgMeetingNotice/meetingNoticeListPage.do'  target="_parent">会议通知列表</a>&nbsp;>&nbsp;<a href=''  target="_parent">会议通知</a>
+<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgMeetingNotice/meetingNoticeListPage.do' target="_parent">会议通知列表</a>&nbsp;>&nbsp;会议通知
 </div></div>
       </div>
       <div class="con_title mar-t2 text">

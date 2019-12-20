@@ -52,71 +52,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <div class="page"  style="width:100%; margin-top:50px;">
 				<h2 style="font-weight:normal;height:60px;line-height:60px;">一、本关主要工作</h2>
 		       	<table style="width:100%;margin:0px auto 30px;padding:0px; border-collapse:collapse;">
-					<tr>
-						<c:forEach items="${officeList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 4 }">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>
-					
-					<tr>
-						<c:forEach items="${officeList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 8 and  i.index >=4}">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>	
-					
-					<tr>
-						<c:forEach items="${officeList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 12 and  i.index >=8}">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>
-					
-					<tr>
-						<c:forEach items="${officeList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 18 and  i.index >=12}">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>
+		       	<c:forEach begin="0" end="${officeCount}" varStatus="n">
+		       		<tr>
+		       			<c:forEach items="${officeList }" var="ele" varStatus="i">
+			       		<c:if test="${ i.index >=4*n.index and i.index < 4*(n.index+1) }">
+		       				<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/officeWorkFileListPage.do?office_work_category_id=${ele.office_work_category_id }">${ele.name }</a></td>
+			       		</c:if>
+			       		</c:forEach>
+		       		</tr>
+		       	</c:forEach>					
 		       	</table>
 		       	<h2 style="font-weight:normal;height:60px;line-height:60px;">二、科室管理规范</h2>
 		       	<table  style="width:100%;margin:0px auto 30px;padding:0px; border-collapse:collapse;">
-					<tr>
-						<c:forEach items="${deptList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 3 }">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>
-					
-					<tr>
-						<c:forEach items="${deptList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 6 and  i.index >=3}">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>	
-					
-					<tr>
-						<c:forEach items="${deptList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 9 and  i.index >=6}">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>
-					
-					<tr>
-						<c:forEach items="${deptList }" var="ele" varStatus="i">
-							<c:if test="${ i.index < 12 and  i.index >=9}">
-								<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
-							</c:if>
-						</c:forEach>
-					</tr>
+		       	<c:forEach begin="0" end="${count}" varStatus="n">
+		       		<tr>
+		       		<c:forEach items="${deptList }" var="ele" varStatus="i">
+		       		<c:if test="${ i.index >=3*n.index and i.index < 3*(n.index+1) }">
+	       				<td style="border:1px solid;width:120px;line-height:50px;font-size:18px;text-align:center;"><a href="dept/deptDetails.do?dept_id=${ele.dept_id }">${ele.name }</a></td>
+		       		</c:if>
+		       		</c:forEach>
+		       		</tr>
+		       	</c:forEach>
 		       	</table>
 	 		</div>
         </div>

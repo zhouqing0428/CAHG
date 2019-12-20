@@ -234,7 +234,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	                ${ele.day_title}
 	                </span>
 	                <c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
-						<img style="margin-top:-19px; float:right;" src="static/images/new.gif">
+						<img style="margin-top:-28px; float:right;" src="static/images/new.gif">
 	              	</c:if>
 	                </a>
 	              </li>
@@ -278,7 +278,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      	   <a href="cahgMeetingNotice/meetingNoticeListPage.do" target="_blank" target="_blank" class="fr fm1">更多>></a>
             <ul><li>会议通知</li></ul>
         </div>
-        <div class="bd" style="height:218px;overflow:hidden;">
+        <div class="bd" style="height:214px;overflow:hidden;">
             <ul class="newsList">
             <c:forEach items="${meetingNoticeList }" var="ele">
           			<li>
@@ -287,7 +287,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		                 <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
 						 <c:set var="imgShow"><fmt:formatNumber value="${timeMis/1000/3600}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->
 	               	 	<a href="cahgMeetingNotice/meetingNoticeDetailsPage.do?meeting_notice_id=${ele.meeting_notice_id }" target="_blank" title='${ele.title }'>
-		               	 	<span id="meeting" style="font-size:13px;">
+		               	 	<span id="meeting" style="font-size:12px;">
 		               	 		${ele.title }
 		               	 		<c:if test="${imgShow <= 24.0 }"><!-- 判断是否显示 -->
 									<img style="margin-top:-12px;" src="static/images/new.gif">
@@ -337,7 +337,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			                <c:set var="timeMis" value="${systemDate.time - create_date.time}"/><!-- 比较当前时间和数据时间的时差  毫秒 -->
 							<c:set var="imgShow"><fmt:formatNumber value="${timeMis/1000/3600}" pattern="#0.0"/></c:set><!-- 转化为天数保存在imgShow -->
 							
-	                	<a href="cahgAffiche/afficheDetailsPage.do?affiche_id=${ele.affiche_id }" target="_blank" title='${ele.title}'><span id="afficheList" style="font-size:13px;">${ele.title}</span>
+	                	<a href="cahgAffiche/afficheDetailsPage.do?affiche_id=${ele.affiche_id }" target="_blank" title='${ele.title}'><span id="afficheList" style="font-size:12px;">${ele.title}</span>
 			             <%--  <span style="color:#999">[${ele.create_date_show }]</span> --%>
 			              <c:if test="${imgShow <=24.0 }"><!-- 判断是否显示 -->
 								<img style="margin-top:-14px;float:right" src="static/images/new.gif">
@@ -435,7 +435,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <div class="bd">
        		<ul class="newsList">
         		<c:forEach items="${noticeList }" var="ele" varStatus="index">
-	        		<li><a id="indexNoticeList" href="cahgActivityNotice/activityNoticeInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting" style="font-size:13px;">${ele.title }</span></a></li>
+	        		<li><a id="indexNoticeList" href="cahgActivityNotice/activityNoticeInfo.do?id=${ele.id}" title="${ele.title }" target="_blank"><span id="meeting" style="font-size:12px;">${ele.title }</span></a></li>
 	            </c:forEach>
            	</ul>
         </div>

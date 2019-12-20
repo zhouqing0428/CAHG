@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       	<div class="fl">
 	      	<div class="font2 dgrey">
 		      	<img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-				<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgImgNews/imgNewsListPage.do' target="_parent">图片新闻列表</a>&nbsp;>&nbsp;<a href='' target="_parent">图片新闻</a>
+				<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgImgNews/imgNewsListPage.do' target="_parent">图片新闻列表</a>&nbsp;>&nbsp;图片新闻
 			</div>
 		</div>
       </div>

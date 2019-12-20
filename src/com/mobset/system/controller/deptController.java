@@ -36,10 +36,30 @@ public class deptController {
 	
 	@RequestMapping(value="/dept_left")
 	public String dept_left(HttpServletRequest request){
-		List<HashMap> deptList = service.deptSelectList(null);
+		HashMap paramMap = new HashMap();
+		paramMap.put("condition", " status = 0 ");
+		List<HashMap> deptList = service.deptSelectList(paramMap);
 		request.setAttribute("deptList", deptList); //科室列表
+		int count = 0;
+		if (deptList != null && deptList.size() > 0) {
+			if (deptList.size() % 3 == 0) {
+				count = deptList.size() / 3;
+			} else {
+				count = deptList.size() / 3 + 1;
+			}
+			request.setAttribute("count", count);
+		}
 		
 		List<HashMap> officeList = service.officeWorkCategory(null);
+		int officeCount = 0;
+		if (officeList != null && officeList.size() > 0) {
+			if (officeList.size() % 4 == 0) {
+				officeCount = officeList.size() / 4;
+			} else {
+				officeCount = officeList.size() / 4 + 1;
+			}
+			request.setAttribute("officeCount", officeCount);
+		}
 		request.setAttribute("officeList", officeList);
 		
 		return "dept/dept_list_deils";

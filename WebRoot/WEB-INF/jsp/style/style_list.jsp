@@ -92,14 +92,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>   
       </div>
       
-      
       <div class="cen-div-1 mar-t">
         <dl class="con-left fl">
         	<dt>长安风采</dt>
         	<c:forEach items="${styleCateList}" var="ele">
+        		<c:if test="${!empty cateId and ele.id eq cateId}">
+        		<dd class="curr">
+					<a href="cahgStyle/styleListPage.do?cateId=${ele.id}" target="_parent" title='${ele.cate_name }' >${ele.cate_name }</a>
+				</dd>
+				</c:if>
+				<c:if test="${empty cateId or ele.id ne cateId}">
         		<dd>
 					<a href="cahgStyle/styleListPage.do?cateId=${ele.id}" target="_parent" title='${ele.cate_name }' >${ele.cate_name }</a>
 				</dd>
+				</c:if>
         	</c:forEach>
         </dl>
         <!-- <iframe class="con-left fl" frameborder="0" scrolling="no" src="index/new_left.do?url=${url }" widht="100%"></iframe>  -->

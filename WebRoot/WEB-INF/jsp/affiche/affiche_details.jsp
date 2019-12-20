@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="cen-div color mar-t">
 		      <div class="con_title_left_c fl_left"> 
 		      	<div class="fl"><div class="font2 dgrey"><img  src="static/picture/wz.png" class="padd-r"/>您现在的位置 :  
-		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgAffiche/afficheListPage.do'  target="_parent">公示公告列表</a>&nbsp;>&nbsp;<a href=''  target="_parent">公示公告</a>
+		<a href='index/page.do'  target="_parent">首页</a>&nbsp;>&nbsp;<a href='cahgAffiche/afficheListPage.do'  target="_parent">公示公告列表</a>&nbsp;>&nbsp;公示公告
 		</div></div>
 		      </div>
 		      
